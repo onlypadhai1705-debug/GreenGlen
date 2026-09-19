@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Instagram, Facebook } from 'lucide-react';
+import { Instagram } from 'lucide-react';
 import { siteConfig, footerLinks } from '@/lib/content';
 
 export default function Footer() {
@@ -71,7 +71,9 @@ export default function Footer() {
                     className="transition-opacity hover:opacity-60 focus-visible:outline-none"
                     style={{ color: 'rgba(244,240,232,0.5)' }}
                   >
-                    <Facebook size={18} strokeWidth={1.5} />
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                    </svg>
                   </Link>
                 )}
               </div>
