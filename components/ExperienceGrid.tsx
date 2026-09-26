@@ -51,12 +51,12 @@ export default function ExperienceGrid() {
           </ScrollReveal>
         </div>
 
-        {/* Editorial grid — asymmetric */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px"
+        {/* Editorial grid — wraps cleanly for 5 cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px"
           style={{ backgroundColor: 'rgba(244,240,232,0.08)' }}
         >
           {experiences.map((exp, i) => (
-            <ScrollReveal key={exp.id} delay={(i % 4) as 0 | 1 | 2 | 3} className="h-full">
+            <ScrollReveal key={exp.id} delay={(i % 3) as 0 | 1 | 2} className="h-full">
               <article
                 className="img-zoom group relative flex flex-col h-full"
                 style={{

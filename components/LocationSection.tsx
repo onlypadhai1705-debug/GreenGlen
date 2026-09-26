@@ -60,7 +60,7 @@ export default function LocationSection() {
                 >
                   <MapPin size={14} style={{ color: 'var(--color-gg-terracotta)' }} strokeWidth={1.5} />
                   <span className="text-label" style={{ color: 'rgba(244,240,232,0.85)', fontSize: '0.625rem' }}>
-                    Sattal · Bhimtal · Uttarakhand
+                    Sattal · Nainital · Uttarakhand
                   </span>
                 </div>
               </div>
@@ -122,6 +122,35 @@ export default function LocationSection() {
               <div style={{ height: '1px', backgroundColor: 'rgba(74,82,64,0.15)' }} aria-hidden="true" />
             </ScrollReveal>
 
+            {/* From Lucknow */}
+            <ScrollReveal delay={2}>
+              <div>
+                <p className="text-label text-gg-terra mb-3">From Lucknow</p>
+                <p
+                  className="font-display"
+                  style={{
+                    fontSize: 'clamp(1.125rem, 2vw, 1.375rem)',
+                    fontWeight: 300,
+                    color: 'var(--color-gg-forest)',
+                    lineHeight: 1.4,
+                  }}
+                >
+                  {locationContent.fromLucknow}
+                </p>
+                <p
+                  className="text-body-sm mt-2"
+                  style={{ color: 'var(--color-gg-sand)' }}
+                >
+                  Via Rampur / Haldwani route
+                </p>
+              </div>
+            </ScrollReveal>
+
+            {/* Divider */}
+            <ScrollReveal delay={3}>
+              <div style={{ height: '1px', backgroundColor: 'rgba(74,82,64,0.15)' }} aria-hidden="true" />
+            </ScrollReveal>
+
             {/* Kainchi Dham */}
             <ScrollReveal delay={3}>
               <div>
@@ -142,6 +171,24 @@ export default function LocationSection() {
                   style={{ color: 'var(--color-gg-olive)' }}
                 >
                   {locationContent.kainchiNote}
+                </p>
+              </div>
+            </ScrollReveal>
+
+            {/* Divider */}
+            <ScrollReveal delay={4}>
+              <div style={{ height: '1px', backgroundColor: 'rgba(74,82,64,0.15)' }} aria-hidden="true" />
+            </ScrollReveal>
+
+            {/* Accessibility */}
+            <ScrollReveal delay={4}>
+              <div>
+                <p className="text-label text-gg-terra mb-3">Accessibility</p>
+                <p
+                  className="text-body-sm"
+                  style={{ color: 'var(--color-gg-olive)' }}
+                >
+                  {locationContent.accessNote}
                 </p>
               </div>
             </ScrollReveal>

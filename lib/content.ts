@@ -5,8 +5,8 @@
 export const siteConfig = {
   name: 'Green Glen',
   tagline: 'A home away from home, in the heart of the hills.',
-  location: 'Sattal · Bhimtal · Uttarakhand',
-  locationFull: 'Sattal, Bhimtal, Uttarakhand, India',
+  location: 'Sattal · Nainital · Uttarakhand',
+  locationFull: 'Sattal, Nainital, Uttarakhand, India',
   phone: '', // Add phone number here
   email: '', // Add email address here
   whatsapp: '', // Add WhatsApp number (with country code, e.g. 919876543210)
@@ -32,7 +32,7 @@ export const navLinks = [
 ] as const;
 
 export const heroContent = {
-  eyebrow: 'Sattal · Bhimtal · Uttarakhand',
+  eyebrow: 'Sattal · Nainital · Uttarakhand',
   headline: ['A home away', 'from home.'],
   subline: 'In the heart of the hills.',
   ctaPrimary: { label: 'Plan Your Stay', href: '#contact' },
@@ -45,7 +45,7 @@ export const brandIntroContent = {
   eyebrow: 'About Green Glen',
   headline: 'Where the hills feel a little more like home.',
   body: [
-    'Green Glen is a countryside eco-comfort retreat in Sattal, Bhimtal, built around the warmth of a traditional mudhouse, open spaces and a genuinely personal approach to hospitality.',
+    'Green Glen is a countryside eco-comfort retreat in Sattal, near Nainital, built around the warmth of a traditional mudhouse living room, open spaces and a genuinely personal approach to hospitality.',
     'It is a place for gathering, for slowing down, for sharing meals and for feeling, just for a while, that a corner of the hills belongs entirely to you.',
   ],
   pullQuote: '"Designed around the warmth of the hills."',
@@ -56,9 +56,9 @@ export const brandIntroContent = {
 export const mudhouseContent = {
   eyebrow: 'The Mudhouse',
   headline: 'Built with the soul of the hills.',
-  body: 'Green Glen is designed in the tradition of local mud-house architecture. Earthen walls, wooden beams, natural materials and the warmth of hand-crafted interiors make the space feel rooted in the landscape it inhabits. Every corner carries the character of the land it is built on.',
+  body: 'The living room is the heart of Green Glen — built in the tradition of local mud-house architecture, with earthen walls, a mud floor, wooden beams and hand-crafted interiors that feel rooted in the landscape. The guest rooms, by contrast, feature warm wooden floors and earthy furnishings — comfortable, grounded and entirely personal.',
   pullQuote: 'Earth. Craft. Character.',
-  caption: 'Traditional earthen walls and carved wooden frames — architecture that belongs to this land.',
+  caption: 'Earthen walls and mud floor in the living room; warm wooden floors in the guest rooms — a home for every sense.',
   image: '/images/mudhouse-exterior.jpg',
   imageAlt: 'Close-up architectural photograph of Green Glen mudhouse exterior showing traditional earthen clay walls and carved wooden window',
 } as const;
@@ -92,13 +92,21 @@ export const experiences = [
     id: 'private',
     eyebrow: '03',
     title: 'Private Groups',
-    body: 'The property accommodates groups of up to 16 guests exclusively. Your gathering. Your pace. Your space.',
+    body: 'The property accommodates groups of up to 20 guests exclusively — spacious rooms that easily fit an extra bed for those who prefer triple share. Your gathering. Your pace. Your space.',
     image: '/images/group-experience.jpg',
     imageAlt: 'Family group gathering outdoors at Green Glen retreat in the Himalayan hills',
   },
   {
-    id: 'kainchi',
+    id: 'birding',
     eyebrow: '04',
+    title: 'Bird Watchers\' Paradise',
+    body: 'Sattal is one of India\'s finest birding destinations. With over 500 species recorded in the region, Green Glen is an ideal base for early-morning bird walks through the mixed oak and pine forests.',
+    image: '/images/open-space.jpg',
+    imageAlt: 'Dense forest canopy at Sattal — a bird watcher\'s paradise near Green Glen retreat',
+  },
+  {
+    id: 'kainchi',
+    eyebrow: '05',
     title: 'Kainchi Dham',
     body: 'Neem Karoli Baba\'s beloved ashram is nearby. Green Glen is a peaceful and convenient base for visiting.',
     image: '/images/kainchi-dham.jpg',
@@ -107,11 +115,11 @@ export const experiences = [
 ] as const;
 
 export const groupContent = {
-  number: '16',
+  number: '20',
   eyebrow: 'Exclusively Yours',
   headline: 'Just your people.',
-  body: 'An intimate retreat designed for families, friends and private groups. When you come to Green Glen, the property is yours — all of it.',
-  subtext: 'Up to 16 guests · Exclusive property · Personalised hospitality',
+  body: 'An intimate retreat designed for families, friends and private groups. When you come to Green Glen, the property is yours — all of it. Spacious rooms comfortably accommodate an extra bed for triple share.',
+  subtext: 'Up to 20 guests · Exclusive property · Personalised hospitality',
   image: '/images/group-experience.jpg',
   imageAlt: 'Family group gathering at Green Glen Himalayan retreat',
 } as const;
@@ -154,9 +162,11 @@ export const retreats = [
 export const locationContent = {
   eyebrow: 'Find Us',
   headline: 'Somewhere between the forest and the lake.',
-  location: 'Sattal, Bhimtal, Uttarakhand',
+  location: 'Sattal, Nainital, Uttarakhand',
   fromDelhi: 'Approximately 6 hours from Delhi',
+  fromLucknow: 'Approximately 5–6 hours from Lucknow',
   kainchiNote: 'Kainchi Dham / Neem Karoli Baba Ashram is nearby.',
+  accessNote: 'Flat, step-friendly pathways throughout the property — easily accessible for senior guests and wheelchair users.',
   image: '/images/sattal-location.jpg',
   imageAlt: 'Aerial view of Sattal lake surrounded by dense green forest in Uttarakhand — location of Green Glen retreat',
   mapCta: 'Get Directions',

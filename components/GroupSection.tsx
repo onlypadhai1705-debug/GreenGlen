@@ -43,7 +43,7 @@ export default function GroupSection() {
                     userSelect: 'none',
                   }}
                 >
-                  16
+                  20
                 </span>
                 <div className="pb-4">
                   <span
