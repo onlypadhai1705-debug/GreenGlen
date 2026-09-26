@@ -13,7 +13,7 @@ export default function ExperienceGrid() {
     >
       <div className="container-gg">
         {/* Section header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-14">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-20">
           <div>
             <ScrollReveal delay={0}>
               <div className="flex items-center gap-4 mb-5">
@@ -51,9 +51,8 @@ export default function ExperienceGrid() {
           </ScrollReveal>
         </div>
 
-        {/* Editorial grid — wraps cleanly for 5 cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px"
-          style={{ backgroundColor: 'rgba(244,240,232,0.08)' }}
+        {/* Editorial grid — 3 columns on lg, wraps for 5 cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
         >
           {experiences.map((exp, i) => (
             <ScrollReveal key={exp.id} delay={(i % 3) as 0 | 1 | 2} className="h-full">
@@ -61,7 +60,8 @@ export default function ExperienceGrid() {
                 className="img-zoom group relative flex flex-col h-full"
                 style={{
                   backgroundColor: 'var(--color-gg-forest)',
-                  minHeight: '420px',
+                  border: '1px solid rgba(244,240,232,0.07)',
+                  minHeight: '460px',
                 }}
               >
                 {/* Image */}
@@ -95,7 +95,7 @@ export default function ExperienceGrid() {
                 </div>
 
                 {/* Text */}
-                <div className="flex flex-col flex-1 p-6">
+                <div className="flex flex-col flex-1 p-8">
                   <h3
                     className="font-display mb-3"
                     style={{

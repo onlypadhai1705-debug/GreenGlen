@@ -12,7 +12,7 @@ export default function RetreatsSection() {
     >
       <div className="container-gg">
         {/* Header */}
-        <div className="mb-14">
+        <div className="mb-20">
           <ScrollReveal delay={0}>
             <div className="flex items-center gap-4 mb-5">
               <span className="text-label text-gg-terra">Groups & Retreats</span>
@@ -34,7 +34,7 @@ export default function RetreatsSection() {
         </div>
 
         {/* Three retreat categories */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-14">
           {retreats.map((retreat, i) => (
             <ScrollReveal key={retreat.id} delay={(i as 0 | 1 | 2)} className="h-full">
               <article className="group flex flex-col h-full">
