@@ -111,7 +111,7 @@ export default function Gallery() {
           </div>
 
           {/* Masonry-style editorial grid */}
-          <div className="columns-1 sm:columns-2 lg:columns-3 gap-3 space-y-3">
+          <div className="columns-1 sm:columns-2 lg:columns-3 gap-5 space-y-5">
             {filtered.map((image, i) => (
               <div key={image.id} className="break-inside-avoid">
                 <ScrollReveal delay={((i % 3) as 0 | 1 | 2)}>
