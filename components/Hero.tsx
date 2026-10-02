@@ -36,7 +36,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      aria-label="Green Glen hero — mudhouse retreat in Sattal, Bhimtal, Uttarakhand"
+      aria-label="Green Glen hero — mudhouse retreat in Sattal, Nainital, Uttarakhand"
       className="relative h-screen min-h-[600px] flex items-end overflow-hidden"
       style={{ backgroundColor: 'var(--color-gg-forest-dark)' }}
     >

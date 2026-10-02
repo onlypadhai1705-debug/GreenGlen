@@ -18,25 +18,27 @@ const inter = Inter({
   display: 'swap',
 });
 
-const title = 'Green Glen — Eco-Retreat in Sattal, Bhimtal, Uttarakhand';
+const title = 'Green Glen — Eco-Retreat in Sattal, Nainital, Uttarakhand';
 const description =
-  'Green Glen is a boutique mud-house eco-retreat in Sattal, Bhimtal, Uttarakhand. A home away from home for families, friends and private groups of up to 16. Conveniently located near Kainchi Dham, approximately 6 hours from Delhi.';
+  'Green Glen is a boutique mud-house eco-retreat in Sattal, near Nainital, Uttarakhand. A home away from home for families, friends and private groups of up to 20. Conveniently located near Kainchi Dham, approximately 6 hours from Delhi and 5–6 hours from Lucknow.';
 
 export const metadata: Metadata = {
   title,
   description,
   keywords: [
     'Green Glen Sattal',
-    'Green Glen Bhimtal',
+    'Green Glen Nainital',
     'Sattal resort',
-    'Bhimtal retreat',
+    'Nainital retreat',
     'eco retreat Sattal',
     'mud house stay Uttarakhand',
     'family retreat near Nainital',
-    'private group stay Bhimtal',
+    'private group stay Sattal Nainital',
     'corporate retreat Uttarakhand',
     'yoga retreat Sattal',
     'stay near Kainchi Dham',
+    'birding Sattal',
+    'bird watching Nainital',
   ],
   authors: [{ name: 'Green Glen' }],
   creator: 'Green Glen',
@@ -53,7 +55,7 @@ export const metadata: Metadata = {
         url: siteConfig.ogImage,
         width: 1400,
         height: 875,
-        alt: 'Green Glen — Mud-house eco-retreat in Sattal, Bhimtal, Uttarakhand',
+        alt: 'Green Glen — Mud-house eco-retreat in Sattal, Nainital, Uttarakhand',
       },
     ],
     locale: 'en_IN',

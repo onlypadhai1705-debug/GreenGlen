@@ -36,7 +36,7 @@ export default function Footer() {
               className="text-body mt-4 max-w-xs"
               style={{ color: 'rgba(244,240,232,0.48)' }}
             >
-              A mud-house eco-comfort retreat in Sattal, Bhimtal, Uttarakhand.
+              A mud-house eco-comfort retreat in Sattal, Nainital, Uttarakhand.
               A home away from home for families, friends and private groups.
             </p>
 
@@ -44,7 +44,7 @@ export default function Footer() {
               className="text-label mt-5"
               style={{ color: 'rgba(244,240,232,0.35)', letterSpacing: '0.14em' }}
             >
-              Sattal · Bhimtal · Uttarakhand
+              Sattal · Nainital · Uttarakhand
             </p>
 
             {/* Social links (only shown if configured) */}
@@ -195,7 +195,7 @@ export default function Footer() {
             © {year} Green Glen. All rights reserved.
           </p>
           <p className="text-body-sm" style={{ color: 'rgba(244,240,232,0.2)' }}>
-            Sattal · Bhimtal · Uttarakhand · India
+            Sattal · Nainital · Uttarakhand · India
           </p>
         </div>
       </div>

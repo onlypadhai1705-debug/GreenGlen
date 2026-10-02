@@ -176,7 +176,7 @@ export default function Navbar() {
             className="text-label absolute bottom-10"
             style={{ color: 'rgba(244,240,232,0.4)' }}
           >
-            Sattal · Bhimtal · Uttarakhand
+            Sattal · Nainital · Uttarakhand
           </p>
         </div>
       </div>
