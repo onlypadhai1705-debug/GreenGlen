@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import ScrollReveal from './ScrollReveal';
 import { experiences } from '@/lib/content';
+import { blurData } from '@/lib/blurData';
 
 export default function ExperienceGrid() {
   return (
@@ -72,6 +73,8 @@ export default function ExperienceGrid() {
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     quality={75}
+                    placeholder="blur"
+                    blurDataURL={blurData[exp.image]}
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                     style={{ objectPosition: 'center 30%' }}
                   />

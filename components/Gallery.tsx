@@ -6,6 +6,7 @@ import ScrollReveal from './ScrollReveal';
 import Lightbox from './Lightbox';
 import { galleryImages } from '@/lib/content';
 import type { GalleryCategory } from '@/lib/types';
+import { blurData } from '@/lib/blurData';
 
 const CATEGORIES: GalleryCategory[] = [
   'All',
@@ -130,6 +131,8 @@ export default function Gallery() {
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       quality={75}
+                      placeholder="blur"
+                      blurDataURL={blurData[image.src]}
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                     {/* Hover overlay */}

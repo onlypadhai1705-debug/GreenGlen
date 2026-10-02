@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import ScrollReveal from './ScrollReveal';
 import { brandIntroContent } from '@/lib/content';
+import { blurData } from '@/lib/blurData';
 
 export default function BrandIntro() {
   return (
@@ -30,6 +31,8 @@ export default function BrandIntro() {
                   fill
                   sizes="(max-width: 1024px) 100vw, 42vw"
                   quality={80}
+                  placeholder="blur"
+                  blurDataURL={blurData[brandIntroContent.image]}
                   className="object-cover"
                   style={{ objectPosition: 'center 30%' }}
                 />

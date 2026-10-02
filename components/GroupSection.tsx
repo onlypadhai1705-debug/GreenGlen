@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import ScrollReveal from './ScrollReveal';
 import { groupContent } from '@/lib/content';
+import { blurData } from '@/lib/blurData';
 
 export default function GroupSection() {
   return (
@@ -109,6 +110,8 @@ export default function GroupSection() {
                   fill
                   sizes="(max-width: 1024px) 100vw, 40vw"
                   quality={80}
+                  placeholder="blur"
+                  blurDataURL={blurData[groupContent.image]}
                   className="object-cover"
                   style={{ objectPosition: 'center 20%' }}
                 />

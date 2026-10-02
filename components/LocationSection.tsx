@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { MapPin, Navigation } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
 import { locationContent } from '@/lib/content';
+import { blurData } from '@/lib/blurData';
 
 export default function LocationSection() {
   return (
@@ -50,6 +51,8 @@ export default function LocationSection() {
                   fill
                   sizes="(max-width: 1024px) 100vw, 58vw"
                   quality={80}
+                  placeholder="blur"
+                  blurDataURL={blurData[locationContent.image]}
                   className="object-cover"
                   style={{ objectPosition: 'center 40%' }}
                 />

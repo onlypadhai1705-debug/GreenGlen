@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import ScrollReveal from './ScrollReveal';
 import { mudhouseContent } from '@/lib/content';
+import { blurData } from '@/lib/blurData';
 
 export default function MudhouseSection() {
   return (
@@ -51,6 +52,8 @@ export default function MudhouseSection() {
               fill
               sizes="(max-width: 768px) 100vw, 90vw"
               quality={82}
+              placeholder="blur"
+              blurDataURL={blurData[mudhouseContent.image]}
               className="object-cover"
               style={{ objectPosition: 'center 35%' }}
             />

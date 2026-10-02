@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import ScrollReveal from './ScrollReveal';
 import { openSpaceContent } from '@/lib/content';
+import { blurData } from '@/lib/blurData';
 
 export default function OpenSpaceSection() {
   const imgRef = useRef<HTMLDivElement>(null);
@@ -80,6 +81,8 @@ export default function OpenSpaceSection() {
               fill
               sizes="100vw"
               quality={82}
+              placeholder="blur"
+              blurDataURL={blurData[openSpaceContent.image]}
               className="object-cover"
               style={{ objectPosition: 'center 40%' }}
             />

@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import ScrollReveal from './ScrollReveal';
 import { ctaContent } from '@/lib/content';
+import { blurData } from '@/lib/blurData';
 
 export default function CTASection() {
   return (
@@ -18,6 +19,8 @@ export default function CTASection() {
           fill
           sizes="100vw"
           quality={80}
+          placeholder="blur"
+          blurDataURL={blurData[ctaContent.image]}
           className="object-cover"
           style={{ objectPosition: 'center 35%' }}
         />

@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import ScrollReveal from './ScrollReveal';
 import { foodContent } from '@/lib/content';
+import { blurData } from '@/lib/blurData';
 
 export default function FoodSection() {
   return (
@@ -22,6 +23,8 @@ export default function FoodSection() {
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   quality={82}
+                  placeholder="blur"
+                  blurDataURL={blurData[foodContent.image]}
                   className="object-cover"
                   style={{ objectPosition: 'center 35%' }}
                 />

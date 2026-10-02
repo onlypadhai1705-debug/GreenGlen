@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import ScrollReveal from './ScrollReveal';
 import { retreats } from '@/lib/content';
+import { blurData } from '@/lib/blurData';
 
 export default function RetreatsSection() {
   return (
@@ -49,6 +50,8 @@ export default function RetreatsSection() {
                     fill
                     sizes="(max-width: 768px) 100vw, 33vw"
                     quality={75}
+                    placeholder="blur"
+                    blurDataURL={blurData[retreat.image]}
                     className="object-cover"
                     style={{ objectPosition: 'center 30%' }}
                   />

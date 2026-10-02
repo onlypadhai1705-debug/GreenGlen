@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowDown } from 'lucide-react';
 import { heroContent } from '@/lib/content';
+import { blurData } from '@/lib/blurData';
 
 export default function Hero() {
   const [loaded, setLoaded] = useState(false);
@@ -50,9 +51,12 @@ export default function Hero() {
           src={heroContent.image}
           alt={heroContent.imageAlt}
           fill
-          priority
-          quality={85}
+          preload
+          loading="eager"
+          quality={82}
           sizes="100vw"
+          placeholder="blur"
+          blurDataURL={blurData[heroContent.image]}
           className="object-cover"
           style={{
             objectPosition: 'center 40%',
