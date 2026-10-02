@@ -40,10 +40,10 @@ export default function ExperienceGrid() {
               </h2>
             </ScrollReveal>
           </div>
-          <ScrollReveal delay={2}>
+          <ScrollReveal delay={2} className="w-full sm:w-auto mt-6 sm:mt-0">
             <Link
               href="#contact"
-              className="btn-outline"
+              className="btn-outline w-full sm:w-auto justify-center"
               style={{ alignSelf: 'flex-end' }}
             >
               Plan Your Stay

@@ -87,11 +87,11 @@ export default function CTASection() {
         </ScrollReveal>
 
         <ScrollReveal delay={3}>
-          <div className="flex flex-wrap items-center justify-center gap-5">
+          <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4 sm:gap-5 w-full">
             <Link
               href={ctaContent.ctaPrimary.href}
               id="final-cta-primary"
-              className="btn-primary"
+              className="btn-primary w-full sm:w-auto justify-center"
               style={{
                 backgroundColor: 'var(--color-gg-terracotta)',
                 borderColor: 'var(--color-gg-terracotta)',
@@ -104,7 +104,7 @@ export default function CTASection() {
             <Link
               href={ctaContent.ctaSecondary.href}
               id="final-cta-secondary"
-              className="btn-outline"
+              className="btn-outline w-full sm:w-auto justify-center"
             >
               {ctaContent.ctaSecondary.label}
             </Link>

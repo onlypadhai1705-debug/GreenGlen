@@ -106,8 +106,8 @@ export default function Navbar() {
                 backgroundColor: 'transparent',
                 borderColor: scrolled ? 'var(--color-gg-forest)' : 'rgba(244,240,232,0.4)',
                 color: scrolled ? 'var(--color-gg-forest)' : 'var(--color-gg-ivory)',
-                padding: '0.5rem 1rem',
-                fontSize: '0.6rem',
+                padding: '0.4rem 0.8rem',
+                fontSize: '0.65rem',
               }}
               onClick={handleNavClick}
             >

@@ -126,7 +126,7 @@ export default function Hero() {
 
         {/* CTAs */}
         <div
-          className="flex flex-wrap items-center gap-4"
+          className="flex flex-col sm:flex-row flex-wrap items-center gap-4 sm:gap-4 w-full"
           style={{
             opacity: loaded ? 1 : 0,
             transform: loaded ? 'translateY(0)' : 'translateY(2rem)',
@@ -136,7 +136,7 @@ export default function Hero() {
           <Link
             href={heroContent.ctaPrimary.href}
             id="hero-cta-primary"
-            className="btn-primary"
+            className="btn-primary w-full sm:w-auto justify-center"
             style={{ backgroundColor: 'var(--color-gg-forest)', borderColor: 'var(--color-gg-forest)' }}
           >
             {heroContent.ctaPrimary.label}
@@ -144,7 +144,7 @@ export default function Hero() {
           <Link
             href={heroContent.ctaSecondary.href}
             id="hero-cta-secondary"
-            className="btn-outline"
+            className="btn-outline w-full sm:w-auto justify-center"
           >
             {heroContent.ctaSecondary.label}
           </Link>

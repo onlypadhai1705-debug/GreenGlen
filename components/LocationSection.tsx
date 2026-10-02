@@ -200,7 +200,7 @@ export default function LocationSection() {
                   href={locationContent.mapUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-outline-dark inline-flex items-center gap-2"
+                  className="btn-outline-dark w-full sm:w-auto gap-2"
                   id="location-directions-cta"
                 >
                   <Navigation size={13} strokeWidth={1.5} />
@@ -208,7 +208,7 @@ export default function LocationSection() {
                 </Link>
               ) : (
                 <div
-                  className="btn-outline-dark inline-flex items-center gap-2 opacity-50 cursor-default"
+                  className="btn-outline-dark w-full sm:w-auto gap-2 opacity-50 cursor-default"
                   title="Directions link coming soon"
                   aria-label="Directions — link coming soon"
                 >

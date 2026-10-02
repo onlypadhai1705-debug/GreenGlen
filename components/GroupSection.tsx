@@ -89,7 +89,7 @@ export default function GroupSection() {
             {/* CTA */}
             <ScrollReveal delay={3}>
               <div className="mt-10">
-                <Link href="#contact" className="btn-primary">
+                <Link href="#contact" className="btn-primary w-full sm:w-auto justify-center">
                   Enquire for Your Group
                 </Link>
               </div>
