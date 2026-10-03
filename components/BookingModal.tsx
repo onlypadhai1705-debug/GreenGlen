@@ -63,10 +63,23 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
 
     // If WhatsApp number is configured, compose a message and open WhatsApp
     if (siteConfig.whatsapp) {
-      const msg = encodeURIComponent(
-        `Hello Green Glen,\n\nName: ${form.name}\nPhone: ${form.phone}\nEmail: ${form.email}\nCheck-in: ${form.checkin}\nCheck-out: ${form.checkout}\nGuests: ${form.guests}\nPurpose: ${form.purpose}\n\nMessage:\n${form.message}`
-      );
-      window.open(`https://wa.me/${siteConfig.whatsapp}?text=${msg}`, '_blank');
+      const lines = [
+        `🌿 *Green Glen — Stay Enquiry*`,
+        ``,
+        `👤 Name: ${form.name}`,
+        `📞 Phone: ${form.phone}`,
+        form.email ? `📧 Email: ${form.email}` : null,
+        ``,
+        form.checkin  ? `📅 Check-in:  ${form.checkin}`  : null,
+        form.checkout ? `📅 Check-out: ${form.checkout}` : null,
+        form.guests   ? `👥 Guests: ${form.guests}`      : null,
+        form.purpose  ? `🎯 Purpose: ${form.purpose}`    : null,
+        ``,
+        form.message  ? `💬 Message:\n${form.message}`   : null,
+      ].filter(Boolean).join('\n');
+
+      const url = `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(lines)}`;
+      window.open(url, '_blank', 'noopener,noreferrer');
     }
 
     // Simulate form submission (replace with real backend/email/form service)

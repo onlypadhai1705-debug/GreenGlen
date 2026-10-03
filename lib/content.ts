@@ -7,9 +7,9 @@ export const siteConfig = {
   tagline: 'A home away from home, in the heart of the hills.',
   location: 'Sattal · Nainital · Uttarakhand',
   locationFull: 'Sattal, Nainital, Uttarakhand, India',
-  phone: '', // Add phone number here
+  phone: '+91 95995 57593',
   email: '', // Add email address here
-  whatsapp: '', // Add WhatsApp number (with country code, e.g. 919876543210)
+  whatsapp: '919599557593', // WhatsApp number with country code (no +, no spaces)
   bookingUrl: '', // Add booking URL if available
   googleMapsUrl: '', // Add Google Maps link here
   
