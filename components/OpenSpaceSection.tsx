@@ -66,10 +66,7 @@ export default function OpenSpaceSection() {
 
       {/* Full-width image with scale-on-scroll */}
       <ScrollReveal>
-        <div
-          className="relative w-full overflow-hidden"
-          style={{ aspectRatio: '21/9', minHeight: '320px' }}
-        >
+        <div className="relative w-full overflow-hidden" style={{ aspectRatio: '4/3', minHeight: '260px' }}>
           <div
             ref={imgRef}
             className="absolute inset-0 w-full h-full will-change-transform"

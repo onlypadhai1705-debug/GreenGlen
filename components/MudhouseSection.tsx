@@ -13,7 +13,7 @@ export default function MudhouseSection() {
     >
       <div className="container-gg">
         {/* Top: Editorial headline */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-14 items-end">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-8 md:mb-14 items-end">
           <div className="lg:col-span-7">
             <ScrollReveal delay={0}>
               <div className="flex items-center gap-4 mb-5">
@@ -45,7 +45,7 @@ export default function MudhouseSection() {
 
         {/* Main image — full bleed within section */}
         <ScrollReveal delay={1}>
-          <div className="relative w-full img-zoom" style={{ aspectRatio: '16/9' }}>
+          <div className="relative w-full img-zoom" style={{ aspectRatio: '3/2' }}>
             <Image
               src={mudhouseContent.image}
               alt={mudhouseContent.imageAlt}
@@ -65,7 +65,7 @@ export default function MudhouseSection() {
               }}
               aria-hidden="true"
             />
-            <div className="absolute bottom-8 left-8 md:bottom-12 md:left-12 max-w-lg">
+            <div className="absolute bottom-5 left-5 md:bottom-12 md:left-12 max-w-xs md:max-w-lg">
               <p
                 className="font-display"
                 style={{

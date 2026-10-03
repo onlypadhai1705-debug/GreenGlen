@@ -87,12 +87,12 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
       style={{ backgroundColor: 'rgba(17,26,18,0.88)', backdropFilter: 'blur(6px)' }}
     >
       <div
-        className="relative w-full sm:max-w-2xl max-h-[92vh] overflow-y-auto"
+        className="relative w-full sm:max-w-2xl max-h-[96vh] sm:max-h-[92vh] overflow-y-auto"
         style={{ backgroundColor: 'var(--color-gg-ivory)' }}
       >
         {/* Header */}
         <div
-          className="sticky top-0 flex items-center justify-between px-8 py-6 z-10"
+          className="sticky top-0 flex items-center justify-between px-5 sm:px-8 py-5 z-10"
           style={{
             backgroundColor: 'var(--color-gg-ivory)',
             borderBottom: '1px solid rgba(74,82,64,0.1)',
@@ -123,7 +123,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
         </div>
 
         {/* Body */}
-        <div className="px-8 py-8">
+        <div className="px-5 sm:px-8 py-6 sm:py-8">
           {submitted ? (
             <div className="flex flex-col items-center justify-center py-12 text-center gap-5">
               <div

@@ -31,12 +31,12 @@ export default function GroupSection() {
 
             {/* The "16" statement — oversized */}
             <ScrollReveal delay={1}>
-              <div className="flex items-end gap-6 mb-3 leading-none">
+              <div className="flex items-end gap-4 mb-3 leading-none">
                 <span
                   className="font-display"
                   aria-hidden="true"
                   style={{
-                    fontSize: 'clamp(7rem, 18vw, 13rem)',
+                    fontSize: 'clamp(5rem, 15vw, 13rem)',
                     fontWeight: 300,
                     color: 'var(--color-gg-forest)',
                     lineHeight: 1,
@@ -46,7 +46,7 @@ export default function GroupSection() {
                 >
                   20
                 </span>
-                <div className="pb-4">
+                <div className="pb-3">
                   <span
                     className="text-label block mb-1"
                     style={{ color: 'var(--color-gg-olive-light)' }}

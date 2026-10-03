@@ -62,11 +62,10 @@ export default function ExperienceGrid() {
                 style={{
                   backgroundColor: 'var(--color-gg-forest)',
                   border: '1px solid rgba(244,240,232,0.07)',
-                  minHeight: '460px',
                 }}
               >
                 {/* Image */}
-                <div className="relative overflow-hidden flex-shrink-0" style={{ height: '260px' }}>
+                <div className="relative overflow-hidden flex-shrink-0" style={{ aspectRatio: '16/9' }}>
                   <Image
                     src={exp.image}
                     alt={exp.imageAlt}

@@ -9,7 +9,7 @@ export default function CTASection() {
     <section
       aria-labelledby="cta-heading"
       className="relative flex items-center justify-center overflow-hidden"
-      style={{ minHeight: '85vh' }}
+      style={{ minHeight: 'clamp(60vh, 80vw, 85vh)' }}
     >
       {/* Background image */}
       <div className="absolute inset-0">

@@ -80,7 +80,7 @@ export default function Hero() {
       />
 
       {/* Hero Content */}
-      <div className="container-gg relative z-10 pb-20 md:pb-28">
+      <div className="container-gg relative z-10 pb-16 md:pb-28">
         {/* Eyebrow */}
         <p
           className="text-label mb-6"
@@ -159,7 +159,7 @@ export default function Hero() {
       <button
         onClick={scrollToContent}
         aria-label="Scroll to content"
-        className="absolute bottom-8 right-8 md:right-16 z-10 flex flex-col items-center gap-2 group"
+        className="absolute bottom-6 right-5 md:bottom-8 md:right-16 z-10 flex flex-col items-center gap-2 group"
         style={{
           opacity: loaded ? 1 : 0,
           transition: 'opacity 1s ease 1.3s',

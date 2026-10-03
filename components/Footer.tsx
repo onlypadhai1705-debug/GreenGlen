@@ -12,8 +12,8 @@ export default function Footer() {
       style={{ backgroundColor: 'var(--color-gg-forest)' }}
     >
       {/* Main footer grid */}
-      <div className="container-gg py-16 lg:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-14 md:gap-8">
+      <div className="container-gg py-12 md:py-16 lg:py-20">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8">
 
           {/* Brand column */}
           <div className="md:col-span-5">
@@ -172,11 +172,11 @@ export default function Footer() {
               <Link
                 href="#contact"
                 id="footer-cta"
-                className="btn-primary"
+                className="btn-primary w-full sm:w-auto justify-center"
                 style={{
                   backgroundColor: 'var(--color-gg-terracotta)',
                   borderColor: 'var(--color-gg-terracotta)',
-                  padding: '0.75rem 1.5rem',
+                  padding: '0.875rem 1.5rem',
                 }}
               >
                 Plan Your Stay
