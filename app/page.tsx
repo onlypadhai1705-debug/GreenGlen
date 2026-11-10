@@ -8,6 +8,7 @@ import BrandIntro from '@/components/BrandIntro';
 import MudhouseSection from '@/components/MudhouseSection';
 import OpenSpaceSection from '@/components/OpenSpaceSection';
 import ExperienceGrid from '@/components/ExperienceGrid';
+import BirdWatchingSection from '@/components/BirdWatchingSection';
 import ActivitiesSection from '@/components/ActivitiesSection';
 import GroupSection from '@/components/GroupSection';
 import FoodSection from '@/components/FoodSection';
@@ -44,6 +45,7 @@ export default function HomePage() {
         <MudhouseSection />
         <OpenSpaceSection />
         <ExperienceGrid />
+        <BirdWatchingSection />
         <ActivitiesSection />
         <GroupSection />
         <FoodSection />
