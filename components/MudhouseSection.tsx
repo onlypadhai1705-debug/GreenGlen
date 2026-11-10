@@ -61,9 +61,8 @@ export default function MudhouseSection() {
         {/* Main image with breathing room */}
         <ScrollReveal delay={1}>
           <div 
-            className="relative w-full img-zoom" 
+            className="relative w-full img-zoom aspect-[4/3] sm:aspect-[3/2]" 
             style={{ 
-              aspectRatio: '3/2',
               borderRadius: 'var(--radius-lg)',
               overflow: 'hidden',
             }}
@@ -90,15 +89,16 @@ export default function MudhouseSection() {
             <div 
               className="absolute" 
               style={{
-                bottom: 'clamp(2rem, 5vw, 4rem)',
-                left: 'clamp(2rem, 5vw, 4rem)',
-                maxWidth: 'clamp(320px, 40vw, 600px)',
+                bottom: 'clamp(1.5rem, 4vw, 4rem)',
+                left: 'clamp(1.25rem, 4vw, 4rem)',
+                right: 'clamp(1.25rem, 4vw, 4rem)',
+                maxWidth: '620px',
               }}
             >
               <p
                 className="font-display"
                 style={{
-                  fontSize: 'clamp(1.75rem, 4vw, 3rem)',
+                  fontSize: 'clamp(1.35rem, 3.8vw, 2.75rem)',
                   fontWeight: 400,
                   fontStyle: 'italic',
                   color: 'var(--color-gg-white)',

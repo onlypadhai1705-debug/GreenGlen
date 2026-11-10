@@ -13,13 +13,13 @@ export default function GroupSection() {
       style={{ backgroundColor: 'var(--color-gg-cream)' }}
     >
       <div className="container-gg">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-16 lg:gap-24 items-center">
 
           {/* Left: Typography-dominant block */}
           <div className="flex flex-col justify-center">
             {/* Eyebrow */}
             <ScrollReveal delay={0}>
-              <div className="flex items-center gap-5 mb-10">
+              <div className="flex items-center gap-5 mb-8 sm:mb-10">
                 <div
                   style={{
                     width: '48px',
@@ -39,12 +39,12 @@ export default function GroupSection() {
 
             {/* The "20" statement — oversized */}
             <ScrollReveal delay={1}>
-              <div className="flex items-end gap-6 mb-8 leading-none">
+              <div className="flex items-end gap-3 sm:gap-6 mb-6 sm:mb-8 leading-none">
                 <span
                   className="font-display"
                   aria-hidden="true"
                   style={{
-                    fontSize: 'clamp(6rem, 16vw, 14rem)',
+                    fontSize: 'clamp(4.25rem, 15vw, 13rem)',
                     fontWeight: 300,
                     color: 'var(--color-gg-forest)',
                     lineHeight: 1,
@@ -54,9 +54,9 @@ export default function GroupSection() {
                 >
                   20
                 </span>
-                <div style={{ paddingBottom: '1.5rem' }}>
+                <div style={{ paddingBottom: 'clamp(0.75rem, 2vw, 1.5rem)' }}>
                   <span
-                    className="text-label block mb-2"
+                    className="text-label block mb-1 sm:mb-2"
                     style={{ color: 'rgba(74,107,69,0.7)' }}
                   >
                     Up to
@@ -64,7 +64,7 @@ export default function GroupSection() {
                   <span
                     className="font-display block"
                     style={{
-                      fontSize: 'clamp(1.5rem, 3vw, 2.25rem)',
+                      fontSize: 'clamp(1.25rem, 3vw, 2.25rem)',
                       fontWeight: 400,
                       color: 'var(--color-gg-forest)',
                     }}

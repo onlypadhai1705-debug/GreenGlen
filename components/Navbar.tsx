@@ -131,7 +131,7 @@ export default function Navbar() {
           </nav>
 
           {/* Mobile: CTA + Hamburger */}
-          <div className="flex lg:hidden items-center gap-3">
+          <div className="flex lg:hidden items-center gap-2 sm:gap-3">
             <Link
               href="#contact"
               className="btn-primary"
@@ -139,8 +139,9 @@ export default function Navbar() {
                 backgroundColor: 'transparent',
                 borderColor: scrolled ? 'var(--color-gg-forest)' : 'rgba(244,240,232,0.4)',
                 color: scrolled ? 'var(--color-gg-forest)' : 'var(--color-gg-ivory)',
-                padding: '0.4rem 0.8rem',
-                fontSize: '0.65rem',
+                padding: '0.4rem 0.75rem',
+                fontSize: '0.625rem',
+                letterSpacing: '0.12em',
               }}
               onClick={handleNavClick}
             >
@@ -150,26 +151,26 @@ export default function Navbar() {
               aria-label={menuOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={menuOpen}
               onClick={() => setMenuOpen(!menuOpen)}
-              className="p-2 focus-visible:outline-none"
+              className="p-2 -mr-2 focus-visible:outline-none cursor-pointer"
               style={{ color: scrolled ? 'var(--color-gg-forest)' : 'var(--color-gg-ivory)' }}
             >
-              {menuOpen ? <X size={22} strokeWidth={1.5} /> : <Menu size={22} strokeWidth={1.5} />}
+              {menuOpen ? <X size={24} strokeWidth={1.5} /> : <Menu size={24} strokeWidth={1.5} />}
             </button>
           </div>
         </div>
       </header>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu Overlay with smooth scroll support */}
       <div
         role="dialog"
         aria-modal="true"
         aria-label="Navigation menu"
-        className={`fixed inset-0 z-40 lg:hidden transition-all duration-500 ${
+        className={`fixed inset-0 z-40 lg:hidden overflow-y-auto transition-all duration-500 ${
           menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
         style={{ backgroundColor: 'var(--color-gg-forest)' }}
       >
-        <div className="flex flex-col justify-center items-center h-full gap-10 py-24">
+        <div className="flex flex-col justify-center items-center min-h-full gap-7 sm:gap-9 py-28 px-6 text-center">
           {navLinks.map((link, i) => (
             <Link
               key={link.href}

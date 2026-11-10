@@ -11,7 +11,7 @@ export default function FoodSection() {
       style={{ backgroundColor: 'var(--color-gg-ivory)' }}
     >
       <div className="container-gg">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-16 lg:gap-24 items-center">
 
           {/* Right side (image first on mobile, second on desktop) */}
           <div className="order-1 lg:order-2">

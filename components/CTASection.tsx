@@ -39,7 +39,7 @@ export default function CTASection() {
       />
 
       {/* Content with generous spacing */}
-      <div className="container-gg relative z-10 text-center" style={{ padding: 'clamp(4rem, 10vw, 8rem) 0' }}>
+      <div className="container-gg relative z-10 text-center" style={{ paddingTop: 'clamp(4rem, 10vw, 8rem)', paddingBottom: 'clamp(4rem, 10vw, 8rem)' }}>
         <ScrollReveal delay={0}>
           <div className="flex items-center justify-center gap-6 mb-10">
             <span

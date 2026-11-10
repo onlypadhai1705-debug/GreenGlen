@@ -35,7 +35,7 @@ export default function Hero() {
     <section
       id="home"
       aria-label="Green Glen hero"
-      className="relative h-screen min-h-[700px] flex items-end overflow-hidden"
+      className="relative min-h-[100svh] sm:min-h-[640px] md:min-h-[700px] flex items-end overflow-hidden"
       style={{ backgroundColor: 'var(--color-gg-forest-dark)' }}
     >
       {/* Background with enhanced parallax */}

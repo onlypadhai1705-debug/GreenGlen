@@ -99,9 +99,8 @@ export default function ExperienceGrid() {
           {featuredExperiences.map((exp, i) => (
             <ScrollReveal key={exp.id} delay={i as 0 | 1}>
               <article
-                className="group relative overflow-hidden rounded-sm card-lift"
+                className="group relative overflow-hidden rounded-sm card-lift aspect-[4/3] sm:aspect-[16/11]"
                 style={{
-                  aspectRatio: '16/11',
                   backgroundColor: 'rgba(28, 43, 30, 0.5)',
                   border: '1px solid rgba(201, 185, 154, 0.22)',
                 }}

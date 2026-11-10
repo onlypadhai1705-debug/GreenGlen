@@ -54,7 +54,7 @@ export default function BirdWatchingSection() {
             id="birdwatching-heading"
             className="font-display mb-6"
             style={{
-              fontSize: 'clamp(2.75rem, 6.5vw, 5.5rem)',
+              fontSize: 'clamp(2rem, 6vw, 5.5rem)',
               fontWeight: 300,
               lineHeight: 1.05,
               letterSpacing: '-0.02em',

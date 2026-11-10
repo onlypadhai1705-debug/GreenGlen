@@ -85,7 +85,7 @@ export default function Gallery() {
               <div
                 role="tablist"
                 aria-label="Filter gallery by category"
-                className="flex flex-wrap gap-2"
+                className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none sm:flex-wrap sm:overflow-visible -mx-4 px-4 sm:mx-0 sm:px-0"
               >
                 {CATEGORIES.filter((cat) =>
                   cat === 'All' || galleryImages.some((img) => img.category === cat)
@@ -95,9 +95,9 @@ export default function Gallery() {
                     role="tab"
                     aria-selected={activeCategory === cat}
                     onClick={() => setActiveCategory(cat)}
-                    className="text-label px-3 py-1.5 transition-all duration-200"
+                    className="text-label whitespace-nowrap flex-shrink-0 px-3 py-1.5 transition-all duration-200"
                     style={{
-                      fontSize: '0.6rem',
+                      fontSize: '0.625rem',
                       color: activeCategory === cat ? 'var(--color-gg-ivory)' : 'rgba(244,240,232,0.4)',
                       borderBottom: activeCategory === cat
                         ? '1px solid var(--color-gg-terracotta)'

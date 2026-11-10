@@ -12,7 +12,7 @@ export default function BrandIntro() {
       style={{ backgroundColor: 'var(--color-gg-ivory)' }}
     >
       <div className="container-gg relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-20 lg:gap-28 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 sm:gap-16 lg:gap-28 items-center">
           {/* Image with modern frame */}
           <div className="lg:col-span-5">
             <ScrollReveal delay={0}>
@@ -105,7 +105,7 @@ export default function BrandIntro() {
 
             {/* Stats row with glass cards */}
             <ScrollReveal delay={3}>
-              <div className="grid grid-cols-3 gap-5" style={{ marginBottom: 'clamp(3rem, 6vw, 4rem)' }}>
+              <div className="grid grid-cols-3 gap-2.5 sm:gap-4 md:gap-5" style={{ marginBottom: 'clamp(2.5rem, 5vw, 4rem)' }}>
                 {[
                   { num: '20+', label: 'Guests max' },
                   { num: '500+', label: 'Bird species' },
@@ -113,27 +113,27 @@ export default function BrandIntro() {
                 ].map((s) => (
                   <div
                     key={s.label}
-                    className="glass-card text-center card-lift"
+                    className="glass-card text-center card-lift rounded-md sm:rounded-lg"
                     style={{
                       background: 'rgba(255, 255, 255, 0.5)',
                       backdropFilter: 'blur(20px)',
-                      padding: 'clamp(1.5rem, 4vw, 2rem) clamp(1rem, 3vw, 1.5rem)',
+                      padding: 'clamp(1rem, 3vw, 2rem) clamp(0.5rem, 2vw, 1.5rem)',
                     }}
                   >
                     <div
                       className="font-display text-gg-forest"
                       style={{
-                        fontSize: 'clamp(2rem, 4vw, 2.75rem)',
+                        fontSize: 'clamp(1.5rem, 4vw, 2.75rem)',
                         fontWeight: 400,
                         lineHeight: 1,
-                        marginBottom: '0.75rem',
+                        marginBottom: '0.5rem',
                       }}
                     >
                       {s.num}
                     </div>
                     <div
                       className="text-label"
-                      style={{ color: 'var(--color-gg-olive)', fontSize: '0.625rem' }}
+                      style={{ color: 'var(--color-gg-olive)', fontSize: 'clamp(0.5rem, 1.5vw, 0.625rem)' }}
                     >
                       {s.label}
                     </div>

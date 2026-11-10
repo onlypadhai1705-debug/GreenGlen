@@ -100,7 +100,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
       style={{ backgroundColor: 'rgba(17,26,18,0.88)', backdropFilter: 'blur(6px)' }}
     >
       <div
-        className="relative w-full sm:max-w-2xl max-h-[96vh] sm:max-h-[92vh] overflow-y-auto"
+        className="relative w-full sm:max-w-2xl max-h-[92vh] rounded-t-2xl sm:rounded-sm overflow-y-auto shadow-2xl"
         style={{ backgroundColor: 'var(--color-gg-ivory)' }}
       >
         {/* Header */}
@@ -128,10 +128,10 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
           <button
             onClick={handleClose}
             aria-label="Close booking form"
-            className="p-2 transition-opacity hover:opacity-60 focus-visible:outline-none"
+            className="p-2.5 -mr-1.5 transition-opacity hover:opacity-60 focus-visible:outline-none touch-manipulation cursor-pointer"
             style={{ color: 'var(--color-gg-olive)' }}
           >
-            <X size={20} strokeWidth={1.5} />
+            <X size={22} strokeWidth={1.5} />
           </button>
         </div>
 
