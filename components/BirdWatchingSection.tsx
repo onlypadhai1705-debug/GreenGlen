@@ -17,55 +17,125 @@ export default function BirdWatchingSection() {
   return (
     <section
       id="birdwatching"
-      className="relative py-24 md:py-36 bg-[#14231b] text-sand-100 overflow-hidden"
+      aria-labelledby="birdwatching-heading"
+      className="section-padding relative overflow-hidden"
+      style={{
+        backgroundColor: 'var(--color-gg-forest-dark)',
+        color: 'var(--color-gg-ivory)',
+      }}
     >
-      {/* Background Ambience & Handicraft Textures */}
-      <div className="absolute inset-0 bg-weave opacity-20 pointer-events-none" />
-      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-terracotta-500/10 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-forest-700/20 rounded-full blur-[140px] pointer-events-none" />
+      {/* Decorative Woven Dividers */}
+      <div
+        className="divider-woven absolute top-0 left-0 right-0"
+        style={{ opacity: 0.3 }}
+        aria-hidden="true"
+      />
+      <div
+        className="divider-woven absolute bottom-0 left-0 right-0"
+        style={{ opacity: 0.3 }}
+        aria-hidden="true"
+      />
 
-      {/* Decorative Woven Top Border */}
-      <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-terracotta-400/40 to-transparent" />
+      {/* Atmospheric Radial Ambient Light */}
+      <div
+        className="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[400px] rounded-full pointer-events-none"
+        style={{
+          background: 'radial-gradient(circle, rgba(181, 104, 74, 0.12) 0%, transparent 70%)',
+          filter: 'blur(80px)',
+        }}
+        aria-hidden="true"
+      />
+      <div
+        className="absolute -bottom-32 right-10 w-[500px] h-[400px] rounded-full pointer-events-none"
+        style={{
+          background: 'radial-gradient(circle, rgba(74, 82, 64, 0.25) 0%, transparent 70%)',
+          filter: 'blur(90px)',
+        }}
+        aria-hidden="true"
+      />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="container-gg relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-forest-900/80 border border-forest-700/60 text-terracotta-300 text-xs tracking-widest uppercase font-medium mb-4 backdrop-blur-sm">
-            <svg
-              className="w-3.5 h-3.5 text-terracotta-400"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="flex items-center justify-center gap-3 mb-5">
+            <span
+              className="block h-px w-8"
+              style={{ backgroundColor: 'var(--color-gg-terracotta)', opacity: 0.6 }}
+              aria-hidden="true"
+            />
+            <span
+              className="text-label inline-flex items-center gap-2"
+              style={{ color: 'var(--color-gg-terracotta)' }}
             >
-              <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z" />
-              <line x1="16" y1="8" x2="2" y2="22" />
-              <line x1="17.5" y1="15" x2="9" y2="15" />
-            </svg>
-            <span>{birdWatchingContent.eyebrow}</span>
+              <svg
+                className="w-3.5 h-3.5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z" />
+                <line x1="16" y1="8" x2="2" y2="22" />
+                <line x1="17.5" y1="15" x2="9" y2="15" />
+              </svg>
+              <span>{birdWatchingContent.eyebrow}</span>
+            </span>
+            <span
+              className="block h-px w-8"
+              style={{ backgroundColor: 'var(--color-gg-terracotta)', opacity: 0.6 }}
+              aria-hidden="true"
+            />
           </div>
 
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-sand-50 font-light leading-[1.15] tracking-tight mb-6">
+          <h2
+            id="birdwatching-heading"
+            className="text-display-md mb-6"
+            style={{ color: 'var(--color-gg-ivory)' }}
+          >
             {birdWatchingContent.headline}
           </h2>
 
-          <p className="text-base sm:text-lg text-sand-300/90 leading-relaxed font-light">
+          <p
+            className="text-body max-w-2xl mx-auto"
+            style={{ color: 'rgba(244, 240, 232, 0.72)' }}
+          >
             {birdWatchingContent.subheading}
           </p>
 
-          {/* Quick Metrics Strip */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-10 pt-8 border-t border-forest-800/80">
+          {/* Quick Stats Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 pt-8" style={{ borderTop: '1px solid rgba(201, 185, 154, 0.18)' }}>
             {birdWatchingContent.stats.map((stat) => (
               <div
                 key={stat.label}
-                className="p-3 sm:p-4 rounded-xl bg-forest-900/40 border border-forest-800/60 backdrop-blur-xs text-left"
+                className="p-5 rounded-sm text-left transition-all duration-300"
+                style={{
+                  backgroundColor: 'rgba(28, 43, 30, 0.45)',
+                  border: '1px solid rgba(201, 185, 154, 0.2)',
+                  backdropFilter: 'blur(8px)',
+                }}
               >
-                <div className="font-serif text-2xl sm:text-3xl text-sand-50 font-normal tracking-tight">
+                <div
+                  className="font-display"
+                  style={{
+                    fontSize: 'clamp(1.75rem, 3vw, 2.5rem)',
+                    fontWeight: 300,
+                    color: 'var(--color-gg-ivory)',
+                    lineHeight: 1,
+                  }}
+                >
                   {stat.number}
                 </div>
-                <div className="text-xs text-sand-400 mt-1 leading-snug">
+                <div
+                  className="text-label mt-2"
+                  style={{
+                    color: 'var(--color-gg-sand)',
+                    fontSize: '0.625rem',
+                    letterSpacing: '0.14em',
+                  }}
+                >
                   {stat.label}
                 </div>
               </div>
@@ -74,12 +144,22 @@ export default function BirdWatchingSection() {
         </div>
 
         {/* Two-Column Masterpiece Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 mb-16">
-          {/* Left Column: Observation Deck (Guests in Action) */}
-          <div className="lg:col-span-6 flex flex-col justify-between rounded-3xl bg-forest-900/50 border border-forest-800/80 p-6 sm:p-8 backdrop-blur-md shadow-2xl relative overflow-hidden group">
-            <div className="relative">
-              {/* Image Frame */}
-              <div className="relative aspect-[16/11] rounded-2xl overflow-hidden mb-6 border border-forest-700/50 shadow-lg">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 items-stretch">
+          {/* Left Column: Observation Deck (Real Guests in Action) */}
+          <div
+            className="lg:col-span-6 card-lift flex flex-col justify-between p-6 sm:p-8 rounded-sm"
+            style={{
+              backgroundColor: 'rgba(28, 43, 30, 0.5)',
+              border: '1px solid rgba(201, 185, 154, 0.25)',
+              backdropFilter: 'blur(10px)',
+            }}
+          >
+            <div>
+              {/* Photo Frame */}
+              <div
+                className="img-zoom relative overflow-hidden rounded-sm mb-6"
+                style={{ aspectRatio: '16/10' }}
+              >
                 <Image
                   src={birdWatchingContent.observationDeck.image}
                   alt={birdWatchingContent.observationDeck.imageAlt}
@@ -87,91 +167,156 @@ export default function BirdWatchingSection() {
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   placeholder="blur"
                   blurDataURL={blurData[birdWatchingContent.observationDeck.image]}
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background:
+                      'linear-gradient(to top, rgba(17,26,18,0.88) 0%, rgba(17,26,18,0.2) 60%, transparent 100%)',
+                  }}
+                  aria-hidden="true"
+                />
+
                 {/* Badge Overlay */}
                 <div className="absolute top-4 left-4">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-[11px] font-medium tracking-wider uppercase text-sand-200">
-                    <span className="w-1.5 h-1.5 rounded-full bg-terracotta-400 animate-pulse" />
+                  <span
+                    className="text-label px-3 py-1.5 rounded-full inline-flex items-center gap-2"
+                    style={{
+                      backgroundColor: 'rgba(17,26,18,0.85)',
+                      border: '1px solid rgba(201,185,154,0.35)',
+                      color: 'var(--color-gg-ivory)',
+                      fontSize: '0.5625rem',
+                      backdropFilter: 'blur(6px)',
+                    }}
+                  >
+                    <span
+                      className="w-1.5 h-1.5 rounded-full animate-pulse"
+                      style={{ backgroundColor: 'var(--color-gg-terracotta)' }}
+                      aria-hidden="true"
+                    />
                     {birdWatchingContent.observationDeck.badge}
                   </span>
                 </div>
 
-                <div className="absolute bottom-4 left-4 right-4 text-left">
-                  <h3 className="font-serif text-xl sm:text-2xl text-sand-50 font-normal">
+                {/* Bottom Overlay Title */}
+                <div className="absolute bottom-4 left-4 right-4">
+                  <h3
+                    className="font-display"
+                    style={{
+                      fontSize: 'clamp(1.25rem, 2vw, 1.625rem)',
+                      fontWeight: 300,
+                      color: 'var(--color-gg-ivory)',
+                      lineHeight: 1.2,
+                    }}
+                  >
                     {birdWatchingContent.observationDeck.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-sand-300 font-light mt-0.5">
+                  <p
+                    className="text-body-sm mt-0.5"
+                    style={{ color: 'rgba(244,240,232,0.72)' }}
+                  >
                     {birdWatchingContent.observationDeck.subtitle}
                   </p>
                 </div>
               </div>
 
-              {/* Guest Quote Block */}
-              <div className="relative p-5 rounded-2xl bg-forest-950/60 border border-forest-800/80 mb-6">
-                <svg
-                  className="w-6 h-6 text-terracotta-400/50 mb-2"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
+              {/* Guest Field Quote */}
+              <blockquote
+                className="p-5 rounded-sm mb-6 font-display"
+                style={{
+                  backgroundColor: 'rgba(17, 26, 18, 0.65)',
+                  borderLeft: '2px solid var(--color-gg-terracotta)',
+                  borderRight: '1px solid rgba(201, 185, 154, 0.15)',
+                  borderTop: '1px solid rgba(201, 185, 154, 0.15)',
+                  borderBottom: '1px solid rgba(201, 185, 154, 0.15)',
+                  fontStyle: 'italic',
+                  fontSize: 'clamp(1rem, 1.5vw, 1.15rem)',
+                  color: 'rgba(244, 240, 232, 0.88)',
+                  lineHeight: 1.55,
+                }}
+              >
+                &ldquo;{birdWatchingContent.observationDeck.quote}&rdquo;
+                <div
+                  className="text-label not-italic mt-3"
+                  style={{ color: 'var(--color-gg-sand)', fontSize: '0.625rem' }}
                 >
-                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                </svg>
-                <p className="text-sm sm:text-base text-sand-200/90 font-light italic leading-relaxed">
-                  &ldquo;{birdWatchingContent.observationDeck.quote}&rdquo;
-                </p>
-                <div className="text-xs text-terracotta-300 font-medium tracking-wide uppercase mt-3">
                   — {birdWatchingContent.observationDeck.quoteAuthor}
                 </div>
-              </div>
+              </blockquote>
 
               {/* Amenities Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-left">
                 {birdWatchingContent.observationDeck.features.map((feature, idx) => (
-                  <div
-                    key={idx}
-                    className="flex items-start gap-2.5 text-xs sm:text-sm text-sand-300/90"
-                  >
-                    <svg
-                      className="w-4 h-4 text-terracotta-400 shrink-0 mt-0.5"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
+                  <div key={idx} className="flex items-start gap-2.5">
+                    <span
+                      className="mt-0.5 flex-shrink-0"
+                      style={{ color: 'var(--color-gg-terracotta)' }}
+                      aria-hidden="true"
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
-                    <span>{feature}</span>
+                      ✓
+                    </span>
+                    <span
+                      className="text-body-sm"
+                      style={{ color: 'rgba(244,240,232,0.78)' }}
+                    >
+                      {feature}
+                    </span>
                   </div>
                 ))}
               </div>
             </div>
           </div>
 
-          {/* Right Column: Interactive Species Field Guide */}
-          <div className="lg:col-span-6 flex flex-col justify-between rounded-3xl bg-forest-900/50 border border-forest-800/80 p-6 sm:p-8 backdrop-blur-md shadow-2xl">
+          {/* Right Column: Interactive Himalayan Species Field Guide */}
+          <div
+            className="lg:col-span-6 card-lift flex flex-col justify-between p-6 sm:p-8 rounded-sm"
+            style={{
+              backgroundColor: 'rgba(28, 43, 30, 0.5)',
+              border: '1px solid rgba(201, 185, 154, 0.25)',
+              backdropFilter: 'blur(10px)',
+            }}
+          >
             <div>
-              <div className="flex items-center justify-between mb-4">
+              {/* Field Guide Title */}
+              <div
+                className="flex items-center justify-between mb-5 pb-4"
+                style={{ borderBottom: '1px solid rgba(201,185,154,0.18)' }}
+              >
                 <div>
-                  <span className="text-xs uppercase tracking-widest text-terracotta-400 font-medium">
+                  <span
+                    className="text-label"
+                    style={{ color: 'var(--color-gg-terracotta)' }}
+                  >
                     Native Avifauna
                   </span>
-                  <h3 className="font-serif text-2xl sm:text-3xl text-sand-50 font-normal">
+                  <h3
+                    className="font-display"
+                    style={{
+                      fontSize: 'clamp(1.35rem, 2.5vw, 1.75rem)',
+                      fontWeight: 300,
+                      color: 'var(--color-gg-ivory)',
+                      lineHeight: 1.2,
+                    }}
+                  >
                     Himalayan Species Field Guide
                   </h3>
                 </div>
-                <span className="hidden sm:inline-flex text-xs px-2.5 py-1 rounded-full bg-forest-800/70 text-sand-300 border border-forest-700/60">
-                  Select Species
+                <span
+                  className="text-label px-2.5 py-1 rounded-sm"
+                  style={{
+                    backgroundColor: 'rgba(17,26,18,0.7)',
+                    border: '1px solid rgba(201,185,154,0.25)',
+                    color: 'var(--color-gg-sand)',
+                    fontSize: '0.5625rem',
+                  }}
+                >
+                  Interactive Guide
                 </span>
               </div>
 
               {/* Species Tabs Selector */}
-              <div className="flex gap-2 overflow-x-auto pb-2 mb-6 scrollbar-none">
+              <div className="flex gap-2 overflow-x-auto pb-3 mb-6 scrollbar-none">
                 {birdWatchingContent.species.map((s) => {
                   const isSelected = s.id === selectedSpeciesId;
                   return (
@@ -179,13 +324,21 @@ export default function BirdWatchingSection() {
                       key={s.id}
                       type="button"
                       onClick={() => setSelectedSpeciesId(s.id)}
-                      className={`flex items-center gap-2.5 px-3.5 py-2 rounded-xl text-left transition-all duration-200 shrink-0 border ${
-                        isSelected
-                          ? 'bg-terracotta-700/40 border-terracotta-500/80 text-sand-50 shadow-md ring-1 ring-terracotta-500/40'
-                          : 'bg-forest-950/40 border-forest-800/60 text-sand-400 hover:text-sand-200 hover:border-forest-700'
-                      }`}
+                      className="flex items-center gap-2.5 px-3 py-2 rounded-sm transition-all duration-300 text-left cursor-pointer flex-shrink-0"
+                      style={{
+                        backgroundColor: isSelected
+                          ? 'var(--color-gg-terracotta)'
+                          : 'rgba(17,26,18,0.65)',
+                        border: isSelected
+                          ? '1px solid var(--color-gg-terra-light)'
+                          : '1px solid rgba(201,185,154,0.18)',
+                        color: isSelected ? 'var(--color-gg-ivory)' : 'rgba(244,240,232,0.7)',
+                      }}
                     >
-                      <div className="relative w-7 h-7 rounded-lg overflow-hidden shrink-0 border border-forest-700">
+                      <div
+                        className="relative w-7 h-7 rounded-full overflow-hidden flex-shrink-0"
+                        style={{ border: '1px solid rgba(201,185,154,0.4)' }}
+                      >
                         <Image
                           src={s.image}
                           alt={s.commonName}
@@ -196,7 +349,16 @@ export default function BirdWatchingSection() {
                           className="object-cover"
                         />
                       </div>
-                      <span className="text-xs font-medium tracking-tight">
+                      <span
+                        className="text-label truncate"
+                        style={{
+                          fontSize: '0.625rem',
+                          letterSpacing: '0.08em',
+                          color: isSelected
+                            ? 'var(--color-gg-ivory)'
+                            : 'rgba(244,240,232,0.85)',
+                        }}
+                      >
                         {s.commonName}
                       </span>
                     </button>
@@ -205,10 +367,22 @@ export default function BirdWatchingSection() {
               </div>
 
               {/* Active Species Detailed Showcase */}
-              <div className="rounded-2xl bg-forest-950/60 border border-forest-800/80 p-5 sm:p-6 transition-all duration-300">
+              <div
+                className="p-5 sm:p-6 rounded-sm mb-6 transition-all duration-300"
+                style={{
+                  backgroundColor: 'rgba(17, 26, 18, 0.75)',
+                  border: '1px solid rgba(201, 185, 154, 0.25)',
+                }}
+              >
                 <div className="grid grid-cols-1 sm:grid-cols-12 gap-5 items-center mb-5">
                   {/* Photo with subtle zoom */}
-                  <div className="sm:col-span-5 relative aspect-[4/3] rounded-xl overflow-hidden border border-forest-700/70 shadow-md group/img">
+                  <div
+                    className="sm:col-span-5 img-zoom relative rounded-sm overflow-hidden"
+                    style={{
+                      aspectRatio: '4/3',
+                      border: '1px solid rgba(201,185,154,0.3)',
+                    }}
+                  >
                     <Image
                       key={activeSpecies.id}
                       src={activeSpecies.image}
@@ -217,69 +391,115 @@ export default function BirdWatchingSection() {
                       sizes="(max-width: 640px) 100vw, 30vw"
                       placeholder="blur"
                       blurDataURL={blurData[activeSpecies.image]}
-                      className="object-cover transition-transform duration-500 group-hover/img:scale-110"
+                      className="object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                   </div>
 
-                  {/* Species Nomenclature & Status */}
-                  <div className="sm:col-span-7 text-left">
-                    <span className="inline-block px-2.5 py-0.5 rounded-full bg-forest-800/80 border border-forest-700/70 text-[11px] text-terracotta-300 font-medium mb-1.5">
+                  {/* Species Taxonomy & Status */}
+                  <div className="sm:col-span-7">
+                    <span
+                      className="text-label inline-block px-2.5 py-0.5 rounded-full mb-2"
+                      style={{
+                        backgroundColor: 'rgba(181,104,74,0.2)',
+                        border: '1px solid rgba(181,104,74,0.4)',
+                        color: 'var(--color-gg-terra-light)',
+                        fontSize: '0.5625rem',
+                      }}
+                    >
                       {activeSpecies.status}
                     </span>
-                    <h4 className="font-serif text-xl sm:text-2xl text-sand-50 font-normal leading-snug">
+                    <h4
+                      className="font-display"
+                      style={{
+                        fontSize: 'clamp(1.25rem, 2vw, 1.625rem)',
+                        fontWeight: 300,
+                        color: 'var(--color-gg-ivory)',
+                        lineHeight: 1.15,
+                      }}
+                    >
                       {activeSpecies.commonName}
                     </h4>
-                    <p className="text-xs sm:text-sm text-sand-400 italic font-light font-serif">
+                    <p
+                      className="font-display italic mt-0.5"
+                      style={{
+                        fontSize: '0.9375rem',
+                        color: 'var(--color-gg-sand)',
+                      }}
+                    >
                       {activeSpecies.scientificName}
                     </p>
 
-                    <div className="mt-3 pt-3 border-t border-forest-800/80 space-y-1.5">
-                      <div className="text-xs text-sand-300">
-                        <span className="text-sand-400 font-medium">Habitat: </span>
-                        {activeSpecies.habitat}
-                      </div>
+                    <div
+                      className="mt-3 pt-3 text-body-sm"
+                      style={{
+                        borderTop: '1px solid rgba(201,185,154,0.15)',
+                        color: 'rgba(244,240,232,0.7)',
+                      }}
+                    >
+                      <span style={{ color: 'var(--color-gg-sand)' }}>Habitat: </span>
+                      {activeSpecies.habitat}
                     </div>
                   </div>
                 </div>
 
                 {/* Call & Vocalization Note */}
-                <div className="flex items-start gap-3 p-3 rounded-xl bg-forest-900/60 border border-forest-800/60 text-xs sm:text-sm text-sand-300/90 mb-4">
-                  <svg
-                    className="w-4 h-4 text-terracotta-400 shrink-0 mt-0.5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
+                <div
+                  className="flex items-start gap-3 p-3 rounded-sm mb-4 text-body-sm"
+                  style={{
+                    backgroundColor: 'rgba(28, 43, 30, 0.6)',
+                    border: '1px solid rgba(201, 185, 154, 0.15)',
+                    color: 'rgba(244, 240, 232, 0.82)',
+                  }}
+                >
+                  <span
+                    style={{ color: 'var(--color-gg-terracotta)' }}
+                    aria-hidden="true"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"
-                    />
-                  </svg>
+                    🔊
+                  </span>
                   <div>
-                    <span className="font-medium text-sand-200">Call & Sound: </span>
+                    <span style={{ color: 'var(--color-gg-sand)', fontWeight: 400 }}>
+                      Call & Sound:{' '}
+                    </span>
                     {activeSpecies.call}
                   </div>
                 </div>
 
                 {/* Field Note */}
-                <p className="text-xs sm:text-sm text-sand-300/90 font-light leading-relaxed text-left">
+                <p
+                  className="text-body-sm text-left"
+                  style={{ color: 'rgba(244,240,232,0.75)', lineHeight: 1.65 }}
+                >
                   {activeSpecies.note}
                 </p>
               </div>
             </div>
 
-            {/* Quick Sighting Prompt */}
-            <div className="mt-6 pt-4 border-t border-forest-800/80 flex flex-wrap items-center justify-between gap-3 text-xs text-sand-400">
-              <span className="flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-emerald-400" />
-                Active sightings documented in and around Green Glen retreat
+            {/* Quick Sighting Footer */}
+            <div
+              className="pt-4 flex flex-wrap items-center justify-between gap-3 text-body-sm"
+              style={{
+                borderTop: '1px solid rgba(201,185,154,0.18)',
+                color: 'rgba(244,240,232,0.6)',
+                fontSize: '0.8125rem',
+              }}
+            >
+              <span className="flex items-center gap-2">
+                <span
+                  className="w-2 h-2 rounded-full inline-block"
+                  style={{ backgroundColor: '#4ade80' }}
+                  aria-hidden="true"
+                />
+                Documented regularly at Green Glen retreat
               </span>
               <a
                 href="#contact"
-                className="text-terracotta-300 hover:text-terracotta-200 font-medium underline underline-offset-4"
+                className="text-label"
+                style={{
+                  color: 'var(--color-gg-terracotta)',
+                  textDecoration: 'underline',
+                  textUnderlineOffset: '4px',
+                }}
               >
                 Request Birding Itinerary &rarr;
               </a>
@@ -287,25 +507,52 @@ export default function BirdWatchingSection() {
           </div>
         </div>
 
-        {/* Guided Trails & Photographers Strip */}
+        {/* Guided Trails Strip (3 cards) */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
           {birdWatchingContent.trails.map((trail, index) => (
             <div
               key={trail.name}
-              className="p-6 rounded-2xl bg-forest-900/40 border border-forest-800/70 hover:border-forest-700 transition-all duration-300 text-left"
+              className="card-lift p-6 rounded-sm text-left"
+              style={{
+                backgroundColor: 'rgba(28, 43, 30, 0.45)',
+                border: '1px solid rgba(201, 185, 154, 0.2)',
+                backdropFilter: 'blur(8px)',
+              }}
             >
               <div className="flex items-center justify-between mb-3">
-                <span className="text-xs uppercase tracking-widest text-terracotta-400 font-medium">
+                <span
+                  className="text-label"
+                  style={{ color: 'var(--color-gg-terracotta)' }}
+                >
                   Trail 0{index + 1}
                 </span>
-                <span className="text-xs px-2.5 py-0.5 rounded-full bg-forest-800/80 text-sand-300 border border-forest-700/60 font-mono">
+                <span
+                  className="text-label px-2.5 py-0.5 rounded-sm"
+                  style={{
+                    backgroundColor: 'rgba(17,26,18,0.75)',
+                    border: '1px solid rgba(201,185,154,0.2)',
+                    color: 'var(--color-gg-sand)',
+                    fontSize: '0.625rem',
+                  }}
+                >
                   {trail.distance}
                 </span>
               </div>
-              <h4 className="font-serif text-lg text-sand-50 font-normal mb-2">
+              <h4
+                className="font-display mb-2"
+                style={{
+                  fontSize: '1.25rem',
+                  fontWeight: 300,
+                  color: 'var(--color-gg-ivory)',
+                  lineHeight: 1.25,
+                }}
+              >
                 {trail.name}
               </h4>
-              <p className="text-xs sm:text-sm text-sand-300 font-light leading-relaxed">
+              <p
+                className="text-body-sm"
+                style={{ color: 'rgba(244,240,232,0.7)' }}
+              >
                 {trail.description}
               </p>
             </div>
@@ -313,36 +560,50 @@ export default function BirdWatchingSection() {
         </div>
 
         {/* Dedicated Birders CTA Banner */}
-        <div className="rounded-3xl bg-gradient-to-r from-forest-900/80 via-forest-900/60 to-forest-950/90 border border-terracotta-500/30 p-8 sm:p-12 text-center relative overflow-hidden backdrop-blur-md shadow-2xl">
-          <div className="absolute top-0 right-0 w-80 h-80 bg-terracotta-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div
+          className="p-8 sm:p-12 text-center rounded-sm relative overflow-hidden"
+          style={{
+            backgroundColor: 'rgba(28, 43, 30, 0.65)',
+            border: '1px solid rgba(181, 104, 74, 0.45)',
+            backdropFilter: 'blur(12px)',
+          }}
+        >
           <div className="relative z-10 max-w-2xl mx-auto">
-            <span className="inline-block text-xs uppercase tracking-widest text-terracotta-300 font-semibold mb-3">
+            <span
+              className="text-label inline-block mb-3"
+              style={{ color: 'var(--color-gg-terracotta)' }}
+            >
               Expeditions & Photography Workshops
             </span>
-            <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl text-sand-50 font-light mb-4">
-              Plan Your Himalayan Birding Expedition
+            <h3
+              className="font-display mb-4"
+              style={{
+                fontSize: 'clamp(1.75rem, 3.5vw, 2.75rem)',
+                fontWeight: 300,
+                color: 'var(--color-gg-ivory)',
+                lineHeight: 1.15,
+              }}
+            >
+              Plan Your Himalayan Birding Stay
             </h3>
-            <p className="text-sm sm:text-base text-sand-300/90 font-light mb-8 leading-relaxed">
+            <p
+              className="text-body mb-8"
+              style={{ color: 'rgba(244,240,232,0.78)' }}
+            >
               We arrange customized early dawn naturalist guides, packed breakfast thermoses, and exclusive mudhouse bookings for birding clubs and wildlife photographers.
             </p>
             <a
               href="#contact"
-              className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full bg-terracotta-700 hover:bg-terracotta-600 text-sand-50 text-sm font-medium tracking-wide transition-all duration-200 shadow-lg hover:shadow-terracotta-900/40 hover:-translate-y-0.5"
+              className="btn-primary"
+              style={{
+                backgroundColor: 'var(--color-gg-terracotta)',
+                borderColor: 'var(--color-gg-terracotta)',
+                padding: '1rem 2.5rem',
+                fontSize: '0.75rem',
+              }}
             >
               <span>Book Your Birding Stay</span>
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
-              </svg>
+              <span aria-hidden="true">&rarr;</span>
             </a>
           </div>
         </div>
