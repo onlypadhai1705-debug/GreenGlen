@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Leaf } from 'lucide-react';
 import { navLinks, siteConfig } from '@/lib/content';
 
 export default function Navbar() {
@@ -15,7 +15,6 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Lock body scroll when menu is open
   useEffect(() => {
     if (menuOpen) {
       document.body.style.overflow = 'hidden';
@@ -31,24 +30,46 @@ export default function Navbar() {
     <>
       <header
         role="banner"
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled ? 'nav-scrolled py-4' : 'py-7'
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
+          scrolled ? 'nav-scrolled py-4' : 'py-8'
         }`}
         style={{ backgroundColor: scrolled ? undefined : 'transparent' }}
       >
         <div className="container-gg flex items-center justify-between">
-          {/* Logo / Wordmark */}
+          {/* Logo / Wordmark with icon */}
           <Link
             href="/"
-            className="flex-shrink-0 focus-visible:outline-none"
+            className="flex-shrink-0 focus-visible:outline-none flex items-center gap-3 group"
             aria-label={`${siteConfig.name} — Return to homepage`}
           >
-            <span
-              className="font-display font-light tracking-[0.08em] transition-colors duration-300"
+            <div
               style={{
-                fontSize: '1.1875rem',
-                color: scrolled ? 'var(--color-gg-forest)' : 'var(--color-gg-ivory)',
+                width: '32px',
+                height: '32px',
+                borderRadius: '50%',
+                background: scrolled 
+                  ? 'linear-gradient(135deg, rgba(26,46,28,0.1) 0%, rgba(168,184,159,0.1) 100%)'
+                  : 'rgba(255, 255, 255, 0.1)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                transition: 'all 0.3s ease',
+              }}
+              className="group-hover:scale-110"
+            >
+              <Leaf 
+                size={16} 
+                strokeWidth={1.8} 
+                color={scrolled ? 'var(--color-gg-forest)' : 'rgba(249,247,244,0.9)'}
+              />
+            </div>
+            <span
+              className="font-display font-normal tracking-[0.12em] transition-colors duration-500"
+              style={{
+                fontSize: '1.25rem',
+                color: scrolled ? 'var(--color-gg-forest)' : 'var(--color-gg-white)',
                 fontFamily: 'var(--font-display)',
+                fontWeight: 400,
               }}
             >
               GREEN GLEN
@@ -58,26 +79,37 @@ export default function Navbar() {
           {/* Desktop Navigation */}
           <nav
             aria-label="Main navigation"
-            className="hidden lg:flex items-center gap-8"
+            className="hidden lg:flex items-center gap-10"
           >
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-label transition-colors duration-300 focus-visible:outline-none"
-                style={{ color: scrolled ? 'var(--color-gg-olive)' : 'rgba(244,240,232,0.78)' }}
+                className="text-label transition-all duration-400 focus-visible:outline-none relative group"
+                style={{ 
+                  color: scrolled ? 'var(--color-gg-olive)' : 'rgba(249,247,244,0.8)',
+                }}
                 onMouseEnter={(e) => {
                   (e.target as HTMLAnchorElement).style.color = scrolled
                     ? 'var(--color-gg-forest)'
-                    : 'var(--color-gg-ivory)';
+                    : 'var(--color-gg-white)';
                 }}
                 onMouseLeave={(e) => {
                   (e.target as HTMLAnchorElement).style.color = scrolled
                     ? 'var(--color-gg-olive)'
-                    : 'rgba(244,240,232,0.78)';
+                    : 'rgba(249,247,244,0.8)';
                 }}
               >
                 {link.label}
+                <span
+                  className="absolute bottom-0 left-0 w-0 h-0.5 bg-current transition-all duration-300 group-hover:w-full"
+                  style={{
+                    background: scrolled 
+                      ? 'var(--color-gg-forest)'
+                      : 'var(--color-gg-white)',
+                  }}
+                  aria-hidden="true"
+                />
               </Link>
             ))}
 
@@ -85,12 +117,13 @@ export default function Navbar() {
             <Link
               href="#contact"
               id="nav-cta"
-              className="btn-primary ml-2"
+              className="btn-primary ml-3 magnetic-hover"
               style={{
-                backgroundColor: scrolled ? 'var(--color-gg-forest)' : 'rgba(244,240,232,0.1)',
-                borderColor: scrolled ? 'var(--color-gg-forest)' : 'rgba(244,240,232,0.35)',
-                color: 'var(--color-gg-ivory)',
-                padding: '0.625rem 1.5rem',
+                backgroundColor: scrolled ? 'var(--color-gg-forest)' : 'rgba(249,247,244,0.1)',
+                borderColor: scrolled ? 'var(--color-gg-forest)' : 'rgba(249,247,244,0.3)',
+                color: 'var(--color-gg-white)',
+                padding: '0.75rem 1.75rem',
+                boxShadow: scrolled ? '0 4px 12px rgba(26, 46, 28, 0.15)' : 'none',
               }}
             >
               Plan Your Stay

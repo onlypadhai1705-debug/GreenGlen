@@ -3,24 +3,37 @@
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowDown } from 'lucide-react';
+import { ArrowDown, Leaf } from 'lucide-react';
 import { heroContent } from '@/lib/content';
 import { blurData } from '@/lib/blurData';
 
 export default function Hero() {
   const [loaded, setLoaded] = useState(false);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const parallaxRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const t = setTimeout(() => setLoaded(true), 150);
+    
     const handleScroll = () => {
       if (!parallaxRef.current) return;
-      parallaxRef.current.style.transform = `translateY(${window.scrollY * 0.3}px)`;
+      const scrolled = window.scrollY;
+      parallaxRef.current.style.transform = `translateY(${scrolled * 0.4}px) scale(1.1)`;
     };
+    
+    const handleMouseMove = (e: MouseEvent) => {
+      const x = (e.clientX / window.innerWidth - 0.5) * 20;
+      const y = (e.clientY / window.innerHeight - 0.5) * 20;
+      setMousePos({ x, y });
+    };
+    
     window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    
     return () => {
       clearTimeout(t);
       window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('mousemove', handleMouseMove);
     };
   }, []);
 
@@ -31,49 +44,74 @@ export default function Hero() {
     <section
       id="home"
       aria-label="Green Glen hero"
-      className="relative h-screen min-h-[640px] flex items-end overflow-hidden"
+      className="relative h-screen min-h-[700px] flex items-end overflow-hidden"
       style={{ backgroundColor: 'var(--color-gg-forest-dark)' }}
     >
-      {/* Background */}
+      {/* Background with enhanced parallax */}
       <div
         ref={parallaxRef}
         className="absolute will-change-transform"
-        style={{ inset: '-10% 0', height: '120%' }}
+        style={{ 
+          inset: '-10% 0', 
+          height: '125%',
+          transition: 'transform 0.1s linear'
+        }}
       >
         <Image
           src={heroContent.image}
           alt={heroContent.imageAlt}
           fill
-          preload
+          priority
           loading="eager"
-          quality={85}
+          quality={90}
           sizes="100vw"
           placeholder="blur"
           blurDataURL={blurData[heroContent.image] ?? ''}
           className="object-cover"
           style={{
             objectPosition: 'center 35%',
-            filter: 'brightness(0.65)',
+            filter: 'brightness(0.6) contrast(1.1)',
             opacity: loaded ? 1 : 0,
-            transition: 'opacity 1.4s ease',
+            transition: 'opacity 1.6s cubic-bezier(0.16, 1, 0.3, 1)',
           }}
         />
       </div>
 
-      {/* Multi-layer overlay for depth */}
+      {/* Enhanced gradient overlays for depth */}
       <div
-        className="absolute inset-0"
+        className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            'linear-gradient(to top, rgba(17,26,18,0.95) 0%, rgba(17,26,18,0.4) 35%, rgba(17,26,18,0.1) 60%, transparent 80%)',
+            'linear-gradient(to top, rgba(26,46,28,0.98) 0%, rgba(26,46,28,0.6) 30%, rgba(26,46,28,0.2) 55%, rgba(26,46,28,0) 80%)',
         }}
         aria-hidden="true"
       />
       <div
-        className="absolute inset-0"
+        className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            'linear-gradient(to right, rgba(17,26,18,0.3) 0%, transparent 50%)',
+            'radial-gradient(ellipse at bottom, rgba(26,46,28,0.4) 0%, transparent 60%)',
+        }}
+        aria-hidden="true"
+      />
+
+      {/* Floating organic shape */}
+      <div
+        className="absolute pointer-events-none"
+        style={{
+          top: '15%',
+          right: '10%',
+          width: '500px',
+          height: '500px',
+          background: 'radial-gradient(circle, rgba(168, 184, 159, 0.08) 0%, transparent 70%)',
+          borderRadius: '40% 60% 70% 30% / 40% 50% 60% 50%',
+          filter: 'blur(60px)',
+          opacity: loaded ? 1 : 0,
+          transition: 'opacity 2s ease 0.8s',
+          transform: `translate(${mousePos.x}px, ${mousePos.y}px)`,
+          transitionProperty: 'transform',
+          transitionDuration: '0.5s',
+          transitionTimingFunction: 'ease-out',
         }}
         aria-hidden="true"
       />
@@ -91,84 +129,122 @@ export default function Hero() {
       />
 
       {/* Content */}
-      <div className="container-gg relative z-10 pb-20 md:pb-32">
-        {/* Location eyebrow */}
+      <div className="container-gg relative z-10 pb-24 md:pb-36">
+        {/* Location eyebrow with icon */}
         <div
-          className="flex items-center gap-4 mb-8"
+          className="flex items-center gap-4 mb-10"
           style={{
             opacity: loaded ? 1 : 0,
-            transform: loaded ? 'translateY(0)' : 'translateY(1.5rem)',
-            transition: 'opacity 0.9s ease 0.4s, transform 0.9s ease 0.4s',
+            transform: loaded ? 'translateY(0)' : 'translateY(2rem)',
+            transition: 'opacity 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s, transform 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s',
           }}
         >
+          <div
+            className="flex items-center justify-center"
+            style={{
+              width: '32px',
+              height: '32px',
+              borderRadius: '50%',
+              background: 'rgba(168, 184, 159, 0.15)',
+              backdropFilter: 'blur(10px)',
+            }}
+          >
+            <Leaf size={14} strokeWidth={1.8} color="rgba(249,247,244,0.8)" />
+          </div>
           <span
-            className="block h-px w-10"
-            style={{ backgroundColor: 'var(--color-gg-terracotta)' }}
+            className="block h-px flex-1 max-w-[60px]"
+            style={{ 
+              background: 'linear-gradient(to right, rgba(200,116,86,0.6), transparent)',
+            }}
             aria-hidden="true"
           />
           <p
             className="text-label"
-            style={{ color: 'rgba(244,240,232,0.6)', letterSpacing: '0.22em' }}
+            style={{ color: 'rgba(249,247,244,0.7)', letterSpacing: '0.24em' }}
           >
             {heroContent.eyebrow}
           </p>
         </div>
 
-        {/* Headline — split lines for staggered reveal */}
-        <div className="overflow-hidden mb-2">
-          <h1
-            className="text-display-xl text-gg-ivory"
-            style={{
-              display: 'block',
-              transform: loaded ? 'translateY(0)' : 'translateY(110%)',
-              transition: 'transform 1s cubic-bezier(0.76,0,0.24,1) 0.55s',
-            }}
-          >
-            {heroContent.headline[0]}
-          </h1>
-        </div>
-        <div className="overflow-hidden mb-6">
-          <span
-            className="text-display-xl block font-display"
-            style={{
-              fontStyle: 'italic',
-              color: 'rgba(244,240,232,0.7)',
-              transform: loaded ? 'translateY(0)' : 'translateY(110%)',
-              transition: 'transform 1.1s cubic-bezier(0.76,0,0.24,1) 0.7s',
-            }}
-          >
-            {heroContent.headline[1]}
-          </span>
+        {/* Headline — enhanced reveal */}
+        <div className="mb-8 max-w-5xl">
+          <div className="overflow-hidden mb-2">
+            <h1
+              className="text-display-xl"
+              style={{
+                color: 'var(--color-gg-white)',
+                display: 'block',
+                transform: loaded ? 'translateY(0)' : 'translateY(110%)',
+                transition: 'transform 1.2s cubic-bezier(0.16,1,0.3,1) 0.6s',
+              }}
+            >
+              {heroContent.headline[0]}
+            </h1>
+          </div>
+          <div className="overflow-hidden">
+            <span
+              className="text-display-xl block font-display"
+              style={{
+                fontStyle: 'italic',
+                background: 'linear-gradient(135deg, rgba(249,247,244,0.9) 0%, rgba(168,184,159,0.7) 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                transform: loaded ? 'translateY(0)' : 'translateY(110%)',
+                transition: 'transform 1.3s cubic-bezier(0.16,1,0.3,1) 0.75s',
+              }}
+            >
+              {heroContent.headline[1]}
+            </span>
+          </div>
         </div>
 
-        {/* Subline */}
-        <p
-          className="font-display"
+        {/* Subline with glass background */}
+        <div
           style={{
-            fontSize: 'clamp(1.1rem, 2.2vw, 1.75rem)',
-            fontStyle: 'italic',
-            color: 'rgba(244,240,232,0.55)',
-            marginBottom: '2.5rem',
             opacity: loaded ? 1 : 0,
-            transform: loaded ? 'translateY(0)' : 'translateY(1.5rem)',
-            transition: 'opacity 1s ease 0.95s, transform 1s ease 0.95s',
+            transform: loaded ? 'translateY(0)' : 'translateY(2rem)',
+            transition: 'opacity 1s ease 1s, transform 1s ease 1s',
+            marginBottom: '3rem',
           }}
         >
-          {heroContent.subline}
-        </p>
+          <div
+            style={{
+              display: 'inline-block',
+              padding: '0.75rem 1.5rem',
+              background: 'rgba(255, 255, 255, 0.05)',
+              backdropFilter: 'blur(20px)',
+              WebkitBackdropFilter: 'blur(20px)',
+              border: '1px solid rgba(255, 255, 255, 0.1)',
+              borderRadius: 'var(--radius-sm)',
+            }}
+          >
+            <p
+              className="font-display"
+              style={{
+                fontSize: 'clamp(1.15rem, 2.5vw, 1.875rem)',
+                fontStyle: 'italic',
+                color: 'rgba(249,247,244,0.8)',
+                fontWeight: 400,
+              }}
+            >
+              {heroContent.subline}
+            </p>
+          </div>
+        </div>
 
-        {/* CTAs */}
+        {/* CTAs with enhanced hover */}
         <div
-          className="flex flex-col sm:flex-row gap-4"
+          className="flex flex-col sm:flex-row gap-5"
           style={{
             opacity: loaded ? 1 : 0,
-            transform: loaded ? 'translateY(0)' : 'translateY(1.5rem)',
-            transition: 'opacity 1s ease 1.1s, transform 1s ease 1.1s',
+            transform: loaded ? 'translateY(0)' : 'translateY(2rem)',
+            transition: 'opacity 1s ease 1.15s, transform 1s ease 1.15s',
           }}
         >
           <Link
             href={heroContent.ctaPrimary.href}
-            className="btn-primary w-full sm:w-auto justify-center"
+            className="btn-primary w-full sm:w-auto justify-center magnetic-hover"
             style={{
               backgroundColor: 'var(--color-gg-terracotta)',
               borderColor: 'var(--color-gg-terracotta)',
@@ -178,64 +254,86 @@ export default function Hero() {
           </Link>
           <Link
             href={heroContent.ctaSecondary.href}
-            className="btn-outline w-full sm:w-auto justify-center"
+            className="btn-outline w-full sm:w-auto justify-center magnetic-hover"
           >
             {heroContent.ctaSecondary.label}
           </Link>
         </div>
       </div>
 
-      {/* Stats strip */}
+      {/* Stats strip with glass effect */}
       <div
-        className="absolute bottom-8 right-0 md:right-16 z-10 hidden md:flex flex-col gap-5"
+        className="absolute bottom-12 right-0 md:right-20 z-10 hidden md:block"
         style={{ opacity: loaded ? 1 : 0, transition: 'opacity 1s ease 1.4s' }}
         aria-hidden="true"
       >
-        {[
-          { num: '20+', label: 'Guests' },
-          { num: '500+', label: 'Bird Species' },
-          { num: '6hrs', label: 'From Delhi' },
-        ].map((stat) => (
-          <div key={stat.label} className="text-right">
-            <div
-              className="font-display"
-              style={{
-                fontSize: '1.5rem',
-                fontWeight: 300,
-                color: 'var(--color-gg-ivory)',
-                lineHeight: 1,
-              }}
-            >
-              {stat.num}
-            </div>
-            <div
-              className="text-label"
-              style={{ color: 'rgba(244,240,232,0.4)', fontSize: '0.55rem' }}
-            >
-              {stat.label}
-            </div>
+        <div
+          style={{
+            padding: '1.5rem 1.25rem',
+            background: 'rgba(26, 46, 28, 0.4)',
+            backdropFilter: 'blur(24px) saturate(180%)',
+            WebkitBackdropFilter: 'blur(24px) saturate(180%)',
+            border: '1px solid rgba(255, 255, 255, 0.1)',
+            borderRadius: 'var(--radius-md)',
+          }}
+        >
+          <div className="flex flex-col gap-6">
+            {[
+              { num: '20+', label: 'Guests' },
+              { num: '500+', label: 'Bird Species' },
+              { num: '6hrs', label: 'From Delhi' },
+            ].map((stat, i) => (
+              <div key={stat.label} className="text-right">
+                <div
+                  className="font-display"
+                  style={{
+                    fontSize: '1.75rem',
+                    fontWeight: 400,
+                    color: 'var(--color-gg-white)',
+                    lineHeight: 1,
+                    marginBottom: '0.25rem',
+                  }}
+                >
+                  {stat.num}
+                </div>
+                <div
+                  className="text-label"
+                  style={{ color: 'rgba(249,247,244,0.5)', fontSize: '0.5625rem' }}
+                >
+                  {stat.label}
+                </div>
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* Scroll indicator with enhanced animation */}
       <button
         onClick={scrollToContent}
         aria-label="Scroll to content"
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 group"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-3 group"
         style={{ opacity: loaded ? 1 : 0, transition: 'opacity 1s ease 1.6s' }}
       >
         <span
           className="text-label"
-          style={{ color: 'rgba(244,240,232,0.4)', fontSize: '0.55rem' }}
+          style={{ color: 'rgba(249,247,244,0.5)', fontSize: '0.5625rem' }}
         >
           Scroll
         </span>
+        <div
+          style={{
+            width: '1px',
+            height: '40px',
+            background: 'linear-gradient(to bottom, rgba(249,247,244,0.4), transparent)',
+          }}
+          aria-hidden="true"
+        />
         <ArrowDown
-          size={14}
+          size={16}
           strokeWidth={1.5}
-          style={{ color: 'rgba(244,240,232,0.4)' }}
-          className="group-hover:translate-y-1 transition-transform duration-300 animate-float"
+          style={{ color: 'rgba(249,247,244,0.5)' }}
+          className="group-hover:translate-y-1 transition-transform duration-500 animate-float"
         />
       </button>
     </section>
