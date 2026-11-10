@@ -15,7 +15,6 @@ import FoodSection from '@/components/FoodSection';
 import RetreatsSection from '@/components/RetreatsSection';
 import LocationSection from '@/components/LocationSection';
 import Gallery from '@/components/Gallery';
-import TestimonialsPlaceholder from '@/components/TestimonialsPlaceholder';
 import CTASection from '@/components/CTASection';
 import BookingModal from '@/components/BookingModal';
 import Footer from '@/components/Footer';
@@ -52,7 +51,6 @@ export default function HomePage() {
         <RetreatsSection />
         <LocationSection />
         <Gallery />
-        <TestimonialsPlaceholder />
         <CTASection />
       </main>
       <Footer />
