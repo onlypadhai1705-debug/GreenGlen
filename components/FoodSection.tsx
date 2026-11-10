@@ -11,18 +11,24 @@ export default function FoodSection() {
       style={{ backgroundColor: 'var(--color-gg-ivory)' }}
     >
       <div className="container-gg">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
 
           {/* Right side (image first on mobile, second on desktop) */}
-          <div className="lg:col-span-6 order-1 lg:order-2">
+          <div className="order-1 lg:order-2">
             <ScrollReveal delay={1}>
-              <div className="img-zoom relative" style={{ aspectRatio: '4/3' }}>
+              <div 
+                className="img-zoom relative overflow-hidden" 
+                style={{ 
+                  aspectRatio: '4/3',
+                  borderRadius: 'var(--radius-lg)',
+                }}
+              >
                 <Image
                   src={foodContent.image}
                   alt={foodContent.imageAlt}
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
-                  quality={82}
+                  quality={85}
                   placeholder="blur"
                   blurDataURL={blurData[foodContent.image]}
                   className="object-cover"
@@ -33,44 +39,66 @@ export default function FoodSection() {
           </div>
 
           {/* Left side — editorial text */}
-          <div className="lg:col-span-5 order-2 lg:order-1 flex flex-col justify-center">
+          <div className="order-2 lg:order-1 flex flex-col justify-center">
             <ScrollReveal delay={0}>
-              <div className="flex items-center gap-4 mb-6">
-                <span className="text-label text-gg-terra">{foodContent.eyebrow}</span>
-                <span
-                  className="block h-px w-8"
-                  style={{ backgroundColor: 'var(--color-gg-terracotta)', opacity: 0.5 }}
-                  aria-hidden="true"
-                />
+              <div className="flex items-center gap-5 mb-8">
+                <div
+                  style={{
+                    width: '48px',
+                    height: '48px',
+                    borderRadius: '50%',
+                    background: 'linear-gradient(135deg, rgba(200,116,86,0.12) 0%, rgba(168,184,159,0.12) 100%)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}
+                >
+                  <span className="text-label text-gg-terra" style={{ fontSize: '0.6rem' }}>06</span>
+                </div>
+                <span className="text-label text-gg-terra" style={{ letterSpacing: '0.24em' }}>{foodContent.eyebrow}</span>
               </div>
             </ScrollReveal>
 
             <ScrollReveal delay={1}>
               <h2
                 id="food-section-heading"
-                className="text-display-md text-gg-forest mb-7"
+                className="text-display-md text-gg-forest"
+                style={{ marginBottom: 'clamp(1.5rem, 4vw, 2rem)' }}
               >
                 {foodContent.headline}
               </h2>
             </ScrollReveal>
 
             <ScrollReveal delay={2}>
-              <p className="text-body" style={{ color: 'var(--color-gg-olive)' }}>
+              <p 
+                className="text-body" 
+                style={{ 
+                  color: 'var(--color-gg-olive)',
+                  fontSize: '1.0625rem',
+                  lineHeight: '1.85',
+                }}
+              >
                 {foodContent.body}
               </p>
             </ScrollReveal>
 
             {/* Decorative line element */}
             <ScrollReveal delay={3}>
-              <div className="mt-10 pt-10" style={{ borderTop: '1px solid rgba(74,82,64,0.15)' }}>
+              <div 
+                className="pt-10" 
+                style={{ 
+                  marginTop: 'clamp(2rem, 5vw, 3rem)',
+                  borderTop: '1px solid rgba(74,107,69,0.15)' 
+                }}
+              >
                 <p
                   className="font-display"
                   style={{
-                    fontSize: 'clamp(1.25rem, 2vw, 1.625rem)',
-                    fontWeight: 300,
+                    fontSize: 'clamp(1.375rem, 2.5vw, 1.875rem)',
+                    fontWeight: 400,
                     fontStyle: 'italic',
                     color: 'var(--color-gg-forest)',
-                    lineHeight: 1.35,
+                    lineHeight: 1.4,
                   }}
                 >
                   "The kind of meal that makes you<br />

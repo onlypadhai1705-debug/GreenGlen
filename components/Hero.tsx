@@ -9,7 +9,6 @@ import { blurData } from '@/lib/blurData';
 
 export default function Hero() {
   const [loaded, setLoaded] = useState(false);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const parallaxRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -21,19 +20,11 @@ export default function Hero() {
       parallaxRef.current.style.transform = `translateY(${scrolled * 0.4}px) scale(1.1)`;
     };
     
-    const handleMouseMove = (e: MouseEvent) => {
-      const x = (e.clientX / window.innerWidth - 0.5) * 20;
-      const y = (e.clientY / window.innerHeight - 0.5) * 20;
-      setMousePos({ x, y });
-    };
-    
     window.addEventListener('scroll', handleScroll, { passive: true });
-    window.addEventListener('mousemove', handleMouseMove, { passive: true });
     
     return () => {
       clearTimeout(t);
       window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('mousemove', handleMouseMove);
     };
   }, []);
 
@@ -108,10 +99,6 @@ export default function Hero() {
           filter: 'blur(60px)',
           opacity: loaded ? 1 : 0,
           transition: 'opacity 2s ease 0.8s',
-          transform: `translate(${mousePos.x}px, ${mousePos.y}px)`,
-          transitionProperty: 'transform',
-          transitionDuration: '0.5s',
-          transitionTimingFunction: 'ease-out',
         }}
         aria-hidden="true"
       />

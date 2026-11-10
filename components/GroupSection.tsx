@@ -9,54 +9,63 @@ export default function GroupSection() {
     <section
       id="groups"
       aria-labelledby="group-section-heading"
-      className="section-padding bg-weave relative overflow-hidden"
+      className="section-padding relative overflow-hidden"
+      style={{ backgroundColor: 'var(--color-gg-cream)' }}
     >
       <div className="container-gg">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-0 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
 
           {/* Left: Typography-dominant block */}
-          <div className="lg:col-span-6 flex flex-col justify-center">
+          <div className="flex flex-col justify-center">
             {/* Eyebrow */}
             <ScrollReveal delay={0}>
-              <div className="flex items-center gap-4 mb-8">
-                <span className="text-label text-gg-terra">{groupContent.eyebrow}</span>
-                <span
-                  className="block h-px w-8"
-                  style={{ backgroundColor: 'var(--color-gg-terracotta)', opacity: 0.5 }}
-                  aria-hidden="true"
-                />
+              <div className="flex items-center gap-5 mb-10">
+                <div
+                  style={{
+                    width: '48px',
+                    height: '48px',
+                    borderRadius: '50%',
+                    background: 'linear-gradient(135deg, rgba(200,116,86,0.12) 0%, rgba(168,184,159,0.12) 100%)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}
+                >
+                  <span className="text-label text-gg-terra" style={{ fontSize: '0.6rem' }}>05</span>
+                </div>
+                <span className="text-label text-gg-terra" style={{ letterSpacing: '0.24em' }}>{groupContent.eyebrow}</span>
               </div>
             </ScrollReveal>
 
-            {/* The "16" statement — oversized */}
+            {/* The "20" statement — oversized */}
             <ScrollReveal delay={1}>
-              <div className="flex items-end gap-4 mb-3 leading-none">
+              <div className="flex items-end gap-6 mb-8 leading-none">
                 <span
                   className="font-display"
                   aria-hidden="true"
                   style={{
-                    fontSize: 'clamp(5rem, 15vw, 13rem)',
+                    fontSize: 'clamp(6rem, 16vw, 14rem)',
                     fontWeight: 300,
                     color: 'var(--color-gg-forest)',
                     lineHeight: 1,
-                    opacity: 0.15,
+                    opacity: 0.12,
                     userSelect: 'none',
                   }}
                 >
                   20
                 </span>
-                <div className="pb-3">
+                <div style={{ paddingBottom: '1.5rem' }}>
                   <span
-                    className="text-label block mb-1"
-                    style={{ color: 'var(--color-gg-olive-light)' }}
+                    className="text-label block mb-2"
+                    style={{ color: 'rgba(74,107,69,0.7)' }}
                   >
                     Up to
                   </span>
                   <span
                     className="font-display block"
                     style={{
-                      fontSize: 'clamp(1.25rem, 2.5vw, 2rem)',
-                      fontWeight: 300,
+                      fontSize: 'clamp(1.5rem, 3vw, 2.25rem)',
+                      fontWeight: 400,
                       color: 'var(--color-gg-forest)',
                     }}
                   >
@@ -70,7 +79,8 @@ export default function GroupSection() {
             <ScrollReveal delay={1}>
               <h2
                 id="group-section-heading"
-                className="text-display-lg text-gg-forest mb-6"
+                className="text-display-md text-gg-forest"
+                style={{ marginBottom: 'clamp(1.5rem, 4vw, 2rem)' }}
               >
                 {groupContent.headline}
               </h2>
@@ -78,18 +88,33 @@ export default function GroupSection() {
 
             {/* Body */}
             <ScrollReveal delay={2}>
-              <p className="text-body mb-4" style={{ color: 'var(--color-gg-olive)' }}>
+              <p 
+                className="text-body" 
+                style={{ 
+                  color: 'var(--color-gg-olive)',
+                  fontSize: '1.0625rem',
+                  lineHeight: '1.85',
+                  marginBottom: '1.5rem',
+                }}
+              >
                 {groupContent.body}
               </p>
-              <p className="text-label mt-2" style={{ color: 'var(--color-gg-sand)' }}>
+              <p 
+                className="text-label" 
+                style={{ 
+                  color: 'rgba(74,107,69,0.7)',
+                  fontSize: '0.75rem',
+                  letterSpacing: '0.15em',
+                }}
+              >
                 {groupContent.subtext}
               </p>
             </ScrollReveal>
 
             {/* CTA */}
             <ScrollReveal delay={3}>
-              <div className="mt-10">
-                <Link href="#contact" className="btn-primary w-full sm:w-auto justify-center">
+              <div className="mt-12">
+                <Link href="#contact" className="btn-primary w-full sm:w-auto justify-center magnetic-hover">
                   Enquire for Your Group
                 </Link>
               </div>
@@ -97,18 +122,21 @@ export default function GroupSection() {
           </div>
 
           {/* Right: Image */}
-          <div className="lg:col-span-5 lg:col-start-8">
+          <div>
             <ScrollReveal delay={1}>
               <div
-                className="img-zoom card-lift relative"
-                style={{ aspectRatio: '4/5' }}
+                className="img-zoom card-lift relative overflow-hidden"
+                style={{ 
+                  aspectRatio: '4/5',
+                  borderRadius: 'var(--radius-lg)',
+                }}
               >
                 <Image
                   src={groupContent.image}
                   alt={groupContent.imageAlt}
                   fill
-                  sizes="(max-width: 1024px) 100vw, 40vw"
-                  quality={80}
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  quality={85}
                   placeholder="blur"
                   blurDataURL={blurData[groupContent.image]}
                   className="object-cover"

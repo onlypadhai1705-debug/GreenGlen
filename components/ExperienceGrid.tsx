@@ -12,32 +12,40 @@ export default function ExperienceGrid() {
       className="section-padding"
       style={{ backgroundColor: 'var(--color-gg-forest)' }}
     >
-      <div className="container-gg mb-16">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6">
+      <div className="container-gg" style={{ marginBottom: 'clamp(4rem, 10vw, 7rem)' }}>
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-8">
           <div>
             <ScrollReveal delay={0}>
-              <div className="flex items-center gap-4 mb-5">
-                <span className="text-label" style={{ color: 'var(--color-gg-terracotta)' }}>
+              <div className="flex items-center gap-5 mb-8">
+                <div
+                  style={{
+                    width: '48px',
+                    height: '48px',
+                    borderRadius: '50%',
+                    background: 'rgba(200, 116, 86, 0.15)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}
+                >
+                  <span className="text-label" style={{ color: 'rgba(200,116,86,0.9)', fontSize: '0.6rem' }}>04</span>
+                </div>
+                <span className="text-label" style={{ color: 'rgba(200,116,86,0.85)', letterSpacing: '0.24em' }}>
                   The Experience
                 </span>
-                <span
-                  className="block h-px w-8"
-                  style={{ backgroundColor: 'var(--color-gg-terracotta)', opacity: 0.5 }}
-                  aria-hidden="true"
-                />
               </div>
             </ScrollReveal>
             <ScrollReveal delay={1}>
               <h2
                 id="experience-grid-heading"
-                className="text-display-md"
-                style={{ color: 'var(--color-gg-ivory)' }}
+                className="text-display-lg"
+                style={{ color: 'var(--color-gg-white)' }}
               >
                 What Green Glen
                 <br />
                 <em
                   className="font-display not-italic"
-                  style={{ color: 'rgba(244,240,232,0.55)' }}
+                  style={{ color: 'rgba(249,247,244,0.55)' }}
                 >
                   is really about.
                 </em>
@@ -45,7 +53,7 @@ export default function ExperienceGrid() {
             </ScrollReveal>
           </div>
           <ScrollReveal delay={2} className="w-full sm:w-auto">
-            <Link href="#contact" className="btn-outline w-full sm:w-auto justify-center">
+            <Link href="#contact" className="btn-outline w-full sm:w-auto justify-center magnetic-hover">
               Plan Your Stay
             </Link>
           </ScrollReveal>
@@ -65,7 +73,7 @@ export default function ExperienceGrid() {
                 alt={exp.imageAlt}
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                quality={78}
+                quality={82}
                 placeholder="blur"
                 blurDataURL={blurData[exp.image] ?? ''}
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -76,38 +84,47 @@ export default function ExperienceGrid() {
                 className="absolute inset-0"
                 style={{
                   background:
-                    'linear-gradient(to top, rgba(17,26,18,0.9) 0%, rgba(17,26,18,0.3) 50%, transparent 70%)',
+                    'linear-gradient(to top, rgba(26,46,28,0.92) 0%, rgba(26,46,28,0.4) 50%, transparent 70%)',
                 }}
                 aria-hidden="true"
               />
 
-              {/* Content overlay */}
-              <div className="absolute inset-0 flex flex-col justify-end p-8 md:p-10">
+              {/* Content overlay with generous padding */}
+              <div 
+                className="absolute inset-0 flex flex-col justify-end" 
+                style={{ padding: 'clamp(2rem, 5vw, 3rem)' }}
+              >
                 <span
-                  className="font-display mb-2"
+                  className="font-display mb-3"
                   style={{
-                    fontSize: '0.7rem',
-                    fontWeight: 300,
-                    color: 'rgba(244,240,232,0.45)',
-                    letterSpacing: '0.12em',
+                    fontSize: '0.75rem',
+                    fontWeight: 400,
+                    color: 'rgba(249,247,244,0.5)',
+                    letterSpacing: '0.18em',
                   }}
                 >
                   {exp.eyebrow}
                 </span>
                 <h3
-                  className="font-display mb-3"
+                  className="font-display"
                   style={{
-                    fontSize: 'clamp(1.3rem, 2.5vw, 1.75rem)',
-                    fontWeight: 300,
-                    color: 'var(--color-gg-ivory)',
-                    lineHeight: 1.15,
+                    fontSize: 'clamp(1.5rem, 3vw, 2rem)',
+                    fontWeight: 400,
+                    color: 'var(--color-gg-white)',
+                    lineHeight: 1.2,
+                    marginBottom: '1.25rem',
                   }}
                 >
                   {exp.title}
                 </h3>
                 <p
-                  className="text-body-sm"
-                  style={{ color: 'rgba(244,240,232,0.65)', maxWidth: '28ch' }}
+                  className="text-body"
+                  style={{ 
+                    color: 'rgba(249,247,244,0.7)', 
+                    maxWidth: '30ch',
+                    fontSize: '1rem',
+                    lineHeight: '1.75',
+                  }}
                 >
                   {exp.body}
                 </p>
@@ -115,11 +132,13 @@ export default function ExperienceGrid() {
 
               {/* Number large BG */}
               <span
-                className="absolute top-5 right-5 font-display"
+                className="absolute font-display"
                 style={{
-                  fontSize: '5rem',
+                  top: 'clamp(1.5rem, 4vw, 2.5rem)',
+                  right: 'clamp(1.5rem, 4vw, 2.5rem)',
+                  fontSize: 'clamp(4rem, 8vw, 6rem)',
                   fontWeight: 300,
-                  color: 'rgba(244,240,232,0.06)',
+                  color: 'rgba(249,247,244,0.06)',
                   lineHeight: 1,
                   userSelect: 'none',
                 }}

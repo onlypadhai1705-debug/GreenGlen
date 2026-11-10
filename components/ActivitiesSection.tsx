@@ -10,23 +10,31 @@ export default function ActivitiesSection() {
     <section
       id="experience"
       aria-labelledby="activities-heading"
-      className="section-padding bg-weave relative overflow-hidden"
+      className="section-padding relative overflow-hidden"
+      style={{
+        backgroundColor: 'var(--color-gg-cream)',
+      }}
     >
-      {/* Decorative top divider */}
-      <div className="divider-woven absolute top-0 left-0 right-0" aria-hidden="true" />
-
       <div className="container-gg">
-        {/* Header */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-20 items-end">
+        {/* Header with generous spacing */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end" style={{ marginBottom: 'clamp(4rem, 10vw, 7rem)' }}>
           <div className="lg:col-span-7">
             <ScrollReveal delay={0}>
-              <div className="flex items-center gap-4 mb-5">
-                <span className="text-label text-gg-terra">{activitiesContent.eyebrow}</span>
-                <span
-                  className="block h-px flex-1 max-w-[2rem]"
-                  style={{ backgroundColor: 'var(--color-gg-terracotta)', opacity: 0.5 }}
-                  aria-hidden="true"
-                />
+              <div className="flex items-center gap-5 mb-8">
+                <div
+                  style={{
+                    width: '48px',
+                    height: '48px',
+                    borderRadius: '50%',
+                    background: 'linear-gradient(135deg, rgba(200,116,86,0.12) 0%, rgba(168,184,159,0.12) 100%)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}
+                >
+                  <span className="text-label text-gg-terra" style={{ fontSize: '0.6rem' }}>03</span>
+                </div>
+                <span className="text-label text-gg-terra" style={{ letterSpacing: '0.24em' }}>{activitiesContent.eyebrow}</span>
               </div>
             </ScrollReveal>
             <ScrollReveal delay={1}>
@@ -35,24 +43,33 @@ export default function ActivitiesSection() {
               </h2>
             </ScrollReveal>
           </div>
-          <div className="lg:col-span-4 lg:col-start-9">
+          <div className="lg:col-span-5">
             <ScrollReveal delay={2}>
-              <p className="text-body" style={{ color: 'var(--color-gg-olive)' }}>
+              <p 
+                className="text-body" 
+                style={{ 
+                  color: 'var(--color-gg-olive)',
+                  fontSize: '1.0625rem',
+                  lineHeight: '1.85',
+                }}
+              >
                 {activitiesContent.body}
               </p>
             </ScrollReveal>
           </div>
         </div>
 
-        {/* Activities grid — 3 cols, 2 rows */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children">
+        {/* Activities grid with proper spacing */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {activitiesContent.activities.map((act, i) => (
             <ScrollReveal key={act.id} delay={(i % 3) as 0 | 1 | 2}>
               <article
                 className="card-lift group relative overflow-hidden"
                 style={{
                   backgroundColor: 'var(--color-gg-white)',
-                  border: '1px solid rgba(201,185,154,0.3)',
+                  border: '1px solid rgba(201,185,154,0.25)',
+                  borderRadius: 'var(--radius-lg)',
+                  boxShadow: '0 4px 24px rgba(26, 46, 28, 0.06)',
                 }}
               >
                 {/* Image */}
@@ -62,7 +79,7 @@ export default function ActivitiesSection() {
                     alt={act.imageAlt}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    quality={78}
+                    quality={82}
                     placeholder="blur"
                     blurDataURL={
                       blurData[act.image] ??
@@ -75,51 +92,62 @@ export default function ActivitiesSection() {
                     className="absolute inset-0"
                     style={{
                       background:
-                        'linear-gradient(to top, rgba(28,43,30,0.4) 0%, transparent 60%)',
+                        'linear-gradient(to top, rgba(26,46,28,0.4) 0%, transparent 60%)',
                     }}
                     aria-hidden="true"
                   />
-                  {/* Icon badge */}
-                  <span
-                    className="absolute top-4 right-4"
-                    aria-hidden="true"
+                  {/* Icon badge with better spacing */}
+                  <div
+                    className="absolute"
                     style={{
-                      background: 'rgba(244,240,232,0.92)',
+                      top: '1.5rem',
+                      right: '1.5rem',
+                      background: 'rgba(249,247,244,0.95)',
+                      backdropFilter: 'blur(12px)',
                       borderRadius: '50%',
-                      width: '2.75rem',
-                      height: '2.75rem',
+                      width: '3.5rem',
+                      height: '3.5rem',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      fontSize: '1.1rem',
-                      backdropFilter: 'blur(8px)',
+                      fontSize: '1.375rem',
+                      border: '1px solid rgba(200,116,86,0.2)',
                     }}
+                    aria-hidden="true"
                   >
                     {act.icon}
-                  </span>
+                  </div>
                 </div>
 
-                {/* Content */}
-                <div className="p-7">
+                {/* Content with generous padding */}
+                <div style={{ padding: 'clamp(2rem, 5vw, 2.5rem)' }}>
                   <h3
-                    className="font-display mb-2"
+                    className="font-display"
                     style={{
-                      fontSize: '1.375rem',
-                      fontWeight: 300,
+                      fontSize: '1.625rem',
+                      fontWeight: 400,
                       color: 'var(--color-gg-forest)',
-                      lineHeight: 1.2,
+                      lineHeight: 1.3,
+                      marginBottom: '1rem',
                     }}
                   >
                     {act.title}
                   </h3>
-                  <p className="text-body-sm" style={{ color: 'var(--color-gg-olive)' }}>
+                  <p 
+                    className="text-body" 
+                    style={{ 
+                      color: 'var(--color-gg-olive)',
+                      fontSize: '1rem',
+                      lineHeight: '1.8',
+                    }}
+                  >
                     {act.body}
                   </p>
                 </div>
 
                 {/* Bottom accent line */}
                 <div
-                  className="absolute bottom-0 left-0 h-0.5 w-0 group-hover:w-full transition-all duration-500"
+                  className="absolute bottom-0 left-0 h-1 w-0 group-hover:w-full transition-all duration-500"
                   style={{ backgroundColor: 'var(--color-gg-terracotta)' }}
                   aria-hidden="true"
                 />
@@ -128,8 +156,6 @@ export default function ActivitiesSection() {
           ))}
         </div>
       </div>
-
-      <div className="divider-woven absolute bottom-0 left-0 right-0" aria-hidden="true" />
     </section>
   );
 }

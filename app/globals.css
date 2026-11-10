@@ -149,21 +149,21 @@ body {
 /* ─── Layout Utilities ──────────────────────────────────────────── */
 .container-gg {
   width: 100%;
-  max-width: 1480px;
+  max-width: 1440px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: clamp(1.5rem, 6vw, 8rem);
-  padding-right: clamp(1.5rem, 6vw, 8rem);
+  padding-left: clamp(1.25rem, 5vw, 6rem);
+  padding-right: clamp(1.25rem, 5vw, 6rem);
 }
 
 .section-padding {
-  padding-top: clamp(4.5rem, 10vw, 11rem);
-  padding-bottom: clamp(4.5rem, 10vw, 11rem);
+  padding-top: clamp(4rem, 8vw, 8rem);
+  padding-bottom: clamp(4rem, 8vw, 8rem);
 }
 
 .section-padding-sm {
-  padding-top: clamp(3rem, 7vw, 7rem);
-  padding-bottom: clamp(3rem, 7vw, 7rem);
+  padding-top: clamp(2.5rem, 5vw, 5rem);
+  padding-bottom: clamp(2.5rem, 5vw, 5rem);
 }
 
 /* ─── Color Utilities ───────────────────────────────────────────── */
