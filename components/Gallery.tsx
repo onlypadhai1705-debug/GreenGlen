@@ -111,14 +111,14 @@ export default function Gallery() {
             </ScrollReveal>
           </div>
 
-          {/* Masonry-style editorial grid */}
-          <div className="columns-1 sm:columns-2 lg:columns-3 gap-5 space-y-5">
+          {/* Masonry-style editorial grid - Quadra 2-col on mobile */}
+          <div className="columns-2 sm:columns-2 lg:columns-3 gap-2.5 sm:gap-4 lg:gap-5 space-y-2.5 sm:space-y-4 lg:space-y-5">
             {filtered.map((image, i) => (
               <div key={image.id} className="break-inside-avoid">
                 <ScrollReveal delay={((i % 3) as 0 | 1 | 2)}>
                   <button
                     onClick={() => openLightbox(i)}
-                    className="w-full group relative overflow-hidden block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+                    className="w-full group relative overflow-hidden block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 rounded-sm"
                     style={{
                       aspectRatio: image.aspect === 'portrait' ? '3/4' : '4/3',
                       '--tw-ring-color': 'var(--color-gg-terracotta)',
@@ -129,7 +129,7 @@ export default function Gallery() {
                       src={image.src}
                       alt={image.alt}
                       fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 33vw"
                       quality={75}
                       placeholder="blur"
                       blurDataURL={blurData[image.src]}
@@ -137,15 +137,15 @@ export default function Gallery() {
                     />
                     {/* Hover overlay */}
                     <div
-                      className="absolute inset-0 flex items-end p-5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                      style={{ background: 'linear-gradient(to top, rgba(17,26,18,0.75) 0%, transparent 60%)' }}
+                      className="absolute inset-0 flex items-end p-2.5 sm:p-5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      style={{ background: 'linear-gradient(to top, rgba(17,26,18,0.85) 0%, transparent 65%)' }}
                       aria-hidden="true"
                     >
                       <div>
-                        <span className="text-label block" style={{ color: 'var(--color-gg-terracotta)', fontSize: '0.6rem' }}>
+                        <span className="text-label block" style={{ color: 'var(--color-gg-terracotta)', fontSize: 'clamp(0.5rem, 1.5vw, 0.6rem)' }}>
                           {image.category}
                         </span>
-                        <p className="text-body-sm mt-1" style={{ color: 'rgba(244,240,232,0.8)' }}>
+                        <p className="text-body-sm mt-0.5 line-clamp-1" style={{ color: 'rgba(244,240,232,0.85)', fontSize: 'clamp(0.6875rem, 1.8vw, 0.875rem)' }}>
                           {image.alt.split('—')[0].trim()}
                         </p>
                       </div>

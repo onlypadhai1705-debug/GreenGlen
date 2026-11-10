@@ -59,12 +59,16 @@ export default function ActivitiesSection() {
           </div>
         </div>
 
-        {/* Activities grid with proper spacing */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Activities grid - Quadra 2-col on mobile */}
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-6 md:gap-8">
           {activitiesContent.activities.map((act, i) => (
-            <ScrollReveal key={act.id} delay={(i % 3) as 0 | 1 | 2}>
+            <ScrollReveal
+              key={act.id}
+              delay={(i % 3) as 0 | 1 | 2}
+              className={i === 2 ? 'col-span-2 lg:col-span-1' : 'col-span-1'}
+            >
               <article
-                className="card-lift group relative overflow-hidden"
+                className="card-lift group relative overflow-hidden h-full flex flex-col"
                 style={{
                   backgroundColor: 'var(--color-gg-white)',
                   border: '1px solid rgba(201,185,154,0.25)',
@@ -73,12 +77,16 @@ export default function ActivitiesSection() {
                 }}
               >
                 {/* Image */}
-                <div className="img-zoom relative overflow-hidden" style={{ aspectRatio: '3/2' }}>
+                <div
+                  className={`img-zoom relative overflow-hidden ${
+                    i === 2 ? 'aspect-[16/9] sm:aspect-[3/2]' : 'aspect-square sm:aspect-[3/2]'
+                  }`}
+                >
                   <Image
                     src={act.image}
                     alt={act.imageAlt}
                     fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    sizes={i === 2 ? '(max-width: 768px) 100vw, 33vw' : '(max-width: 768px) 50vw, 33vw'}
                     quality={82}
                     placeholder="blur"
                     blurDataURL={
@@ -96,21 +104,12 @@ export default function ActivitiesSection() {
                     }}
                     aria-hidden="true"
                   />
-                  {/* Icon badge with better spacing */}
+                  {/* Icon badge with responsive sizing */}
                   <div
-                    className="absolute"
+                    className="absolute top-2 right-2 sm:top-5 sm:right-5 w-7 h-7 sm:w-12 sm:h-12 text-xs sm:text-lg flex items-center justify-center rounded-full"
                     style={{
-                      top: '1.5rem',
-                      right: '1.5rem',
                       background: 'rgba(249,247,244,0.95)',
                       backdropFilter: 'blur(12px)',
-                      borderRadius: '50%',
-                      width: '3.5rem',
-                      height: '3.5rem',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      fontSize: '1.375rem',
                       border: '1px solid rgba(200,116,86,0.2)',
                     }}
                     aria-hidden="true"
@@ -119,30 +118,31 @@ export default function ActivitiesSection() {
                   </div>
                 </div>
 
-                {/* Content with generous padding */}
-                <div style={{ padding: 'clamp(2rem, 5vw, 2.5rem)' }}>
-                  <h3
-                    className="font-display"
-                    style={{
-                      fontSize: '1.625rem',
-                      fontWeight: 400,
-                      color: 'var(--color-gg-forest)',
-                      lineHeight: 1.3,
-                      marginBottom: '1rem',
-                    }}
-                  >
-                    {act.title}
-                  </h3>
-                  <p 
-                    className="text-body" 
-                    style={{ 
-                      color: 'var(--color-gg-olive)',
-                      fontSize: '1rem',
-                      lineHeight: '1.8',
-                    }}
-                  >
-                    {act.body}
-                  </p>
+                {/* Content with responsive padding */}
+                <div className="flex-1 flex flex-col justify-between" style={{ padding: 'clamp(0.75rem, 2.5vw, 2.25rem)' }}>
+                  <div>
+                    <h3
+                      className="font-display mb-1 sm:mb-2"
+                      style={{
+                        fontSize: 'clamp(0.85rem, 2.2vw, 1.625rem)',
+                        fontWeight: 400,
+                        color: 'var(--color-gg-forest)',
+                        lineHeight: 1.3,
+                      }}
+                    >
+                      {act.title}
+                    </h3>
+                    <p 
+                      className="text-body line-clamp-2 sm:line-clamp-none" 
+                      style={{ 
+                        color: 'var(--color-gg-olive)',
+                        fontSize: 'clamp(0.6875rem, 1.8vw, 1rem)',
+                        lineHeight: '1.5',
+                      }}
+                    >
+                      {act.body}
+                    </p>
+                  </div>
                 </div>
 
                 {/* Bottom accent line */}

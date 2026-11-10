@@ -94,12 +94,12 @@ export default function ExperienceGrid() {
           </ScrollReveal>
         </div>
 
-        {/* Row 1: Two Featured Large Experience Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+        {/* Row 1: Two Featured Experience Cards - Quadra 2-col on mobile */}
+        <div className="grid grid-cols-2 gap-2.5 sm:gap-6 mb-2.5 sm:mb-6">
           {featuredExperiences.map((exp, i) => (
             <ScrollReveal key={exp.id} delay={i as 0 | 1}>
               <article
-                className="group relative overflow-hidden rounded-sm card-lift aspect-[4/3] sm:aspect-[16/11]"
+                className="group relative overflow-hidden rounded-sm card-lift aspect-square sm:aspect-[16/11]"
                 style={{
                   backgroundColor: 'rgba(28, 43, 30, 0.5)',
                   border: '1px solid rgba(201, 185, 154, 0.22)',
@@ -109,7 +109,7 @@ export default function ExperienceGrid() {
                   src={exp.image}
                   alt={exp.imageAlt}
                   fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  sizes="(max-width: 1024px) 50vw, 50vw"
                   quality={82}
                   placeholder="blur"
                   blurDataURL={blurData[exp.image] ?? ''}
@@ -128,35 +128,35 @@ export default function ExperienceGrid() {
                 />
 
                 {/* Floating Top Number Badge */}
-                <div className="absolute top-5 left-5">
+                <div className="absolute top-2.5 left-2.5 sm:top-5 sm:left-5">
                   <span
-                    className="text-label px-3 py-1.5 rounded-full inline-flex items-center gap-2"
+                    className="text-label px-2 py-0.5 sm:px-3 sm:py-1.5 rounded-full inline-flex items-center gap-1 sm:gap-2"
                     style={{
                       backgroundColor: 'rgba(17,26,18,0.85)',
                       border: '1px solid rgba(201,185,154,0.3)',
                       color: 'var(--color-gg-ivory)',
-                      fontSize: '0.5625rem',
+                      fontSize: 'clamp(0.5rem, 1.4vw, 0.5625rem)',
                       backdropFilter: 'blur(6px)',
                     }}
                   >
                     <span
-                      className="w-1.5 h-1.5 rounded-full"
+                      className="w-1 sm:w-1.5 h-1 sm:h-1.5 rounded-full"
                       style={{ backgroundColor: 'var(--color-gg-terracotta)' }}
                       aria-hidden="true"
                     />
-                    {exp.eyebrow} · EXPERIENCE
+                    {exp.eyebrow}
                   </span>
                 </div>
 
                 {/* Content Overlay */}
                 <div
-                  className="absolute bottom-0 inset-x-0 p-6 md:p-8"
+                  className="absolute bottom-0 inset-x-0 p-2.5 sm:p-6 md:p-8"
                   style={{ maxWidth: '42ch' }}
                 >
                   <h3
-                    className="font-display mb-2"
+                    className="font-display mb-1 sm:mb-2"
                     style={{
-                      fontSize: 'clamp(1.5rem, 2.5vw, 2rem)',
+                      fontSize: 'clamp(0.85rem, 2.5vw, 2rem)',
                       fontWeight: 300,
                       color: 'var(--color-gg-ivory)',
                       lineHeight: 1.2,
@@ -165,10 +165,11 @@ export default function ExperienceGrid() {
                     {exp.title}
                   </h3>
                   <p
-                    className="text-body-sm"
+                    className="text-body-sm line-clamp-2 sm:line-clamp-none"
                     style={{
                       color: 'rgba(244,240,232,0.75)',
-                      lineHeight: 1.65,
+                      fontSize: 'clamp(0.6875rem, 1.8vw, 0.875rem)',
+                      lineHeight: 1.5,
                     }}
                   >
                     {exp.body}
@@ -179,14 +180,19 @@ export default function ExperienceGrid() {
           ))}
         </div>
 
-        {/* Row 2: Three Balanced Supporting Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* Row 2: Three Balanced Supporting Cards - Quadra 2-col on mobile */}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-2.5 sm:gap-6">
           {supportingExperiences.map((exp, i) => (
-            <ScrollReveal key={exp.id} delay={(i % 3) as 0 | 1 | 2}>
+            <ScrollReveal
+              key={exp.id}
+              delay={(i % 3) as 0 | 1 | 2}
+              className={i === 2 ? 'col-span-2 md:col-span-1' : 'col-span-1'}
+            >
               <article
-                className="group relative overflow-hidden rounded-sm card-lift flex flex-col justify-end"
+                className={`group relative overflow-hidden rounded-sm card-lift flex flex-col justify-end ${
+                  i === 2 ? 'aspect-[16/9] md:aspect-square' : 'aspect-square'
+                }`}
                 style={{
-                  aspectRatio: '4/4',
                   backgroundColor: 'rgba(28, 43, 30, 0.5)',
                   border: '1px solid rgba(201, 185, 154, 0.2)',
                 }}
@@ -195,7 +201,7 @@ export default function ExperienceGrid() {
                   src={exp.image}
                   alt={exp.imageAlt}
                   fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
+                  sizes={i === 2 ? '(max-width: 768px) 100vw, 33vw' : '(max-width: 768px) 50vw, 33vw'}
                   quality={80}
                   placeholder="blur"
                   blurDataURL={blurData[exp.image] ?? ''}
@@ -214,14 +220,14 @@ export default function ExperienceGrid() {
                 />
 
                 {/* Floating Top Eyebrow */}
-                <div className="absolute top-4 left-4">
+                <div className="absolute top-2.5 left-2.5 sm:top-4 sm:left-4">
                   <span
-                    className="text-label px-2.5 py-1 rounded-sm"
+                    className="text-label px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-sm"
                     style={{
                       backgroundColor: 'rgba(17,26,18,0.75)',
                       border: '1px solid rgba(201,185,154,0.25)',
                       color: 'var(--color-gg-sand)',
-                      fontSize: '0.5625rem',
+                      fontSize: 'clamp(0.5rem, 1.4vw, 0.5625rem)',
                     }}
                   >
                     {exp.eyebrow}
@@ -229,11 +235,11 @@ export default function ExperienceGrid() {
                 </div>
 
                 {/* Content Overlay */}
-                <div className="relative z-10 p-5 md:p-6">
+                <div className="relative z-10 p-2.5 sm:p-5 md:p-6">
                   <h3
-                    className="font-display mb-2"
+                    className="font-display mb-1 sm:mb-2"
                     style={{
-                      fontSize: 'clamp(1.25rem, 2vw, 1.5rem)',
+                      fontSize: 'clamp(0.85rem, 2.5vw, 1.375rem)',
                       fontWeight: 300,
                       color: 'var(--color-gg-ivory)',
                       lineHeight: 1.25,
@@ -242,10 +248,11 @@ export default function ExperienceGrid() {
                     {exp.title}
                   </h3>
                   <p
-                    className="text-body-sm"
+                    className="text-body-sm line-clamp-2 sm:line-clamp-none"
                     style={{
-                      color: 'rgba(244,240,232,0.7)',
-                      lineHeight: 1.6,
+                      color: 'rgba(244,240,232,0.75)',
+                      fontSize: 'clamp(0.6875rem, 1.8vw, 0.875rem)',
+                      lineHeight: 1.5,
                     }}
                   >
                     {exp.body}

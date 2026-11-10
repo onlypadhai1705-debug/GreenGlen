@@ -83,16 +83,17 @@ export default function BirdWatchingSection() {
           </p>
         </div>
 
-        {/* Pure, Simple Photo Gallery Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+        {/* Pure, Simple Photo Gallery Grid - Quadra 2-col on mobile */}
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-5 md:gap-6">
           {gallery.map((photo) => (
             <div
               key={photo.src}
               className={`group relative overflow-hidden rounded-sm card-lift ${
-                photo.featured ? 'sm:col-span-2 lg:col-span-2' : ''
+                photo.featured
+                  ? 'col-span-1 lg:col-span-2 aspect-square lg:aspect-[16/10]'
+                  : 'col-span-1 aspect-square sm:aspect-[4/3]'
               }`}
               style={{
-                aspectRatio: photo.featured ? '16/10' : '4/3',
                 backgroundColor: 'rgba(28, 43, 30, 0.4)',
                 border: '1px solid rgba(201, 185, 154, 0.2)',
               }}
@@ -101,11 +102,7 @@ export default function BirdWatchingSection() {
                 src={photo.src}
                 alt={photo.alt}
                 fill
-                sizes={
-                  photo.featured
-                    ? '(max-width: 768px) 100vw, 66vw'
-                    : '(max-width: 768px) 100vw, 33vw'
-                }
+                sizes="(max-width: 768px) 50vw, (max-width: 1024px) 50vw, 33vw"
                 quality={82}
                 placeholder="blur"
                 blurDataURL={blurData[photo.src] ?? ''}
@@ -117,18 +114,18 @@ export default function BirdWatchingSection() {
                 className="absolute inset-0 transition-opacity duration-300"
                 style={{
                   background:
-                    'linear-gradient(to top, rgba(17,26,18,0.85) 0%, rgba(17,26,18,0.15) 50%, transparent 100%)',
+                    'linear-gradient(to top, rgba(17,26,18,0.88) 0%, rgba(17,26,18,0.2) 50%, transparent 100%)',
                 }}
                 aria-hidden="true"
               />
 
               {/* Minimalist Caption */}
-              <div className="absolute bottom-0 inset-x-0 p-5 md:p-6 flex items-end justify-between">
+              <div className="absolute bottom-0 inset-x-0 p-2.5 sm:p-5 md:p-6 flex items-end justify-between">
                 <div>
                   <h3
                     className="font-display"
                     style={{
-                      fontSize: photo.featured ? '1.5rem' : '1.25rem',
+                      fontSize: 'clamp(0.85rem, 2.6vw, 1.35rem)',
                       fontWeight: 300,
                       color: 'var(--color-gg-ivory)',
                       lineHeight: 1.2,
@@ -137,9 +134,9 @@ export default function BirdWatchingSection() {
                     {photo.title}
                   </h3>
                   <p
-                    className="font-display italic mt-0.5"
+                    className="font-display italic mt-0.5 line-clamp-1"
                     style={{
-                      fontSize: '0.875rem',
+                      fontSize: 'clamp(0.65rem, 1.8vw, 0.875rem)',
                       color: 'var(--color-gg-sand)',
                     }}
                   >
