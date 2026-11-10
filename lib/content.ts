@@ -64,11 +64,11 @@ export const mudhouseContent = {
 } as const;
 
 export const openSpaceContent = {
-  eyebrow: 'Open Space',
+  eyebrow: 'Guest Rooms',
   headline: 'Room to breathe.',
-  body: 'Green Glen is as much about its open spaces as its interiors. Generous grounds, open sky, and the quiet company of the forest surround you. A place to slow your mornings, gather under the trees or simply do nothing at all.',
-  image: '/Archive/chairsinnature.JPG',
-  imageAlt: 'Chairs set amid nature at Green Glen — quiet outdoor seating under the trees, Himalayan hills all around',
+  body: 'Spacious guest rooms built for unhurried comfort. Warm wooden floors, earthy furnishings, and windows that open to the fresh mountain breeze and pine forest silence. A place to slow your mornings, rest deeply, and feel at home.',
+  image: '/Archive/room1.JPG',
+  imageAlt: 'Spacious guest room at Green Glen with warm wooden floors, earthy furnishings, and natural mountain light',
 } as const;
 
 export const experiences = [
@@ -175,10 +175,10 @@ export const locationContent = {
 export const galleryImages = [
   {
     id: 'gallery-1',
-    src: '/Archive/room1.JPG',
-    alt: 'First guest room at Green Glen — warm wooden floors and earthy furnishings',
-    category: 'The House',
-    aspect: 'portrait',
+    src: '/Archive/chairsinnature.JPG',
+    alt: 'Quiet outdoor seating under the trees at Green Glen — surrounded by nature',
+    category: 'The Landscape',
+    aspect: 'landscape',
   },
   {
     id: 'gallery-2',
