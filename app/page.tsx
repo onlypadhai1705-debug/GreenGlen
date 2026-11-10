@@ -3,10 +3,12 @@
 import { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
+import MarqueeStrip from '@/components/MarqueeStrip';
 import BrandIntro from '@/components/BrandIntro';
 import MudhouseSection from '@/components/MudhouseSection';
 import OpenSpaceSection from '@/components/OpenSpaceSection';
 import ExperienceGrid from '@/components/ExperienceGrid';
+import ActivitiesSection from '@/components/ActivitiesSection';
 import GroupSection from '@/components/GroupSection';
 import FoodSection from '@/components/FoodSection';
 import RetreatsSection from '@/components/RetreatsSection';
@@ -37,10 +39,12 @@ export default function HomePage() {
       <Navbar />
       <main id="main-content">
         <Hero />
+        <MarqueeStrip />
         <BrandIntro />
         <MudhouseSection />
         <OpenSpaceSection />
         <ExperienceGrid />
+        <ActivitiesSection />
         <GroupSection />
         <FoodSection />
         <RetreatsSection />

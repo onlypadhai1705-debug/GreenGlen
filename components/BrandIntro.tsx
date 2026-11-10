@@ -6,47 +6,65 @@ import { blurData } from '@/lib/blurData';
 export default function BrandIntro() {
   return (
     <section
-      id="experience"
+      id="about"
       aria-labelledby="brand-intro-heading"
-      className="section-padding"
+      className="section-padding relative overflow-hidden"
       style={{ backgroundColor: 'var(--color-gg-ivory)' }}
     >
-      <div className="container-gg">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+      {/* Decorative large text */}
+      <span
+        className="absolute right-0 top-1/2 -translate-y-1/2 font-display select-none pointer-events-none"
+        style={{
+          fontSize: 'clamp(8rem, 20vw, 18rem)',
+          fontWeight: 300,
+          color: 'rgba(74,82,64,0.04)',
+          lineHeight: 1,
+          userSelect: 'none',
+        }}
+        aria-hidden="true"
+      >
+        HILLS
+      </span>
 
-          {/* Left — Image (larger, offset) */}
-          <div className="lg:col-span-5 xl:col-span-5">
+      <div className="container-gg relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+          {/* Image */}
+          <div className="lg:col-span-5">
             <ScrollReveal delay={0}>
-              <div
-                className="img-zoom relative"
-                style={{
-                  aspectRatio: '4/5',
-                  marginTop: '-3rem',
-                  marginBottom: '2rem',
-                }}
-              >
-                <Image
-                  src={brandIntroContent.image}
-                  alt={brandIntroContent.imageAlt}
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 42vw"
-                  quality={80}
-                  placeholder="blur"
-                  blurDataURL={blurData[brandIntroContent.image]}
-                  className="object-cover"
-                  style={{ objectPosition: 'center 30%' }}
-                />
-                {/* Decorative frame offset */}
+              <div className="relative">
+                <div className="img-zoom relative" style={{ aspectRatio: '4/5' }}>
+                  <Image
+                    src={brandIntroContent.image}
+                    alt={brandIntroContent.imageAlt}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 42vw"
+                    quality={82}
+                    placeholder="blur"
+                    blurDataURL={blurData[brandIntroContent.image] ?? ''}
+                    className="object-cover"
+                    style={{ objectPosition: 'center 35%' }}
+                  />
+                </div>
+                {/* Offset decorative frame */}
                 <div
-                  className="absolute -bottom-4 -right-4 w-full h-full -z-10"
-                  style={{ border: '1px solid rgba(74,82,64,0.18)' }}
+                  className="absolute -bottom-5 -right-5 w-full h-full -z-10"
+                  style={{ border: '1px solid rgba(201,185,154,0.4)' }}
+                  aria-hidden="true"
+                />
+                {/* Corner accent */}
+                <div
+                  className="absolute -top-3 -left-3 w-12 h-12"
+                  style={{
+                    borderTop: '2px solid var(--color-gg-terracotta)',
+                    borderLeft: '2px solid var(--color-gg-terracotta)',
+                  }}
                   aria-hidden="true"
                 />
               </div>
             </ScrollReveal>
           </div>
 
-          {/* Right — Editorial text */}
+          {/* Text */}
           <div className="lg:col-span-7 xl:col-span-6 xl:col-start-7 flex flex-col justify-center">
             <ScrollReveal delay={0}>
               <div className="flex items-center gap-4 mb-6">
@@ -69,7 +87,7 @@ export default function BrandIntro() {
             </ScrollReveal>
 
             <ScrollReveal delay={2}>
-              <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-4 mb-10">
                 {brandIntroContent.body.map((para, i) => (
                   <p key={i} className="text-body" style={{ color: 'var(--color-gg-olive)' }}>
                     {para}
@@ -78,13 +96,48 @@ export default function BrandIntro() {
               </div>
             </ScrollReveal>
 
-            {/* Pull quote */}
+            {/* Stats row */}
+            <ScrollReveal delay={3}>
+              <div
+                className="grid grid-cols-3 gap-6 py-8 mb-8"
+                style={{
+                  borderTop: '1px solid rgba(74,82,64,0.12)',
+                  borderBottom: '1px solid rgba(74,82,64,0.12)',
+                }}
+              >
+                {[
+                  { num: '20+', label: 'Guests max' },
+                  { num: '500+', label: 'Bird species' },
+                  { num: '6 hrs', label: 'From Delhi' },
+                ].map((s) => (
+                  <div key={s.label} className="text-center">
+                    <div
+                      className="font-display text-gg-forest"
+                      style={{
+                        fontSize: 'clamp(1.5rem, 3vw, 2.25rem)',
+                        fontWeight: 300,
+                        lineHeight: 1,
+                      }}
+                    >
+                      {s.num}
+                    </div>
+                    <div
+                      className="text-label mt-1"
+                      style={{ color: 'var(--color-gg-olive-light)', fontSize: '0.6rem' }}
+                    >
+                      {s.label}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </ScrollReveal>
+
             <ScrollReveal delay={3}>
               <blockquote
-                className="mt-10 pl-6 font-display"
+                className="pl-6 font-display"
                 style={{
                   borderLeft: '2px solid var(--color-gg-terracotta)',
-                  fontSize: 'clamp(1.25rem, 2vw, 1.75rem)',
+                  fontSize: 'clamp(1.1rem, 2vw, 1.5rem)',
                   fontWeight: 300,
                   fontStyle: 'italic',
                   color: 'var(--color-gg-forest)',

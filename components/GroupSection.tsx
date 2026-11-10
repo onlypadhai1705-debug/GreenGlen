@@ -9,8 +9,7 @@ export default function GroupSection() {
     <section
       id="groups"
       aria-labelledby="group-section-heading"
-      className="section-padding"
-      style={{ backgroundColor: 'var(--color-gg-cream)' }}
+      className="section-padding bg-weave relative overflow-hidden"
     >
       <div className="container-gg">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-0 items-center">
@@ -101,7 +100,7 @@ export default function GroupSection() {
           <div className="lg:col-span-5 lg:col-start-8">
             <ScrollReveal delay={1}>
               <div
-                className="img-zoom relative"
+                className="img-zoom card-lift relative"
                 style={{ aspectRatio: '4/5' }}
               >
                 <Image
