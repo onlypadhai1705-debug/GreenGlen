@@ -41,11 +41,11 @@ export default function FoodSection() {
           {/* Left side — editorial text */}
           <div className="order-2 lg:order-1 flex flex-col justify-center">
             <ScrollReveal delay={0}>
-              <div className="flex items-center gap-5 mb-8">
+              <div className="flex items-center gap-4 mb-3 sm:mb-4">
                 <div
                   style={{
-                    width: '48px',
-                    height: '48px',
+                    width: '40px',
+                    height: '40px',
                     borderRadius: '50%',
                     background: 'linear-gradient(135deg, rgba(200,116,86,0.12) 0%, rgba(168,184,159,0.12) 100%)',
                     display: 'flex',
@@ -63,7 +63,7 @@ export default function FoodSection() {
               <h2
                 id="food-section-heading"
                 className="text-display-md text-gg-forest"
-                style={{ marginBottom: 'clamp(1.5rem, 4vw, 2rem)' }}
+                style={{ marginBottom: 'clamp(0.75rem, 2vw, 1.25rem)' }}
               >
                 {foodContent.headline}
               </h2>
@@ -75,7 +75,7 @@ export default function FoodSection() {
                 style={{ 
                   color: 'var(--color-gg-olive)',
                   fontSize: '1.0625rem',
-                  lineHeight: '1.85',
+                  lineHeight: '1.75',
                 }}
               >
                 {foodContent.body}
@@ -85,9 +85,9 @@ export default function FoodSection() {
             {/* Decorative line element */}
             <ScrollReveal delay={3}>
               <div 
-                className="pt-10" 
+                className="pt-4 sm:pt-6" 
                 style={{ 
-                  marginTop: 'clamp(2rem, 5vw, 3rem)',
+                  marginTop: 'clamp(1.25rem, 3vw, 2rem)',
                   borderTop: '1px solid rgba(74,107,69,0.15)' 
                 }}
               >

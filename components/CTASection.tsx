@@ -38,14 +38,14 @@ export default function CTASection() {
         aria-hidden="true"
       />
 
-      {/* Content with generous spacing */}
-      <div className="container-gg relative z-10 text-center" style={{ paddingTop: 'clamp(4rem, 10vw, 8rem)', paddingBottom: 'clamp(4rem, 10vw, 8rem)' }}>
+      {/* Content with balanced spacing */}
+      <div className="container-gg relative z-10 text-center" style={{ paddingTop: 'clamp(3rem, 6vw, 5rem)', paddingBottom: 'clamp(3rem, 6vw, 5rem)' }}>
         <ScrollReveal delay={0}>
-          <div className="flex items-center justify-center gap-6 mb-10">
+          <div className="flex items-center justify-center gap-6 mb-4 sm:mb-6">
             <span
               className="block h-px"
               style={{ 
-                width: 'clamp(3rem, 8vw, 5rem)', 
+                width: 'clamp(2rem, 5vw, 4rem)', 
                 backgroundColor: 'var(--color-gg-terracotta)', 
                 opacity: 0.6 
               }}
@@ -63,7 +63,7 @@ export default function CTASection() {
             <span
               className="block h-px"
               style={{ 
-                width: 'clamp(3rem, 8vw, 5rem)', 
+                width: 'clamp(2rem, 5vw, 4rem)', 
                 backgroundColor: 'var(--color-gg-terracotta)', 
                 opacity: 0.6 
               }}
@@ -78,7 +78,7 @@ export default function CTASection() {
             className="text-display-xl"
             style={{ 
               lineHeight: 1.0,
-              marginBottom: 'clamp(1.5rem, 4vw, 2.5rem)',
+              marginBottom: 'clamp(0.875rem, 2vw, 1.5rem)',
               color: 'var(--color-gg-white)',
             }}
           >
@@ -97,13 +97,13 @@ export default function CTASection() {
           <p
             className="font-display"
             style={{
-              fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)',
+              fontSize: 'clamp(1.15rem, 2vw, 1.625rem)',
               fontWeight: 400,
               fontStyle: 'italic',
               color: 'rgba(249,247,244,0.65)',
               maxWidth: '600px',
               margin: '0 auto',
-              marginBottom: 'clamp(3rem, 6vw, 4rem)',
+              marginBottom: 'clamp(1.5rem, 3.5vw, 2.5rem)',
             }}
           >
             {ctaContent.body}

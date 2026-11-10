@@ -12,7 +12,7 @@ export default function BrandIntro() {
       style={{ backgroundColor: 'var(--color-gg-ivory)' }}
     >
       <div className="container-gg relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 sm:gap-16 lg:gap-28 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 lg:gap-20 items-center">
           {/* Image with modern frame */}
           <div className="lg:col-span-5">
             <ScrollReveal delay={0}>
@@ -53,14 +53,14 @@ export default function BrandIntro() {
             </ScrollReveal>
           </div>
 
-          {/* Text with generous spacing */}
+          {/* Text with balanced spacing */}
           <div className="lg:col-span-7 flex flex-col justify-center">
             <ScrollReveal delay={0}>
-              <div className="flex items-center gap-5 mb-10">
+              <div className="flex items-center gap-4 mb-3 sm:mb-4">
                 <div
                   style={{
-                    width: '48px',
-                    height: '48px',
+                    width: '40px',
+                    height: '40px',
                     borderRadius: '50%',
                     background: 'linear-gradient(135deg, rgba(200,116,86,0.12) 0%, rgba(168,184,159,0.12) 100%)',
                     display: 'flex',
@@ -78,14 +78,14 @@ export default function BrandIntro() {
               <h2
                 id="brand-intro-heading"
                 className="text-display-md text-gg-forest"
-                style={{ maxWidth: '640px', marginBottom: 'clamp(2rem, 5vw, 3rem)' }}
+                style={{ maxWidth: '640px', marginBottom: 'clamp(0.875rem, 2vw, 1.5rem)' }}
               >
                 {brandIntroContent.headline}
               </h2>
             </ScrollReveal>
 
             <ScrollReveal delay={2}>
-              <div className="flex flex-col gap-6" style={{ marginBottom: 'clamp(3rem, 6vw, 4rem)' }}>
+              <div className="flex flex-col gap-3 sm:gap-4" style={{ marginBottom: 'clamp(1.25rem, 3vw, 2rem)' }}>
                 {brandIntroContent.body.map((para, i) => (
                   <p 
                     key={i} 
@@ -94,7 +94,7 @@ export default function BrandIntro() {
                       color: 'var(--color-gg-olive)', 
                       maxWidth: '600px',
                       fontSize: '1.0625rem',
-                      lineHeight: '1.85',
+                      lineHeight: '1.75',
                     }}
                   >
                     {para}
@@ -105,7 +105,7 @@ export default function BrandIntro() {
 
             {/* Stats row with glass cards */}
             <ScrollReveal delay={3}>
-              <div className="grid grid-cols-3 gap-2.5 sm:gap-4 md:gap-5" style={{ marginBottom: 'clamp(2.5rem, 5vw, 4rem)' }}>
+              <div className="grid grid-cols-3 gap-2.5 sm:gap-4 md:gap-5" style={{ marginBottom: 'clamp(1.25rem, 3vw, 2rem)' }}>
                 {[
                   { num: '20+', label: 'Guests max' },
                   { num: '500+', label: 'Bird species' },

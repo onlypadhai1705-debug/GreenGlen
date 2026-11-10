@@ -12,15 +12,15 @@ export default function MudhouseSection() {
       style={{ backgroundColor: 'var(--color-gg-cream)' }}
     >
       <div className="container-gg">
-        {/* Header with generous spacing */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end" style={{ marginBottom: 'clamp(3rem, 8vw, 5rem)' }}>
+        {/* Header */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-8 items-end" style={{ marginBottom: 'clamp(1.5rem, 3.5vw, 3rem)' }}>
           <div className="lg:col-span-7">
             <ScrollReveal delay={0}>
-              <div className="flex items-center gap-5 mb-8">
+              <div className="flex items-center gap-4 mb-3 sm:mb-4">
                 <div
                   style={{
-                    width: '48px',
-                    height: '48px',
+                    width: '40px',
+                    height: '40px',
                     borderRadius: '50%',
                     background: 'linear-gradient(135deg, rgba(200,116,86,0.12) 0%, rgba(168,184,159,0.12) 100%)',
                     display: 'flex',
@@ -111,9 +111,9 @@ export default function MudhouseSection() {
           </div>
         </ScrollReveal>
 
-        {/* Caption with spacing */}
+        {/* Caption */}
         <ScrollReveal delay={2}>
-          <div className="flex items-center gap-5 mt-6">
+          <div className="flex items-center gap-4 mt-4 sm:mt-6">
             <span
               className="block h-px"
               style={{ width: '3rem', backgroundColor: 'rgba(212,196,168,0.6)' }}

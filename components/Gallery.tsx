@@ -49,10 +49,10 @@ export default function Gallery() {
       >
         <div className="container-gg">
           {/* Header */}
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6 mb-6 sm:mb-10">
             <div>
               <ScrollReveal delay={0}>
-                <div className="flex items-center gap-4 mb-5">
+                <div className="flex items-center gap-3 mb-3">
                   <span className="text-label" style={{ color: 'var(--color-gg-terracotta)' }}>
                     Gallery
                   </span>

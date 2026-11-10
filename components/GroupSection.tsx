@@ -19,11 +19,11 @@ export default function GroupSection() {
           <div className="flex flex-col justify-center">
             {/* Eyebrow */}
             <ScrollReveal delay={0}>
-              <div className="flex items-center gap-5 mb-8 sm:mb-10">
+              <div className="flex items-center gap-4 mb-3 sm:mb-4">
                 <div
                   style={{
-                    width: '48px',
-                    height: '48px',
+                    width: '40px',
+                    height: '40px',
                     borderRadius: '50%',
                     background: 'linear-gradient(135deg, rgba(200,116,86,0.12) 0%, rgba(168,184,159,0.12) 100%)',
                     display: 'flex',
@@ -39,7 +39,7 @@ export default function GroupSection() {
 
             {/* The "20" statement — oversized */}
             <ScrollReveal delay={1}>
-              <div className="flex items-end gap-3 sm:gap-6 mb-6 sm:mb-8 leading-none">
+              <div className="flex items-end gap-3 sm:gap-6 mb-3 sm:mb-4 leading-none">
                 <span
                   className="font-display"
                   aria-hidden="true"
@@ -80,7 +80,7 @@ export default function GroupSection() {
               <h2
                 id="group-section-heading"
                 className="text-display-md text-gg-forest"
-                style={{ marginBottom: 'clamp(1.5rem, 4vw, 2rem)' }}
+                style={{ marginBottom: 'clamp(0.75rem, 2vw, 1.25rem)' }}
               >
                 {groupContent.headline}
               </h2>
@@ -93,8 +93,8 @@ export default function GroupSection() {
                 style={{ 
                   color: 'var(--color-gg-olive)',
                   fontSize: '1.0625rem',
-                  lineHeight: '1.85',
-                  marginBottom: '1.5rem',
+                  lineHeight: '1.75',
+                  marginBottom: '0.75rem',
                 }}
               >
                 {groupContent.body}
@@ -113,7 +113,7 @@ export default function GroupSection() {
 
             {/* CTA */}
             <ScrollReveal delay={3}>
-              <div className="mt-12">
+              <div className="mt-6 sm:mt-8">
                 <Link href="#contact" className="btn-primary w-full sm:w-auto justify-center magnetic-hover">
                   Enquire for Your Group
                 </Link>

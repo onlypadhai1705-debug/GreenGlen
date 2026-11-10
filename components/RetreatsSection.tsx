@@ -13,9 +13,9 @@ export default function RetreatsSection() {
     >
       <div className="container-gg">
         {/* Header */}
-        <div className="mb-20">
+        <div className="mb-6 sm:mb-10">
           <ScrollReveal delay={0}>
-            <div className="flex items-center gap-4 mb-5">
+            <div className="flex items-center gap-3 mb-3">
               <span className="text-label text-gg-terra">Groups & Retreats</span>
               <span
                 className="block h-px w-8"

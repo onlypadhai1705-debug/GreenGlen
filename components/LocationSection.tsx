@@ -15,10 +15,10 @@ export default function LocationSection() {
     >
       <div className="container-gg">
         {/* Section header */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-14 items-end">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 mb-6 sm:mb-10 items-end">
           <div className="lg:col-span-7">
             <ScrollReveal delay={0}>
-              <div className="flex items-center gap-4 mb-5">
+              <div className="flex items-center gap-3 mb-3">
                 <span className="text-label text-gg-terra">{locationContent.eyebrow}</span>
                 <span
                   className="block h-px w-8"
@@ -39,7 +39,7 @@ export default function LocationSection() {
         </div>
 
         {/* Two column layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 lg:gap-16 items-start">
 
           {/* Image */}
           <div className="lg:col-span-7">
@@ -71,7 +71,7 @@ export default function LocationSection() {
           </div>
 
           {/* Right: Location details */}
-          <div className="lg:col-span-4 lg:col-start-9 flex flex-col gap-10">
+          <div className="lg:col-span-4 lg:col-start-9 flex flex-col gap-5 sm:gap-7">
 
             {/* Location info */}
             <ScrollReveal delay={1}>

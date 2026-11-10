@@ -30,11 +30,11 @@ export default function OpenSpaceSection() {
       style={{ backgroundColor: 'var(--color-gg-ivory)' }}
     >
       <div className="container-gg">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center mb-14">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-8 lg:gap-16 items-center mb-6 sm:mb-10">
           {/* Left: eyebrow + headline */}
           <div className="lg:col-span-5">
             <ScrollReveal delay={0}>
-              <div className="flex items-center gap-4 mb-5">
+              <div className="flex items-center gap-3 mb-3">
                 <span className="text-label text-gg-terra">{openSpaceContent.eyebrow}</span>
                 <span
                   className="block h-px w-8"

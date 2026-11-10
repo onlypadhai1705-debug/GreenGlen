@@ -35,8 +35,8 @@ export default function BirdWatchingSection() {
     >
       <div className="container-gg">
         {/* Huge Heading with Motive */}
-        <div className="max-w-4xl mb-14 md:mb-18">
-          <div className="flex items-center gap-3 mb-6">
+        <div className="max-w-4xl mb-6 sm:mb-10">
+          <div className="flex items-center gap-3 mb-3">
             <span
               className="block h-px w-8"
               style={{ backgroundColor: 'var(--color-gg-terracotta)', opacity: 0.6 }}
@@ -52,7 +52,7 @@ export default function BirdWatchingSection() {
 
           <h2
             id="birdwatching-heading"
-            className="font-display mb-6"
+            className="font-display mb-3"
             style={{
               fontSize: 'clamp(2rem, 6vw, 5.5rem)',
               fontWeight: 300,
@@ -74,8 +74,8 @@ export default function BirdWatchingSection() {
           <p
             className="text-body max-w-2xl"
             style={{
-              fontSize: 'clamp(1.05rem, 1.8vw, 1.25rem)',
-              lineHeight: 1.75,
+              fontSize: 'clamp(1rem, 1.6vw, 1.15rem)',
+              lineHeight: 1.65,
               color: 'rgba(244,240,232,0.72)',
             }}
           >
@@ -150,7 +150,7 @@ export default function BirdWatchingSection() {
 
         {/* Clean Motive Footer */}
         <div
-          className="mt-14 pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6"
+          className="mt-6 sm:mt-10 pt-5 sm:pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-6"
           style={{ borderTop: '1px solid rgba(201, 185, 154, 0.15)' }}
         >
           <p

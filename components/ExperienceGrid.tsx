@@ -38,10 +38,10 @@ export default function ExperienceGrid() {
 
       <div className="container-gg relative z-10">
         {/* Header with Motive & CTA */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-14 md:mb-18">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6 mb-6 sm:mb-10">
           <div>
             <ScrollReveal delay={0}>
-              <div className="flex items-center gap-4 mb-5">
+              <div className="flex items-center gap-3 mb-3">
                 <span
                   className="block h-px w-8"
                   style={{ backgroundColor: 'var(--color-gg-terracotta)', opacity: 0.6 }}
