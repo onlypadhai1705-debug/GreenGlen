@@ -231,6 +231,8 @@ export default function Hero() {
         >
           <Link
             href={heroContent.ctaPrimary.href}
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn-primary w-full sm:w-auto justify-center magnetic-hover"
             style={{
               backgroundColor: 'var(--color-gg-terracotta)',

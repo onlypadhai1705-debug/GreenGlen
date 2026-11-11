@@ -23,6 +23,12 @@ export const siteConfig = {
   ogImage: '/images/hero-green-glen.jpg',
 } as const;
 
+export const whatsappStayMessage =
+  'Hi! I would like to plan a stay at Green Glen, Sattal. Could you please share availability and details?';
+
+export const whatsappStayUrl =
+  `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(whatsappStayMessage)}`;
+
 export const navLinks = [
   { label: 'Stay', href: '#stay' },
   { label: 'Experience', href: '#experience' },
@@ -36,7 +42,7 @@ export const heroContent = {
   eyebrow: 'Sattal · Nainital · Uttarakhand',
   headline: ['A home away', 'from home.'],
   subline: 'In the heart of the hills.',
-  ctaPrimary: { label: 'Plan Your Stay', href: '#contact' },
+  ctaPrimary: { label: 'Plan Your Stay', href: whatsappStayUrl },
   ctaSecondary: { label: 'Explore Green Glen', href: '#experience' },
   image: '/Archive/nightenjoyment.png',
   imageAlt: 'Guests enjoying an enchanting night at Green Glen retreat — warm lights, laughter and mountain evenings, Sattal, Uttarakhand',
@@ -293,8 +299,8 @@ export const ctaContent = {
   eyebrow: 'Plan Your Stay',
   headline: ['Come for the hills.', 'Stay for the feeling.'],
   body: 'Plan a slower stay at Green Glen.',
-  ctaPrimary: { label: 'Plan Your Stay', href: '#contact' },
-  ctaSecondary: { label: 'Talk to Us', href: '#contact' },
+  ctaPrimary: { label: 'Plan Your Stay', href: whatsappStayUrl },
+  ctaSecondary: { label: 'Talk to Us', href: whatsappStayUrl },
   image: '/images/cta-background.jpg',
   imageAlt: 'Himalayan hills at dusk with a single warm light glowing from a mudhouse',
 } as const;

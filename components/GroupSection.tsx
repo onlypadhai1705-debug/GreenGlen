@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import ScrollReveal from './ScrollReveal';
-import { groupContent } from '@/lib/content';
+import { groupContent, whatsappStayUrl } from '@/lib/content';
 import { blurData } from '@/lib/blurData';
 
 export default function GroupSection() {
@@ -114,7 +114,12 @@ export default function GroupSection() {
             {/* CTA */}
             <ScrollReveal delay={3}>
               <div className="mt-6 sm:mt-8">
-                <Link href="#contact" className="btn-primary w-full sm:w-auto justify-center magnetic-hover">
+                <Link
+                  href={whatsappStayUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary w-full sm:w-auto justify-center magnetic-hover"
+                >
                   Enquire for Your Group
                 </Link>
               </div>

@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { blurData } from '@/lib/blurData';
-import { birdWatchingContent } from '@/lib/content';
+import { birdWatchingContent, whatsappStayUrl } from '@/lib/content';
 
 export default function BirdWatchingSection() {
   const gallery = [
@@ -161,7 +161,9 @@ export default function BirdWatchingSection() {
           </p>
 
           <Link
-            href="#contact"
+            href={whatsappStayUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn-outline inline-flex items-center gap-3"
             style={{
               padding: '0.875rem 2rem',

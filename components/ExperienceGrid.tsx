@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import ScrollReveal from './ScrollReveal';
-import { experiences } from '@/lib/content';
+import { experiences, whatsappStayUrl } from '@/lib/content';
 import { blurData } from '@/lib/blurData';
 
 export default function ExperienceGrid() {
@@ -81,7 +81,9 @@ export default function ExperienceGrid() {
 
           <ScrollReveal delay={2} className="w-full md:w-auto">
             <Link
-              href="#contact"
+              href={whatsappStayUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-outline w-full md:w-auto justify-center inline-flex items-center gap-3"
               style={{
                 padding: '0.875rem 2rem',

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import { siteConfig, footerLinks } from '@/lib/content';
+import { siteConfig, footerLinks, whatsappStayUrl } from '@/lib/content';
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -170,7 +170,9 @@ export default function Footer() {
 
             <div className="mt-8">
               <Link
-                href="#contact"
+                href={whatsappStayUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 id="footer-cta"
                 className="btn-primary w-full sm:w-auto justify-center"
                 style={{

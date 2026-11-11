@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import ScrollReveal from './ScrollReveal';
-import { retreats } from '@/lib/content';
+import { retreats, whatsappStayUrl } from '@/lib/content';
 import { blurData } from '@/lib/blurData';
 
 export default function RetreatsSection() {
@@ -89,7 +89,9 @@ export default function RetreatsSection() {
                   </div>
                   <div>
                     <Link
-                      href="#contact"
+                      href={whatsappStayUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="text-label inline-flex items-center gap-1.5 sm:gap-2 group-hover:gap-3 transition-all duration-300"
                       style={{
                         color: 'var(--color-gg-terracotta)',

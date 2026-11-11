@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Menu, X, Leaf } from 'lucide-react';
-import { navLinks, siteConfig } from '@/lib/content';
+import { navLinks, siteConfig, whatsappStayUrl } from '@/lib/content';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -115,7 +115,9 @@ export default function Navbar() {
 
             {/* CTA */}
             <Link
-              href="#contact"
+              href={whatsappStayUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               id="nav-cta"
               className="btn-primary ml-3 magnetic-hover"
               style={{
@@ -133,7 +135,9 @@ export default function Navbar() {
           {/* Mobile: CTA + Hamburger */}
           <div className="flex lg:hidden items-center gap-2 sm:gap-3">
             <Link
-              href="#contact"
+              href={whatsappStayUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-primary"
               style={{
                 backgroundColor: 'transparent',
@@ -196,7 +200,9 @@ export default function Navbar() {
             }}
           >
             <Link
-              href="#contact"
+              href={whatsappStayUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={handleNavClick}
               className="btn-outline"
               style={{ borderColor: 'rgba(244,240,232,0.35)', fontSize: '0.7rem' }}

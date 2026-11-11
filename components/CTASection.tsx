@@ -114,6 +114,8 @@ export default function CTASection() {
           <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-5 sm:gap-6 w-full">
             <Link
               href={ctaContent.ctaPrimary.href}
+              target="_blank"
+              rel="noopener noreferrer"
               id="final-cta-primary"
               className="btn-primary w-full sm:w-auto justify-center magnetic-hover"
               style={{
@@ -127,6 +129,8 @@ export default function CTASection() {
             </Link>
             <Link
               href={ctaContent.ctaSecondary.href}
+              target="_blank"
+              rel="noopener noreferrer"
               id="final-cta-secondary"
               className="btn-outline w-full sm:w-auto justify-center magnetic-hover"
               style={{
