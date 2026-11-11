@@ -38,14 +38,33 @@ export const navLinks = [
   { label: 'Location', href: '#location' },
 ] as const;
 
+const heroImages = [
+  {
+    src: '/Archive/hero1.png',
+    alt: 'Green Glen retreat nestled in the Himalayan pine forest of Sattal',
+    objectPosition: 'center 40%',
+  },
+  {
+    src: '/Archive/hero2.png',
+    alt: 'Scenic natural landscape and mountain outdoors at Green Glen Sattal',
+    objectPosition: 'center 35%',
+  },
+  {
+    src: '/Archive/hero3.JPG',
+    alt: 'Authentic mudhouse living and panoramic forest vistas at Green Glen',
+    objectPosition: 'center 30%',
+  },
+] as const;
+
 export const heroContent = {
   eyebrow: 'Sattal · Nainital · Uttarakhand',
   headline: ['A home away', 'from home.'],
   subline: 'In the heart of the hills.',
   ctaPrimary: { label: 'Plan Your Stay', href: whatsappStayUrl },
   ctaSecondary: { label: 'Explore Green Glen', href: '#experience' },
-  image: '/Archive/nightenjoyment.png',
-  imageAlt: 'Guests enjoying an enchanting night at Green Glen retreat — warm lights, laughter and mountain evenings, Sattal, Uttarakhand',
+  image: heroImages[0].src,
+  images: heroImages,
+  imageAlt: 'Green Glen retreat in Sattal — mountain serenity in Uttarakhand',
 } as const;
 
 export const brandIntroContent = {

@@ -9,7 +9,17 @@ import { blurData } from '@/lib/blurData';
 
 export default function Hero() {
   const [loaded, setLoaded] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
   const parallaxRef = useRef<HTMLDivElement>(null);
+  const slides = heroContent.images;
+
+  // Auto-advance slideshow smoothly every 5.5s
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 5500);
+    return () => clearInterval(timer);
+  }, [slides.length]);
 
   useEffect(() => {
     const t = setTimeout(() => setLoaded(true), 150);
@@ -38,7 +48,7 @@ export default function Hero() {
       className="relative min-h-[100svh] sm:min-h-[640px] md:min-h-[700px] flex items-end overflow-hidden"
       style={{ backgroundColor: 'var(--color-gg-forest-dark)' }}
     >
-      {/* Background with enhanced parallax */}
+      {/* Background with enhanced parallax & smooth slideshow cross-fade */}
       <div
         ref={parallaxRef}
         className="absolute will-change-transform"
@@ -48,24 +58,39 @@ export default function Hero() {
           transition: 'transform 0.1s linear'
         }}
       >
-        <Image
-          src={heroContent.image}
-          alt={heroContent.imageAlt}
-          fill
-          priority
-          loading="eager"
-          quality={90}
-          sizes="100vw"
-          placeholder="blur"
-          blurDataURL={blurData[heroContent.image] ?? ''}
-          className="object-cover"
-          style={{
-            objectPosition: 'center 35%',
-            filter: 'brightness(0.6) contrast(1.1)',
-            opacity: loaded ? 1 : 0,
-            transition: 'opacity 1.6s cubic-bezier(0.16, 1, 0.3, 1)',
-          }}
-        />
+        {slides.map((slide, idx) => {
+          const isActive = currentSlide === idx;
+          return (
+            <div
+              key={slide.src}
+              className="absolute inset-0"
+              style={{
+                opacity: loaded && isActive ? 1 : 0,
+                transition: 'opacity 1600ms cubic-bezier(0.4, 0, 0.2, 1)',
+                zIndex: isActive ? 1 : 0,
+              }}
+            >
+              <Image
+                src={slide.src}
+                alt={slide.alt}
+                fill
+                priority={idx === 0}
+                loading={idx === 0 ? 'eager' : 'lazy'}
+                quality={82}
+                sizes="100vw"
+                placeholder="blur"
+                blurDataURL={blurData[slide.src] ?? ''}
+                className="object-cover"
+                style={{
+                  objectPosition: slide.objectPosition ?? 'center 35%',
+                  filter: 'brightness(0.62) contrast(1.1)',
+                  transform: isActive ? 'scale(1.02)' : 'scale(1.08)',
+                  transition: 'transform 6000ms cubic-bezier(0.25, 1, 0.5, 1)',
+                }}
+              />
+            </div>
+          );
+        })}
       </div>
 
       {/* Enhanced gradient overlays for depth */}
@@ -295,6 +320,34 @@ export default function Hero() {
             ))}
           </div>
         </div>
+      </div>
+
+      {/* Minimalist Slideshow Indicators */}
+      <div
+        className="absolute bottom-6 left-4 sm:bottom-8 sm:left-8 md:left-12 z-20 flex items-center gap-1.5 sm:gap-2"
+        style={{ opacity: loaded ? 1 : 0, transition: 'opacity 1s ease 1.5s' }}
+        aria-label="Hero photo slideshow pagination"
+      >
+        {slides.map((slide, idx) => (
+          <button
+            key={slide.src}
+            type="button"
+            onClick={() => setCurrentSlide(idx)}
+            aria-label={`Show hero slide ${idx + 1}`}
+            className="group relative py-2 px-1 focus-visible:outline-none cursor-pointer"
+          >
+            <span
+              className="block h-[3px] rounded-full transition-all duration-500 ease-out"
+              style={{
+                width: currentSlide === idx ? '2rem' : '0.75rem',
+                backgroundColor: currentSlide === idx
+                  ? 'var(--color-gg-terracotta)'
+                  : 'rgba(244, 240, 232, 0.4)',
+                boxShadow: currentSlide === idx ? '0 0 10px rgba(200, 116, 86, 0.5)' : 'none',
+              }}
+            />
+          </button>
+        ))}
       </div>
 
       {/* Scroll indicator with enhanced animation */}
