@@ -83,69 +83,74 @@ export default function BirdWatchingSection() {
           </p>
         </div>
 
-        {/* Pure, Simple Photo Gallery Grid - Quadra 2-col on mobile */}
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-5 md:gap-6">
-          {gallery.map((photo) => (
-            <div
-              key={photo.src}
-              className={`group relative overflow-hidden rounded-sm card-lift ${
-                photo.featured
-                  ? 'col-span-1 lg:col-span-2 aspect-square lg:aspect-[16/10]'
-                  : 'col-span-1 aspect-square sm:aspect-[4/3]'
-              }`}
-              style={{
-                backgroundColor: 'rgba(28, 43, 30, 0.4)',
-                border: '1px solid rgba(201, 185, 154, 0.2)',
-              }}
-            >
-              <Image
-                src={photo.src}
-                alt={photo.alt}
-                fill
-                sizes="(max-width: 768px) 50vw, (max-width: 1024px) 50vw, 33vw"
-                quality={82}
-                placeholder="blur"
-                blurDataURL={blurData[photo.src] ?? ''}
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-
-              {/* Gradient overlay */}
+        {/* Pure, Simple Photo Gallery Grid */}
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5 md:gap-6">
+          {gallery.map((photo, i) => {
+            const isFeatured = photo.featured;
+            const isLast = i === gallery.length - 1;
+            return (
               <div
-                className="absolute inset-0 transition-opacity duration-300"
+                key={photo.src}
+                className={`group relative overflow-hidden rounded-md sm:rounded-sm card-lift ${
+                  isFeatured
+                    ? 'col-span-2 lg:col-span-2 aspect-[16/10] sm:aspect-[16/9]'
+                    : isLast
+                    ? 'col-span-2 sm:col-span-1 aspect-[16/10] sm:aspect-[4/3]'
+                    : 'col-span-1 aspect-square sm:aspect-[4/3]'
+                }`}
                 style={{
-                  background:
-                    'linear-gradient(to top, rgba(17,26,18,0.88) 0%, rgba(17,26,18,0.2) 50%, transparent 100%)',
+                  backgroundColor: 'rgba(28, 43, 30, 0.5)',
+                  border: '1px solid rgba(201, 185, 154, 0.22)',
                 }}
-                aria-hidden="true"
-              />
+              >
+                <Image
+                  src={photo.src}
+                  alt={photo.alt}
+                  fill
+                  sizes={isFeatured || isLast ? '(max-width: 640px) 100vw, 50vw' : '(max-width: 768px) 50vw, 33vw'}
+                  quality={82}
+                  placeholder="blur"
+                  blurDataURL={blurData[photo.src] ?? ''}
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
 
-              {/* Minimalist Caption */}
-              <div className="absolute bottom-0 inset-x-0 p-2.5 sm:p-5 md:p-6 flex items-end justify-between">
-                <div>
-                  <h3
-                    className="font-display"
-                    style={{
-                      fontSize: 'clamp(0.85rem, 2.6vw, 1.35rem)',
-                      fontWeight: 300,
-                      color: 'var(--color-gg-ivory)',
-                      lineHeight: 1.2,
-                    }}
-                  >
-                    {photo.title}
-                  </h3>
-                  <p
-                    className="font-display italic mt-0.5 line-clamp-1"
-                    style={{
-                      fontSize: 'clamp(0.65rem, 1.8vw, 0.875rem)',
-                      color: 'var(--color-gg-sand)',
-                    }}
-                  >
-                    {photo.subtitle}
-                  </p>
+                {/* Gradient overlay */}
+                <div
+                  className="absolute inset-0 transition-opacity duration-300"
+                  style={{
+                    background:
+                      'linear-gradient(to top, rgba(17,26,18,0.92) 0%, rgba(17,26,18,0.25) 50%, transparent 100%)',
+                  }}
+                  aria-hidden="true"
+                />
+
+                {/* Minimalist Caption */}
+                <div className="absolute bottom-0 inset-x-0 p-3 sm:p-5 md:p-6 flex items-end justify-between">
+                  <div>
+                    <h3
+                      className="font-display text-white"
+                      style={{
+                        fontSize: isFeatured ? 'clamp(1.125rem, 3.5vw, 1.5rem)' : 'clamp(0.9375rem, 2.8vw, 1.25rem)',
+                        fontWeight: 300,
+                        lineHeight: 1.2,
+                      }}
+                    >
+                      {photo.title}
+                    </h3>
+                    <p
+                      className="font-display italic mt-0.5"
+                      style={{
+                        fontSize: 'clamp(0.7rem, 2vw, 0.875rem)',
+                        color: 'var(--color-gg-sand)',
+                      }}
+                    >
+                      {photo.subtitle}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Clean Motive Footer */}

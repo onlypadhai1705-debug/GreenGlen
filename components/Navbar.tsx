@@ -149,7 +149,8 @@ export default function Navbar() {
               }}
               onClick={handleNavClick}
             >
-              Plan Your Stay
+              <span className="inline sm:hidden">Plan</span>
+              <span className="hidden sm:inline">Plan Your Stay</span>
             </Link>
             <button
               aria-label={menuOpen ? 'Close menu' : 'Open menu'}

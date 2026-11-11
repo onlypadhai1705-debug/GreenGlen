@@ -59,13 +59,98 @@ export default function ActivitiesSection() {
           </div>
         </div>
 
-        {/* Activities grid - Quadra 2-col on mobile */}
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-6 md:gap-8">
+        {/* Mobile View: High-End Touch-Snap Peek Carousel */}
+        <div className="block md:hidden">
+          <div className="flex overflow-x-auto snap-x-mandatory gap-3.5 pb-3 -mx-4 px-4 scrollbar-none">
+            {activitiesContent.activities.map((act) => (
+              <article
+                key={act.id}
+                className="w-[82vw] max-w-[320px] flex-shrink-0 snap-center card-lift group relative overflow-hidden flex flex-col"
+                style={{
+                  backgroundColor: 'var(--color-gg-white)',
+                  border: '1px solid rgba(201,185,154,0.25)',
+                  borderRadius: 'var(--radius-lg)',
+                  boxShadow: '0 4px 20px rgba(26, 46, 28, 0.08)',
+                }}
+              >
+                {/* Image */}
+                <div className="img-zoom relative overflow-hidden aspect-[4/3]">
+                  <Image
+                    src={act.image}
+                    alt={act.imageAlt}
+                    fill
+                    sizes="82vw"
+                    quality={82}
+                    placeholder="blur"
+                    blurDataURL={blurData[act.image] ?? ''}
+                    className="object-cover"
+                  />
+                  <div
+                    className="absolute inset-0"
+                    style={{
+                      background:
+                        'linear-gradient(to top, rgba(26,46,28,0.4) 0%, transparent 60%)',
+                    }}
+                    aria-hidden="true"
+                  />
+                  {/* Floating Icon badge */}
+                  <div
+                    className="absolute top-3.5 right-3.5 w-10 h-10 text-base flex items-center justify-center rounded-full"
+                    style={{
+                      background: 'rgba(249,247,244,0.95)',
+                      backdropFilter: 'blur(12px)',
+                      border: '1px solid rgba(200,116,86,0.2)',
+                    }}
+                    aria-hidden="true"
+                  >
+                    {act.icon}
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="p-5 flex-1 flex flex-col justify-between">
+                  <div>
+                    <h3
+                      className="font-display mb-2 text-gg-forest"
+                      style={{
+                        fontSize: '1.25rem',
+                        fontWeight: 400,
+                        lineHeight: 1.3,
+                      }}
+                    >
+                      {act.title}
+                    </h3>
+                    <p
+                      className="text-body"
+                      style={{
+                        color: 'var(--color-gg-olive)',
+                        fontSize: '0.875rem',
+                        lineHeight: '1.6',
+                      }}
+                    >
+                      {act.body}
+                    </p>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div
+            className="flex items-center justify-between pt-2 px-1 text-label"
+            style={{ color: 'var(--color-gg-olive)', opacity: 0.5, fontSize: '0.625rem', letterSpacing: '0.12em' }}
+          >
+            <span>← Swipe activities →</span>
+            <span>3 Curated Experiences</span>
+          </div>
+        </div>
+
+        {/* Desktop View: 3-column Grid */}
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {activitiesContent.activities.map((act, i) => (
             <ScrollReveal
               key={act.id}
               delay={(i % 3) as 0 | 1 | 2}
-              className={i === 2 ? 'col-span-2 lg:col-span-1' : 'col-span-1'}
             >
               <article
                 className="card-lift group relative overflow-hidden h-full flex flex-col"
@@ -78,15 +163,13 @@ export default function ActivitiesSection() {
               >
                 {/* Image */}
                 <div
-                  className={`img-zoom relative overflow-hidden ${
-                    i === 2 ? 'aspect-[16/9] sm:aspect-[3/2]' : 'aspect-square sm:aspect-[3/2]'
-                  }`}
+                  className="img-zoom relative overflow-hidden aspect-[3/2]"
                 >
                   <Image
                     src={act.image}
                     alt={act.imageAlt}
                     fill
-                    sizes={i === 2 ? '(max-width: 768px) 100vw, 33vw' : '(max-width: 768px) 50vw, 33vw'}
+                    sizes="(max-width: 1024px) 50vw, 33vw"
                     quality={82}
                     placeholder="blur"
                     blurDataURL={
@@ -104,9 +187,9 @@ export default function ActivitiesSection() {
                     }}
                     aria-hidden="true"
                   />
-                  {/* Icon badge with responsive sizing */}
+                  {/* Icon badge */}
                   <div
-                    className="absolute top-2 right-2 sm:top-5 sm:right-5 w-7 h-7 sm:w-12 sm:h-12 text-xs sm:text-lg flex items-center justify-center rounded-full"
+                    className="absolute top-5 right-5 w-12 h-12 text-lg flex items-center justify-center rounded-full"
                     style={{
                       background: 'rgba(249,247,244,0.95)',
                       backdropFilter: 'blur(12px)',
@@ -118,13 +201,13 @@ export default function ActivitiesSection() {
                   </div>
                 </div>
 
-                {/* Content with responsive padding */}
-                <div className="flex-1 flex flex-col justify-between" style={{ padding: 'clamp(0.75rem, 2.5vw, 2.25rem)' }}>
+                {/* Content */}
+                <div className="flex-1 flex flex-col justify-between" style={{ padding: 'clamp(1.5rem, 2.5vw, 2.25rem)' }}>
                   <div>
                     <h3
-                      className="font-display mb-1 sm:mb-2"
+                      className="font-display mb-2"
                       style={{
-                        fontSize: 'clamp(0.85rem, 2.2vw, 1.625rem)',
+                        fontSize: 'clamp(1.25rem, 2.2vw, 1.625rem)',
                         fontWeight: 400,
                         color: 'var(--color-gg-forest)',
                         lineHeight: 1.3,
@@ -133,11 +216,11 @@ export default function ActivitiesSection() {
                       {act.title}
                     </h3>
                     <p 
-                      className="text-body line-clamp-2 sm:line-clamp-none" 
+                      className="text-body" 
                       style={{ 
                         color: 'var(--color-gg-olive)',
-                        fontSize: 'clamp(0.6875rem, 1.8vw, 1rem)',
-                        lineHeight: '1.5',
+                        fontSize: 'clamp(0.875rem, 1.8vw, 1rem)',
+                        lineHeight: '1.6',
                       }}
                     >
                       {act.body}

@@ -16,6 +16,8 @@ import LocationSection from '@/components/LocationSection';
 import Gallery from '@/components/Gallery';
 import CTASection from '@/components/CTASection';
 import Footer from '@/components/Footer';
+import MobileBottomDock from '@/components/MobileBottomDock';
+
 export default function HomePage() {
   return (
     <>
@@ -37,6 +39,7 @@ export default function HomePage() {
         <CTASection />
       </main>
       <Footer />
+      <MobileBottomDock />
     </>
   );
 }

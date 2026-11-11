@@ -78,26 +78,103 @@ export default function RetreatsSection() {
           </ScrollReveal>
         </div>
 
-        {/* Three retreat categories - Quadra 2-col on mobile */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-6 lg:gap-14">
+        {/* Mobile View: High-End Touch-Snap Peek Carousel */}
+        <div className="block md:hidden">
+          <div className="flex overflow-x-auto snap-x-mandatory gap-3.5 pb-3 -mx-4 px-4 scrollbar-none">
+            {retreats.map((retreat) => (
+              <article
+                key={retreat.id}
+                className="w-[84vw] max-w-[330px] flex-shrink-0 snap-center group flex flex-col justify-between p-4 rounded-xl"
+                style={{
+                  backgroundColor: 'var(--color-gg-white)',
+                  border: '1px solid rgba(201, 185, 154, 0.3)',
+                  boxShadow: '0 4px 20px rgba(26, 46, 28, 0.08)',
+                }}
+              >
+                <div>
+                  <div className="img-zoom relative mb-4 rounded-lg overflow-hidden aspect-[4/3]">
+                    <Image
+                      src={retreat.image}
+                      alt={retreat.imageAlt}
+                      fill
+                      sizes="84vw"
+                      quality={80}
+                      placeholder="blur"
+                      blurDataURL={blurData[retreat.image]}
+                      className="object-cover"
+                      style={{ objectPosition: 'center 30%' }}
+                    />
+                  </div>
+
+                  <h3
+                    className="font-display mb-2 text-gg-forest"
+                    style={{
+                      fontSize: '1.35rem',
+                      fontWeight: 300,
+                      lineHeight: 1.25,
+                    }}
+                  >
+                    {retreat.title}
+                  </h3>
+
+                  <p
+                    className="text-body"
+                    style={{
+                      color: 'var(--color-gg-olive)',
+                      fontSize: '0.875rem',
+                      lineHeight: '1.6',
+                    }}
+                  >
+                    {retreat.body}
+                  </p>
+                </div>
+
+                <div className="pt-4 mt-2" style={{ borderTop: '1px solid rgba(74,82,64,0.1)' }}>
+                  <Link
+                    href={whatsappStayUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-label inline-flex items-center gap-2"
+                    style={{
+                      color: 'var(--color-gg-terracotta)',
+                      fontSize: '0.75rem',
+                      letterSpacing: '0.12em',
+                    }}
+                  >
+                    <span>{retreat.cta}</span>
+                    <span aria-hidden="true">→</span>
+                  </Link>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div
+            className="flex items-center justify-between pt-2 px-1 text-label"
+            style={{ color: 'var(--color-gg-olive)', opacity: 0.5, fontSize: '0.625rem', letterSpacing: '0.12em' }}
+          >
+            <span>← Swipe retreat types →</span>
+            <span>3 Formats</span>
+          </div>
+        </div>
+
+        {/* Desktop View: 3-column Grid */}
+        <div className="hidden md:grid md:grid-cols-3 gap-6 lg:gap-14">
           {retreats.map((retreat, i) => (
             <ScrollReveal
               key={retreat.id}
               delay={(i % 3) as 0 | 1 | 2}
-              className={i === 2 ? 'col-span-2 md:col-span-1 h-full' : 'col-span-1 h-full'}
             >
               <article className="group flex flex-col h-full">
                 {/* Image */}
                 <div
-                  className={`img-zoom relative mb-2 sm:mb-6 rounded-sm overflow-hidden ${
-                    i === 2 ? 'aspect-[16/9] sm:aspect-[4/3]' : 'aspect-square sm:aspect-[4/3]'
-                  }`}
+                  className="img-zoom relative mb-6 rounded-sm overflow-hidden aspect-[4/3]"
                 >
                   <Image
                     src={retreat.image}
                     alt={retreat.imageAlt}
                     fill
-                    sizes={i === 2 ? '(max-width: 768px) 100vw, 33vw' : '(max-width: 768px) 50vw, 33vw'}
+                    sizes="33vw"
                     quality={75}
                     placeholder="blur"
                     blurDataURL={blurData[retreat.image]}
@@ -110,9 +187,9 @@ export default function RetreatsSection() {
                 <div className="flex flex-col flex-1 justify-between">
                   <div>
                     <h3
-                      className="font-display mb-1 sm:mb-3"
+                      className="font-display mb-3"
                       style={{
-                        fontSize: 'clamp(0.85rem, 2.2vw, 1.5rem)',
+                        fontSize: 'clamp(1.25rem, 2.2vw, 1.5rem)',
                         fontWeight: 300,
                         color: 'var(--color-gg-forest)',
                         lineHeight: 1.25,
@@ -121,11 +198,11 @@ export default function RetreatsSection() {
                       {retreat.title}
                     </h3>
                     <p
-                      className="text-body line-clamp-2 sm:line-clamp-none mb-2 sm:mb-6"
+                      className="text-body mb-6"
                       style={{
                         color: 'var(--color-gg-olive)',
-                        fontSize: 'clamp(0.6875rem, 1.8vw, 1rem)',
-                        lineHeight: '1.5',
+                        fontSize: '1rem',
+                        lineHeight: '1.65',
                       }}
                     >
                       {retreat.body}
@@ -136,10 +213,10 @@ export default function RetreatsSection() {
                       href={whatsappStayUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-label inline-flex items-center gap-1.5 sm:gap-2 group-hover:gap-3 transition-all duration-300"
+                      className="text-label inline-flex items-center gap-2 group-hover:gap-3 transition-all duration-300"
                       style={{
                         color: 'var(--color-gg-terracotta)',
-                        fontSize: 'clamp(0.5625rem, 1.6vw, 0.75rem)',
+                        fontSize: '0.75rem',
                       }}
                     >
                       {retreat.cta}

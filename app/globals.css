@@ -764,3 +764,17 @@ body {
 .form-select:focus {
   border-bottom-color: var(--color-gg-forest);
 }
+
+/* ─── Mobile Luxury Touch & Carousel Utilities ─────────────────── */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.snap-x-mandatory {
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
