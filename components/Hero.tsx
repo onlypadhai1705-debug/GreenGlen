@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowDown, Leaf } from 'lucide-react';
+import { Leaf } from 'lucide-react';
 import { heroContent } from '@/lib/content';
 import { blurData } from '@/lib/blurData';
 
@@ -37,9 +37,6 @@ export default function Hero() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-
-  const scrollToContent = () =>
-    document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
 
   return (
     <section
@@ -349,35 +346,6 @@ export default function Hero() {
           </button>
         ))}
       </div>
-
-      {/* Scroll indicator with enhanced animation */}
-      <button
-        onClick={scrollToContent}
-        aria-label="Scroll to content"
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-3 group"
-        style={{ opacity: loaded ? 1 : 0, transition: 'opacity 1s ease 1.6s' }}
-      >
-        <span
-          className="text-label"
-          style={{ color: 'rgba(249,247,244,0.5)', fontSize: '0.5625rem' }}
-        >
-          Scroll
-        </span>
-        <div
-          style={{
-            width: '1px',
-            height: '40px',
-            background: 'linear-gradient(to bottom, rgba(249,247,244,0.4), transparent)',
-          }}
-          aria-hidden="true"
-        />
-        <ArrowDown
-          size={16}
-          strokeWidth={1.5}
-          style={{ color: 'rgba(249,247,244,0.5)' }}
-          className="group-hover:translate-y-1 transition-transform duration-500 animate-float"
-        />
-      </button>
     </section>
   );
 }
