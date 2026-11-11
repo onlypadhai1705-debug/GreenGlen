@@ -12,8 +12,8 @@ export default function RetreatsSection() {
       style={{ backgroundColor: 'var(--color-gg-cream)' }}
     >
       <div className="container-gg">
-        {/* Header */}
-        <div className="mb-6 sm:mb-10">
+        {/* Header with High-Impact Highlight */}
+        <div className="mb-8 sm:mb-12">
           <ScrollReveal delay={0}>
             <div className="flex items-center gap-3 mb-3">
               <span className="text-label text-gg-terra">Groups & Retreats</span>
@@ -22,15 +22,59 @@ export default function RetreatsSection() {
                 style={{ backgroundColor: 'var(--color-gg-terracotta)', opacity: 0.5 }}
                 aria-hidden="true"
               />
+              <span
+                className="text-label px-2.5 py-0.5 rounded-full inline-flex items-center gap-1.5"
+                style={{
+                  backgroundColor: 'rgba(200, 116, 86, 0.12)',
+                  border: '1px solid rgba(200, 116, 86, 0.3)',
+                  color: 'var(--color-gg-terracotta)',
+                  fontSize: '0.625rem',
+                  letterSpacing: '0.12em',
+                }}
+              >
+                <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: 'var(--color-gg-terracotta)' }} aria-hidden="true" />
+                EXCLUSIVE PROPERTY BUYOUT
+              </span>
             </div>
           </ScrollReveal>
+
           <ScrollReveal delay={1}>
-            <h2
-              id="retreats-heading"
-              className="text-display-md text-gg-forest"
-            >
-              Come together.
-            </h2>
+            <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 lg:gap-12">
+              <div>
+                <h2
+                  id="retreats-heading"
+                  className="text-display-md text-gg-forest"
+                >
+                  Come together.
+                  <span
+                    className="block mt-2 font-display"
+                    style={{
+                      color: 'var(--color-gg-terracotta)',
+                      fontSize: 'clamp(2rem, 5vw, 3.75rem)',
+                      fontWeight: 400,
+                      fontStyle: 'italic',
+                      lineHeight: 1.1,
+                      letterSpacing: '-0.02em',
+                    }}
+                  >
+                    Up to 20 pax comfortably.
+                  </span>
+                </h2>
+              </div>
+
+              <div className="max-w-md">
+                <p
+                  className="text-body"
+                  style={{
+                    color: 'var(--color-gg-olive)',
+                    fontSize: 'clamp(0.9375rem, 1.8vw, 1.0625rem)',
+                    lineHeight: '1.7',
+                  }}
+                >
+                  An intimate mountain estate reserved exclusively for your people. No strangers, no outside guests — spacious rooms, home-style meals, and open Himalayan lawns designed to host gatherings of up to 20 guests in complete comfort.
+                </p>
+              </div>
+            </div>
           </ScrollReveal>
         </div>
 
