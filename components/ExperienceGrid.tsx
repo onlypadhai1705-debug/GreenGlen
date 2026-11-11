@@ -14,7 +14,7 @@ export default function ExperienceGrid() {
   const supportingExperiences = [
     experiences[1], // Home-Style Food (artisandinningarea.JPG)
     experiences[2], // Private Groups (mainfrontview.png)
-    experiences[4], // Kainchi Dham (kainchi-dham.jpg)
+    experiences[4], // Kainchi Dham (neemkarolibaba.png)
   ];
 
   return (
@@ -114,7 +114,7 @@ export default function ExperienceGrid() {
                   placeholder="blur"
                   blurDataURL={blurData[exp.image] ?? ''}
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  style={{ objectPosition: 'center 35%' }}
+                  style={{ objectPosition: (exp as { objectPosition?: string }).objectPosition || 'center 35%' }}
                 />
 
                 {/* Cinematic Gradient Overlay */}
@@ -206,7 +206,7 @@ export default function ExperienceGrid() {
                   placeholder="blur"
                   blurDataURL={blurData[exp.image] ?? ''}
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  style={{ objectPosition: 'center 35%' }}
+                  style={{ objectPosition: (exp as { objectPosition?: string }).objectPosition || 'center 35%' }}
                 />
 
                 {/* Persistent Gradient */}

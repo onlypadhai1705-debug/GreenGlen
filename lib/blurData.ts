@@ -51,4 +51,5 @@ export const blurData: Record<string, string> = {
   "/Archive/bird3.png": GENERIC,
   "/Archive/bird4.png": GENERIC,
   "/Archive/paradisefitcatcher.png": GENERIC,
+  "/Archive/neemkarolibaba.png": "data:image/jpeg;base64,/9j/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAOAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAgT/xAAhEAACAAYBBQAAAAAAAAAAAAABAgAREhMhMQMEQVFxkf/EABQBAQAAAAAAAAAAAAAAAAAAAAL/xAAXEQEBAQEAAAAAAAAAAAAAAAABABEh/9oADAMBAAIRAxEAPwAii2WZQ1QnOcJOr4wihnzLMS3DYA7byNeoFI8D5BDJPb//2Q==",
 };

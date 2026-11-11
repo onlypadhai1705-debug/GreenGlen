@@ -110,8 +110,9 @@ export const experiences = [
     eyebrow: '05',
     title: 'Kainchi Dham',
     body: 'Neem Karoli Baba\'s beloved ashram is nearby. Green Glen is a peaceful and convenient base for visiting.',
-    image: '/images/kainchi-dham.jpg',
-    imageAlt: 'Kainchi Dham ashram — Neem Karoli Baba temple in Uttarakhand near Green Glen',
+    image: '/Archive/neemkarolibaba.png',
+    imageAlt: 'Neem Karoli Baba at Kainchi Dham — sacred ashram near Green Glen in Uttarakhand',
+    objectPosition: 'center 20%',
   },
 ] as const;
 

@@ -20,6 +20,7 @@ export interface Experience {
   body: string;
   image: string;
   imageAlt: string;
+  objectPosition?: string;
 }
 
 export interface Retreat {
