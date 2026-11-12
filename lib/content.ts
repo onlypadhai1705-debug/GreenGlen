@@ -436,6 +436,7 @@ export const birdWatchingContent = {
       scientificName: 'Terpsiphone paradisi',
       image: '/Archive/paradisefitcatcher.png',
       imageAlt: 'Asian Paradise Flycatcher white morph male perched gracefully on a forest branch',
+      objectPosition: 'center 4%',
       status: 'Summer Breeding Visitor (Apr – Sep)',
       habitat: 'Canopy streams & shaded oak ravines',
       call: 'Sharp nasal "tshreek-tshreek" and rich musical whistles',

@@ -8,19 +8,35 @@ import { birdWatchingContent, whatsappStayUrl } from '@/lib/content';
 export default function BirdWatchingSection() {
   const gallery = [
     {
+      id: 'observation-deck',
       src: birdWatchingContent.observationDeck.image,
       alt: birdWatchingContent.observationDeck.imageAlt,
       title: 'The Forest Veranda Deck',
       subtitle: 'Dawn birding from your mudhouse veranda',
       featured: true,
+      objectPosition: 'center 40%',
+      className: 'col-span-2 lg:col-span-2 aspect-[16/10] sm:aspect-[16/9]',
+      transformOrigin: 'center center',
     },
-    ...birdWatchingContent.species.map((s) => ({
-      src: s.image,
-      alt: s.imageAlt,
-      title: s.commonName,
-      subtitle: s.scientificName,
-      featured: false,
-    })),
+    ...birdWatchingContent.species.map((s) => {
+      const isFlycatcher = s.id === 'paradise-flycatcher';
+      const isJunglefowl = s.id === 'red-junglefowl';
+      return {
+        id: s.id,
+        src: s.image,
+        alt: s.imageAlt,
+        title: s.commonName,
+        subtitle: s.scientificName,
+        featured: false,
+        objectPosition: isFlycatcher ? 'center 3%' : 'center 35%',
+        className: isFlycatcher
+          ? 'col-span-1 aspect-[4/5] sm:aspect-[4/5]'
+          : isJunglefowl
+          ? 'col-span-2 sm:col-span-1 aspect-[16/10] sm:aspect-[4/3]'
+          : 'col-span-1 aspect-square sm:aspect-[4/3]',
+        transformOrigin: isFlycatcher ? 'top center' : 'center center',
+      };
+    }),
   ];
 
   return (
@@ -85,19 +101,12 @@ export default function BirdWatchingSection() {
 
         {/* Pure, Simple Photo Gallery Grid */}
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5 md:gap-6">
-          {gallery.map((photo, i) => {
+          {gallery.map((photo) => {
             const isFeatured = photo.featured;
-            const isLast = i === gallery.length - 1;
             return (
               <div
                 key={photo.src}
-                className={`group relative overflow-hidden rounded-md sm:rounded-sm card-lift ${
-                  isFeatured
-                    ? 'col-span-2 lg:col-span-2 aspect-[16/10] sm:aspect-[16/9]'
-                    : isLast
-                    ? 'col-span-2 sm:col-span-1 aspect-[16/10] sm:aspect-[4/3]'
-                    : 'col-span-1 aspect-square sm:aspect-[4/3]'
-                }`}
+                className={`group relative overflow-hidden rounded-md sm:rounded-sm card-lift ${photo.className}`}
                 style={{
                   backgroundColor: 'rgba(28, 43, 30, 0.5)',
                   border: '1px solid rgba(201, 185, 154, 0.22)',
@@ -107,11 +116,15 @@ export default function BirdWatchingSection() {
                   src={photo.src}
                   alt={photo.alt}
                   fill
-                  sizes={isFeatured || isLast ? '(max-width: 640px) 100vw, 50vw' : '(max-width: 768px) 50vw, 33vw'}
-                  quality={82}
+                  sizes={isFeatured ? '(max-width: 640px) 100vw, 50vw' : '(max-width: 768px) 50vw, 33vw'}
+                  quality={85}
                   placeholder="blur"
                   blurDataURL={blurData[photo.src] ?? ''}
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  style={{
+                    objectPosition: photo.objectPosition,
+                    transformOrigin: photo.transformOrigin,
+                  }}
                 />
 
                 {/* Gradient overlay */}
