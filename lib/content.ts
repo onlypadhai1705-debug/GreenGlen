@@ -57,26 +57,26 @@ const heroImages = [
 ] as const;
 
 export const heroContent = {
-  eyebrow: 'Sattal · Nainital · Uttarakhand',
+  eyebrow: 'Sattal · 15 km from Bhimtal · Nainital · Uttarakhand',
   headline: ['A home away', 'from home.'],
-  subline: 'In the heart of the hills.',
+  subline: 'The best homestay in Sattal, near Bhimtal.',
   ctaPrimary: { label: 'Plan Your Stay', href: whatsappStayUrl },
   ctaSecondary: { label: 'Explore Green Glen', href: '#experience' },
   image: heroImages[0].src,
   images: heroImages,
-  imageAlt: 'Green Glen retreat in Sattal — mountain serenity in Uttarakhand',
+  imageAlt: 'Green Glen — best homestay in Sattal near Bhimtal, Nainital, Uttarakhand',
 } as const;
 
 export const brandIntroContent = {
-  eyebrow: 'About Green Glen',
-  headline: 'Where the hills feel a little more like home.',
+  eyebrow: 'Best Homestay in Sattal, Uttarakhand',
+  headline: 'The best homestay in Sattal — a home in the heart of the hills.',
   body: [
-    'Green Glen is a countryside eco-comfort retreat in Sattal, near Nainital, built around the warmth of a traditional mudhouse living room, open spaces and a genuinely personal approach to hospitality.',
-    'It is a place for gathering, for slowing down, for sharing meals and for feeling, just for a while, that a corner of the hills belongs entirely to you.',
+    'Green Glen is the best homestay in Sattal near Bhimtal and Nainital — a countryside eco-comfort retreat built around the warmth of a traditional mudhouse living room, open spaces and a genuinely personal approach to hospitality.',
+    'Whether you are a birdwatcher seeking Sattal\'s legendary 500+ avian species, a family looking for an exclusive private stay near Bhimtal, or a group wanting to feel truly at home in the Kumaon hills — Green Glen is designed entirely for you.',
   ],
-  pullQuote: '"Designed around the warmth of the hills."',
+  pullQuote: '"The best homestay in Sattal for birdwatchers, families and private groups."',
   image: '/Archive/outerarea.JPG',
-  imageAlt: 'Outdoor area at Green Glen — open grounds with fresh Himalayan air and forest surroundings',
+  imageAlt: 'Outdoor area at Green Glen — the best homestay in Sattal near Bhimtal, Nainital, Uttarakhand',
 } as const;
 
 export const mudhouseContent = {
@@ -186,15 +186,18 @@ export const retreats = [
 ] as const;
 
 export const locationContent = {
-  eyebrow: 'Find Us',
-  headline: 'Somewhere between the forest and the lake.',
-  location: 'Sattal, Nainital, Uttarakhand',
+  eyebrow: 'Find Us — Sattal, 15 km from Bhimtal',
+  headline: 'Sattal, near Bhimtal & Nainital — where the forest meets the lake.',
+  location: 'Sattal, Nainital, Uttarakhand, India',
   fromDelhi: 'Approximately 6 hours from Delhi',
   fromLucknow: 'Approximately 5–6 hours from Lucknow',
-  kainchiNote: 'Kainchi Dham / Neem Karoli Baba Ashram is nearby.',
+  fromBhimtal: '15 km from Bhimtal lake — approximately 25 minutes by road',
+  fromNainital: '30 km from Nainital — approximately 45 minutes by road',
+  fromKathgodam: '30 km from Kathgodam railway station — nearest railhead',
+  kainchiNote: 'Kainchi Dham / Neem Karoli Baba Ashram is nearby — a peaceful spiritual base.',
   accessNote: 'Flat, step-friendly pathways throughout the property — easily accessible for senior guests and wheelchair users.',
   image: '/Archive/scenic.png',
-  imageAlt: 'Scenic view of the Himalayan hills and forests near Sattal — location of Green Glen retreat',
+  imageAlt: 'Scenic Himalayan hills and forest lake view near Sattal — location of Green Glen, the best homestay near Bhimtal Nainital',
   mapCta: 'Get Directions',
   mapUrl: '', // Add Google Maps URL here
 } as const;
@@ -346,7 +349,7 @@ export const purposeOptions = [
 export const activitiesContent = {
   eyebrow: 'At Green Glen & Beyond',
   headline: 'Days worth remembering.',
-  body: 'The hills offer more than views. Sattal is a destination rich in nature, adventure and stillness — and Green Glen is your base for all of it.',
+  body: 'The hills offer more than views. Sattal, 15 km from Bhimtal and 30 km from Nainital, is a destination rich in nature, birdwatching, adventure and stillness — and Green Glen is your best base for all of it.',
   activities: [
     {
       id: 'stargazing',
@@ -400,10 +403,10 @@ export const activitiesContent = {
 } as const;
 
 export const birdWatchingContent = {
-  eyebrow: 'Sattal · Western Himalayas · 500+ Avian Species',
-  headline: 'Where Rare Feathers Meet Untouched Silence',
+  eyebrow: 'Best Birdwatching Homestay near Bhimtal · Sattal · 500+ Avian Species',
+  headline: 'The best homestay for birdwatchers near Bhimtal & Sattal',
   subheading:
-    'Sattal is universally celebrated among ornithologists as the birdwatching capital of Kumaon. At Green Glen, the mixed oak and pine forest begins right at your mudhouse doorstep — step outside at dawn with your binoculars and camera.',
+    'Sattal is universally celebrated among ornithologists as the birdwatching capital of Kumaon — and Green Glen sits right at its forest edge. Step outside at dawn with binoculars and camera; the forest begins at your mudhouse doorstep. No commute. No compromise.',
   observationDeck: {
     title: 'The Forest Veranda & Natural Hide',
     subtitle: 'Morning birding directly from the retreat veranda',

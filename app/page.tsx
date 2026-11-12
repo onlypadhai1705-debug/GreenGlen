@@ -15,6 +15,7 @@ import RetreatsSection from '@/components/RetreatsSection';
 import LocationSection from '@/components/LocationSection';
 import Gallery from '@/components/Gallery';
 import CTASection from '@/components/CTASection';
+import FAQSection from '@/components/FAQSection';
 import Footer from '@/components/Footer';
 import MobileBottomDock from '@/components/MobileBottomDock';
 
@@ -36,6 +37,7 @@ export default function HomePage() {
         <RetreatsSection />
         <LocationSection />
         <Gallery />
+        <FAQSection />
         <CTASection />
       </main>
       <Footer />

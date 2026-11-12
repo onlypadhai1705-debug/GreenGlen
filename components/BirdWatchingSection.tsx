@@ -46,7 +46,7 @@ export default function BirdWatchingSection() {
               className="text-label"
               style={{ color: 'var(--color-gg-terracotta)' }}
             >
-              Sattal · 500+ Avian Species · Western Himalayas
+              {birdWatchingContent.eyebrow}
             </span>
           </div>
 
@@ -61,13 +61,13 @@ export default function BirdWatchingSection() {
               color: 'var(--color-gg-ivory)',
             }}
           >
-            Silence for the soul.
+            The best homestay for birdwatchers
             <br />
             <em
               className="not-italic"
               style={{ color: 'rgba(244,240,232,0.55)' }}
             >
-              A sanctuary for feathers.
+              near Bhimtal &amp; Sattal.
             </em>
           </h2>
 
@@ -79,7 +79,7 @@ export default function BirdWatchingSection() {
               color: 'rgba(244,240,232,0.72)',
             }}
           >
-            Sattal is celebrated worldwide as one of the finest birding corridors on earth. We built Green Glen around the trees, not over them — so you can step onto your veranda at first light, breathe the cold pine air, and watch rare Himalayan birds right from your room.
+            Sattal is celebrated worldwide as one of the finest birding corridors on earth with 500+ recorded avian species. Green Glen is the best homestay for birdwatchers near Bhimtal and Sattal — built around the trees, not over them — so you can step onto your veranda at first light, breathe the cold pine air, and watch rare Himalayan birds right from your room.
           </p>
         </div>
 

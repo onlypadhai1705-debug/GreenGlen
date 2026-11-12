@@ -177,35 +177,41 @@ export default function Hero() {
 
         {/* Headline — enhanced reveal */}
         <div className="mb-8 max-w-5xl">
-          <div className="overflow-hidden mb-2">
-            <h1
-              className="text-display-xl"
-              style={{
-                color: 'var(--color-gg-white)',
-                display: 'block',
-                transform: loaded ? 'translateY(0)' : 'translateY(110%)',
-                transition: 'transform 1.2s cubic-bezier(0.16,1,0.3,1) 0.6s',
-              }}
-            >
-              {heroContent.headline[0]}
-            </h1>
-          </div>
-          <div className="overflow-hidden">
-            <span
-              className="text-display-xl block font-display"
-              style={{
-                fontStyle: 'italic',
-                background: 'linear-gradient(135deg, rgba(249,247,244,0.9) 0%, rgba(168,184,159,0.7) 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-                transform: loaded ? 'translateY(0)' : 'translateY(110%)',
-                transition: 'transform 1.3s cubic-bezier(0.16,1,0.3,1) 0.75s',
-              }}
-            >
-              {heroContent.headline[1]}
+          <h1
+            className="text-display-xl"
+            style={{ color: 'var(--color-gg-white)' }}
+          >
+            <span className="block overflow-hidden mb-2">
+              <span
+                className="block"
+                style={{
+                  transform: loaded ? 'translateY(0)' : 'translateY(110%)',
+                  transition: 'transform 1.2s cubic-bezier(0.16,1,0.3,1) 0.6s',
+                }}
+              >
+                {heroContent.headline[0]}
+              </span>
             </span>
-          </div>
+            <span className="block overflow-hidden">
+              <span
+                className="text-display-xl block font-display"
+                style={{
+                  fontStyle: 'italic',
+                  background: 'linear-gradient(135deg, rgba(249,247,244,0.9) 0%, rgba(168,184,159,0.7) 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                  transform: loaded ? 'translateY(0)' : 'translateY(110%)',
+                  transition: 'transform 1.3s cubic-bezier(0.16,1,0.3,1) 0.75s',
+                }}
+              >
+                {heroContent.headline[1]}
+              </span>
+            </span>
+            <span className="sr-only">
+              {' '}— Best Homestay in Sattal near Bhimtal for Birdwatchers and Families
+            </span>
+          </h1>
         </div>
 
         {/* Subline with glass background */}

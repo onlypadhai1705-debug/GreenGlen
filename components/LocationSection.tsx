@@ -3,6 +3,14 @@ import Link from 'next/link';
 import { MapPin, Navigation } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
 import { locationContent } from '@/lib/content';
+
+// Extended type to handle new optional fields
+type ExtendedLocationContent = typeof locationContent & {
+  fromBhimtal?: string;
+  fromNainital?: string;
+  fromKathgodam?: string;
+};
+const loc = locationContent as ExtendedLocationContent;
 import { blurData } from '@/lib/blurData';
 
 export default function LocationSection() {
@@ -19,7 +27,7 @@ export default function LocationSection() {
           <div className="lg:col-span-7">
             <ScrollReveal delay={0}>
               <div className="flex items-center gap-3 mb-3">
-                <span className="text-label text-gg-terra">{locationContent.eyebrow}</span>
+                <span className="text-label text-gg-terra">{loc.eyebrow}</span>
                 <span
                   className="block h-px w-8"
                   style={{ backgroundColor: 'var(--color-gg-terracotta)', opacity: 0.5 }}
@@ -32,7 +40,7 @@ export default function LocationSection() {
                 id="location-heading"
                 className="text-display-md text-gg-forest"
               >
-                {locationContent.headline}
+                {loc.headline}
               </h2>
             </ScrollReveal>
           </div>
@@ -73,10 +81,42 @@ export default function LocationSection() {
           {/* Right: Location details */}
           <div className="lg:col-span-4 lg:col-start-9 flex flex-col gap-5 sm:gap-7">
 
-            {/* Location info */}
+            {/* Location info with schema.org microdata */}
             <ScrollReveal delay={1}>
+              <address
+                itemScope
+                itemType="https://schema.org/LodgingBusiness"
+                style={{ fontStyle: 'normal' }}
+              >
+                <meta itemProp="name" content="Green Glen" />
+                <meta itemProp="telephone" content="+919599557593" />
+                <div itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
+                  <p className="text-label text-gg-terra mb-3">Location</p>
+                  <p
+                    className="font-display"
+                    style={{
+                      fontSize: 'clamp(1.125rem, 2vw, 1.375rem)',
+                      fontWeight: 300,
+                      color: 'var(--color-gg-forest)',
+                      lineHeight: 1.4,
+                    }}
+                  >
+                    <span itemProp="addressLocality">Sattal</span>,{' '}
+                    <span itemProp="addressRegion">Nainital, Uttarakhand</span>,{' '}
+                    <span itemProp="addressCountry">India</span>
+                  </p>
+                </div>
+              </address>
+            </ScrollReveal>
+
+            <ScrollReveal delay={1}>
+              <div style={{ height: '1px', backgroundColor: 'rgba(74,82,64,0.15)' }} aria-hidden="true" />
+            </ScrollReveal>
+
+            {/* From Bhimtal — KEY SEO signal */}
+            <ScrollReveal delay={2}>
               <div>
-                <p className="text-label text-gg-terra mb-3">Location</p>
+                <p className="text-label text-gg-terra mb-3">From Bhimtal</p>
                 <p
                   className="font-display"
                   style={{
@@ -86,13 +126,15 @@ export default function LocationSection() {
                     lineHeight: 1.4,
                   }}
                 >
-                  {locationContent.location}
+                  {loc.fromBhimtal ?? '15 km from Bhimtal lake'}
+                </p>
+                <p className="text-body-sm mt-2" style={{ color: 'var(--color-gg-sand)' }}>
+                  Closest major town — 25 min by road
                 </p>
               </div>
             </ScrollReveal>
 
-            {/* Divider */}
-            <ScrollReveal delay={1}>
+            <ScrollReveal delay={2}>
               <div style={{ height: '1px', backgroundColor: 'rgba(74,82,64,0.15)' }} aria-hidden="true" />
             </ScrollReveal>
 
@@ -109,18 +151,14 @@ export default function LocationSection() {
                     lineHeight: 1.4,
                   }}
                 >
-                  {locationContent.fromDelhi}
+                  {loc.fromDelhi}
                 </p>
-                <p
-                  className="text-body-sm mt-2"
-                  style={{ color: 'var(--color-gg-sand)' }}
-                >
+                <p className="text-body-sm mt-2" style={{ color: 'var(--color-gg-sand)' }}>
                   Via NH9 / Kathgodam route
                 </p>
               </div>
             </ScrollReveal>
 
-            {/* Divider */}
             <ScrollReveal delay={2}>
               <div style={{ height: '1px', backgroundColor: 'rgba(74,82,64,0.15)' }} aria-hidden="true" />
             </ScrollReveal>
@@ -138,18 +176,14 @@ export default function LocationSection() {
                     lineHeight: 1.4,
                   }}
                 >
-                  {locationContent.fromLucknow}
+                  {loc.fromLucknow}
                 </p>
-                <p
-                  className="text-body-sm mt-2"
-                  style={{ color: 'var(--color-gg-sand)' }}
-                >
+                <p className="text-body-sm mt-2" style={{ color: 'var(--color-gg-sand)' }}>
                   Via Rampur / Haldwani route
                 </p>
               </div>
             </ScrollReveal>
 
-            {/* Divider */}
             <ScrollReveal delay={3}>
               <div style={{ height: '1px', backgroundColor: 'rgba(74,82,64,0.15)' }} aria-hidden="true" />
             </ScrollReveal>
@@ -169,16 +203,12 @@ export default function LocationSection() {
                 >
                   Kainchi Dham
                 </p>
-                <p
-                  className="text-body-sm mt-2"
-                  style={{ color: 'var(--color-gg-olive)' }}
-                >
-                  {locationContent.kainchiNote}
+                <p className="text-body-sm mt-2" style={{ color: 'var(--color-gg-olive)' }}>
+                  {loc.kainchiNote}
                 </p>
               </div>
             </ScrollReveal>
 
-            {/* Divider */}
             <ScrollReveal delay={4}>
               <div style={{ height: '1px', backgroundColor: 'rgba(74,82,64,0.15)' }} aria-hidden="true" />
             </ScrollReveal>
@@ -187,27 +217,24 @@ export default function LocationSection() {
             <ScrollReveal delay={4}>
               <div>
                 <p className="text-label text-gg-terra mb-3">Accessibility</p>
-                <p
-                  className="text-body-sm"
-                  style={{ color: 'var(--color-gg-olive)' }}
-                >
-                  {locationContent.accessNote}
+                <p className="text-body-sm" style={{ color: 'var(--color-gg-olive)' }}>
+                  {loc.accessNote}
                 </p>
               </div>
             </ScrollReveal>
 
             {/* CTA */}
             <ScrollReveal delay={4}>
-              {locationContent.mapUrl ? (
+              {loc.mapUrl ? (
                 <Link
-                  href={locationContent.mapUrl}
+                  href={loc.mapUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-outline-dark w-full sm:w-auto gap-2"
                   id="location-directions-cta"
                 >
                   <Navigation size={13} strokeWidth={1.5} />
-                  {locationContent.mapCta}
+                  {loc.mapCta}
                 </Link>
               ) : (
                 <div
@@ -216,7 +243,7 @@ export default function LocationSection() {
                   aria-label="Directions — link coming soon"
                 >
                   <Navigation size={13} strokeWidth={1.5} />
-                  {locationContent.mapCta}
+                  {loc.mapCta}
                 </div>
               )}
             </ScrollReveal>
