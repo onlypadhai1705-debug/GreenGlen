@@ -19,7 +19,7 @@ export const siteConfig = {
   },
   
   // SEO
-  siteUrl: 'https://greenglen.in', // Update with actual domain
+  siteUrl: 'https://greenglen.co.in', // Update with actual domain
   ogImage: '/images/hero-green-glen.jpg',
 } as const;
 

@@ -94,6 +94,9 @@ export const metadata: Metadata = {
     apple: [{ url: '/logo.png', type: 'image/png' }],
     shortcut: '/logo.png',
   },
+  verification: {
+    google: '36MNP6xFNL14Uo66Ur3Hx9s1y7lVYAo9sS7QJcyItUo',
+  },
   category: 'travel',
 };
 
@@ -274,7 +277,7 @@ const faqJsonLd = {
       name: 'How do I book a stay at Green Glen?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'You can book directly via WhatsApp at +91 95995 57593 or visit greenglen.in and click "Plan Your Stay" to send a message.',
+        text: 'You can book directly via WhatsApp at +91 95995 57593 or visit greenglen.co.in and click "Plan Your Stay" to send a message.',
       },
     },
   ],
@@ -284,6 +287,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${cormorant.variable} ${inter.variable}`}>
       <head>
+        <meta name="google-site-verification" content="36MNP6xFNL14Uo66Ur3Hx9s1y7lVYAo9sS7QJcyItUo" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(lodgingJsonLd) }}
